@@ -1,3 +1,16 @@
 .header {
   background-color: #a68965;
 }
+
+.header-container {
+  margin-left: 15px;
+}
+
+.search {
+  margin-right: 15px;
+}
+
+.guest-link {
+  margin-right: 15px;
+  font-size: 20px;
+}
