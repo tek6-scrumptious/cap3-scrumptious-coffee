@@ -1,4 +1,4 @@
-import { Col, Container, Nav, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 // styles
 import "./Footer.css";
 
