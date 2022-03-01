@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // styles
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./Header.css";
@@ -22,9 +24,17 @@ export default function Header() {
               />
               <Button variant="success">Search</Button>
             </Form>
-            <Nav className="me-auto nav-items">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Products</Nav.Link>
+
+            <Nav className="me-auto">
+              <Link className="links" to="/">
+                Home
+              </Link>
+              <Link className="links" to="/products">
+                Products
+              </Link>
+              <Link className="links" to="/aboutus">
+                About Us
+              </Link>
             </Nav>
           </Navbar.Collapse>
         ) : (
