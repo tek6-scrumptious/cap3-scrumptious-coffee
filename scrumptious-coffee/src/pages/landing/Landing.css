@@ -4,16 +4,36 @@
   object-fit: cover;
 }
 
-.name {
-  top: 25%;
-  left: 45%;
+.logoMobile{
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 2px white solid;
+  top: 15%;
+  left: 28%;
   position: absolute;
 }
 
-.links {
-  text-decoration: none;
-  color: wheat;
+.logo{
+  border-radius: 50%;
+  border: 2px white solid;
+  width: 250px;
+  height: 250px;
+  top: 10%;
+  left: 45%;
+  position: absolute; 
 }
+
+.shrink{
+  transition: 1s ease;
+  }
+  .shrink:hover{
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  transition: 1s ease;
+  }
+
 
 .landingHover {
   background: linear-gradient(to right, wheat, rgb(105, 69, 3) 50%, wheat 100%);
