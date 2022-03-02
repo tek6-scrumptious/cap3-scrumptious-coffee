@@ -1,6 +1,21 @@
 .footer {
   background-color: #a68965;
-  padding: 2rem;
-  text-align: center;
+  padding: 1rem;
   color: white;
+  font-size: .75rem;
+}
+
+.footer-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  
+  .footer-row {
+ display: flex;
+  }
+
 }
