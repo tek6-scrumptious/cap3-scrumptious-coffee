@@ -7,7 +7,7 @@ export default function Landing() {
     <div>
       {window.innerWidth <= 415 ? (
         <div>
-          <div>
+          <div className="background">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}
@@ -16,8 +16,8 @@ export default function Landing() {
               />
             </Link>
             <img
-              src={process.env.PUBLIC_URL + "/images/landingPageMobile.jpg"}
-              className="image"
+              src={process.env.PUBLIC_URL + "/images/landingPageMobile3.png"}
+              className="imageMobile"
               alt="Two coffees with plants"
             />
           </div>
@@ -32,7 +32,7 @@ export default function Landing() {
               />
             </Link>
             <img
-              src={process.env.PUBLIC_URL + "/images/landingPage.jpg"}
+              src={process.env.PUBLIC_URL + "/images/landingPage2.png"}
               className="image"
               alt="Two coffees with plants"
             />

@@ -14,3 +14,30 @@
   margin-right: 15px;
   font-size: 20px;
 }
+.hover {
+  background: linear-gradient(to right, wheat, rgb(179, 149, 94) 50%, white 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+.hover:hover {
+  background-position: 0 100%;
+}
+/* CSS Style to affect the home etc in nav, needs work */
+/* .links{
+  background: linear-gradient(to right, wheat, rgb(105, 69, 3) 50%, wheat 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+
+}
+.links:hover{
+  background-position: 0 100%;
+} */
