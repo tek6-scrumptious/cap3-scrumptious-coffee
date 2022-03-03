@@ -4,16 +4,19 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 export default function Footer() {
-  // React Router needs to be installed and links need to be styled
   return (
     <>
       <Container fluid className="footer">
         <Row>
           <Col>
-            <Link className='links' to="/aboutus">About Us</Link>
+            <Link className="links" to="/aboutus">
+              About Us
+            </Link>
           </Col>
           <Col>
-            <Link className='links' to="/return_policy">Return Policy</Link>
+            <Link className="links" to="/return_policy">
+              Return Policy
+            </Link>
           </Col>
           <Col>©Scrumptious: 2022</Col>
           <Col>Date Established: 2/28/2022</Col>
