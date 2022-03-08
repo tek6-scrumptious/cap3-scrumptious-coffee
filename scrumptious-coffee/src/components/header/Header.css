@@ -15,7 +15,7 @@
   font-size: 20px;
 }
 .hover {
-  background: linear-gradient(to right, wheat, rgb(179, 149, 94) 50%, white 50%);
+  background: linear-gradient(to right, rgb(19, 88, 19), rgb(21, 136, 21) 50%, white 50%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
