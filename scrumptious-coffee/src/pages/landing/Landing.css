@@ -1,30 +1,42 @@
 .image {
   width: 100%;
-  height: 100%;
+  height: 800px;
   object-fit: cover;
 }
+.imageMobile {
+  width: 100%;
+  height: 500px;
+  
+}
 
-.name {
-  top: 25%;
-  left: 45%;
+.logoMobile {
+  width: 170px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px burlywood solid;
+  margin-top: 39%;
+  margin-left: 30%;
   position: absolute;
 }
 
-.links {
-  text-decoration: none;
-  color: wheat;
+.logo {
+  border-radius: 50%;
+  border: 2px burlywood solid;
+  width:480px;
+  height: 460px;
+  margin-top: 8%;
+  margin-left: 37.5%;
+  position: absolute;
 }
 
-.landingHover {
-  background: linear-gradient(to right, wheat, rgb(105, 69, 3) 50%, wheat 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  background-position: 100%;
-  transition: background-position 275ms ease;
+.shrink {
+  transition: 1s ease;
+}
+.shrink:hover {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  transition: 1s ease;
 }
 
-.landingHover:hover {
-  background-position: 0 100%;
-}
+

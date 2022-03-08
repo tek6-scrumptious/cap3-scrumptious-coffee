@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div className="header">
       <Navbar variant="dark" expand="lg" className="header-container">
-        <Navbar.Brand href="#home">Scrumptious Coffee</Navbar.Brand>
+        <Navbar.Brand href="#home" className="hover">Scrumptious Coffee</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {window.innerWidth === 375 ? (
           <Navbar.Collapse id="basic-navbar-nav">
