@@ -1,6 +1,7 @@
 // pages and components
 import Header from "./components/header/Header";
 import Landing from "./pages/landing/Landing";
+import Error from "./pages/Error/Error";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // styles
@@ -16,6 +17,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
 
         <Footer />
