@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/Footer";
-import ProductView from "./pages/productsView/ProductView";
+import ProductsList from "./pages/productsList/ProductsList";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/products" element={<ProductView />} />
+          <Route path="/products" element={<ProductsList />} />
         </Routes>
 
         <Footer />

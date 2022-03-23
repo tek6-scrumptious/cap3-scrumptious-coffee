@@ -8,9 +8,9 @@ export default function Header() {
   return (
     <div className="header">
       <Navbar variant="dark" expand="lg" className="header-container">
-        <Navbar.Brand href="#home" className="hover">
+        <Link to="/" className="hover">
           Scrumptious Coffee
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {window.innerWidth === 375 ? (
           <Navbar.Collapse id="basic-navbar-nav">
@@ -42,8 +42,12 @@ export default function Header() {
         ) : (
           <>
             <Nav className="me-auto nav-items">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Products</Nav.Link>
+              <Nav.Link>
+                <Link to="/">Home</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/products">Products</Link>
+              </Nav.Link>
             </Nav>
             <Nav className="guest-link">
               <Nav.Link>Welcome, Guest!</Nav.Link>

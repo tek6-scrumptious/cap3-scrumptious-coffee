@@ -1,0 +1,9 @@
+.item-card {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  width: 18rem;
+  align-items: center;
+  text-align: center;
+}
+
+/* style={{ width: "18rem", alignItems: "center", textAlign: "center" }} */
