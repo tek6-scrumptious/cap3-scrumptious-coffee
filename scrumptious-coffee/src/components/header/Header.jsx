@@ -12,7 +12,7 @@ export default function Header() {
           Scrumptious Coffee
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        {window.innerWidth === 375 ? (
+        {window.innerWidth <= 1000 ? (
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="guest-link">
               <Nav.Link>Welcome, Guest!</Nav.Link>

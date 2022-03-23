@@ -1,9 +1,29 @@
 .item-card {
-  margin: 0 auto;
-  margin-bottom: 1rem;
+  margin: 2rem auto;
   width: 18rem;
   align-items: center;
   text-align: center;
+  background-color: #fefefe;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
 }
 
-/* style={{ width: "18rem", alignItems: "center", textAlign: "center" }} */
+body {
+  background-color: #f4f4f4;
+}
+
+@media (min-width: 600px) {
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 2rem 0;
+  }
+}

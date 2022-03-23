@@ -9,8 +9,7 @@ export default function ProductsList() {
   json.products.map((item) => console.log(item));
 
   return (
-    <div>
-      <h1>Product View</h1>
+    <div className="products">
       {json.products.map((item) => (
         <Card
           className="item-card"
