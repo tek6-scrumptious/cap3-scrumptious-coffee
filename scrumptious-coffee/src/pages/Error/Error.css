@@ -9,22 +9,22 @@ h1 {
     text-transform: uppercase;
 }
 
-.error-Text{
-    text-align: center;
-    position : absolute;
-    margin-top : 11%;
-    left : 0;
-    right: 0;
-    color: green;
-}
-
-@media (max-width: 375px){
-    .error-Text {
+.error-Text {
     text-align: center;
     position : absolute;
     margin-top : 28%;
     left : 0;
     right: 0;
     color: green;
+    }
+
+@media (min-width: 1024px){
+    .error-Text{
+        text-align: center;
+        position : absolute;
+        margin-top : 11%;
+        left : 0;
+        right: 0;
+        color: green;
     }
 }
