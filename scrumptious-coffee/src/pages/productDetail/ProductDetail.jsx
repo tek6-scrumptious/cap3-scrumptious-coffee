@@ -1,10 +1,15 @@
 //styles
 import "./ProductDetail.css";
+import { Card, Button } from "react-bootstrap";
 
-export default function ProductDetail() {
+export default function ProductDetail()
+{
   return (
     <div>
-      <h1>Product Detail</h1>
+      <Card style={{ width: '50%' }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+
+      </Card>
     </div>
   );
 }

@@ -8,8 +8,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/Footer";
+import ProductDetail from "./pages/productDetail/ProductDetail";
 
-function App() {
+function App()
+{
   return (
     <div className="App">
       <BrowserRouter>
@@ -18,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/error" element={<Error />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
 
         <Footer />
