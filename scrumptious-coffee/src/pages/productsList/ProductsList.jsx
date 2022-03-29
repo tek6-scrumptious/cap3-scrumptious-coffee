@@ -11,16 +11,20 @@ export default function ProductsList() {
   return (
     <div className="products">
       {json.products.map((item) => (
-        <Card
-          className="item-card"
-        >
+        <Card className="item-card">
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>
-            <Card.Img variant="top" src={item.image} />
-            <Card.Text>${item.price}</Card.Text>
+            <Card.Img
+              className="products-image"
+              variant="top"
+              src={item.image}
+            />
           </Card.Body>
-          <Card.Body>
-            <Button variant="success">Check it Out</Button>
+          <Card.Body className="price-button-container">
+            <Card.Text>${item.price}</Card.Text>
+            <Button variant="success" className="product-button">
+              Check it Out
+            </Button>
           </Card.Body>
         </Card>
       ))}
