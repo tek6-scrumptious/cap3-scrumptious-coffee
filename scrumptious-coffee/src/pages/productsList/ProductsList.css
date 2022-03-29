@@ -8,6 +8,10 @@
   border-radius: 10px;
 }
 
+.products {
+  margin-top: 70px;
+}
+
 .products-image {
   margin-top: 7px;
   width: 100%;
@@ -36,6 +40,6 @@ body {
   .products {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 2rem 0;
+    margin: 3rem 0;
   }
 }
