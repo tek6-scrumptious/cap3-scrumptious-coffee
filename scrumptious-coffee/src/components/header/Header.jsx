@@ -14,15 +14,15 @@ export default function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-items" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="links" to="/">
+            <Nav.Link className="links" href="/">
               Home
-            </Link>
-            <Link className="links" to="/products">
+            </Nav.Link>
+            <Nav.Link className="links" href="/products">
               Products
-            </Link>
-            <Link className="links" to="/aboutus">
+            </Nav.Link>
+            <Nav.Link className="links" href="/aboutus">
               About Us
-            </Link>
+            </Nav.Link>
           </Nav>
           <Nav className="guest-link">
             <Nav.Link>Welcome, Guest!</Nav.Link>
