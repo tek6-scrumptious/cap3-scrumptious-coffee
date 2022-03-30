@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 // styles
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./Header.css";
 
 export default function Header() {
-  const [isActive, setIsActive] = useState(false);
-
   return (
     <div className="header">
       <Navbar variant="dark" expand="lg" className="header-container">
@@ -25,6 +22,9 @@ export default function Header() {
             </Nav.Link>
             <Nav.Link className="links dropdown-link" href="/aboutus">
               About Us
+            </Nav.Link>
+            <Nav.Link className="links dropdown-link" href="/cart">
+              Cart
             </Nav.Link>
           </Nav>
           <Nav className="guest-link">
