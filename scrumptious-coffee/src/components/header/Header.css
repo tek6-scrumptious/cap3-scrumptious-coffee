@@ -1,5 +1,10 @@
 .header {
   background-color: #a68965;
+  position: absolute;
+  display: inline;
+  z-index: 1;
+  width: 100%;
+  top: -1px;
 }
 
 .header-container {
@@ -13,4 +18,30 @@
 .guest-link {
   margin-right: 15px;
   font-size: 20px;
+}
+.hover {
+  background: linear-gradient(
+    to right,
+    rgb(19, 88, 19),
+    rgb(21, 136, 21) 50%,
+    white 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+.hover:hover {
+  background-position: 0 100%;
+}
+
+.dropdown-links {
+  text-align: center;
+}
+
+.dropdown-link:active {
+  background-color: green;
 }
