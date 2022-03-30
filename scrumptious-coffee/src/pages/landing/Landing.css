@@ -1,12 +1,12 @@
 .image {
   width: 100%;
-  height: 800px;
+  height: 844px;
   object-fit: cover;
 }
+
 .imageMobile {
   width: 100%;
   height: 500px;
-  
 }
 
 .logoMobile {
@@ -22,7 +22,7 @@
 .logo {
   border-radius: 50%;
   border: 2px burlywood solid;
-  width:480px;
+  width: 480px;
   height: 460px;
   margin-top: 8%;
   margin-left: 37.5%;
@@ -38,5 +38,3 @@
   transform: scale(0.8);
   transition: 1s ease;
 }
-
-

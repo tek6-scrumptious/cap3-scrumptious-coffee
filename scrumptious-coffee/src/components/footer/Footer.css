@@ -2,7 +2,8 @@
   background-color: #a68965;
   padding: 1rem;
   color: white;
-  font-size: .75rem;
+  font-size: 0.75rem;
+  height: 69px;
 }
 
 .footer-row {
@@ -13,9 +14,7 @@
 }
 
 @media (min-width: 768px) {
-  
   .footer-row {
- display: flex;
+    display: flex;
   }
-
 }
