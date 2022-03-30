@@ -1,0 +1,39 @@
+.product-Detail-Title{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.weight-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bean-type-button{
+    display: flex;
+    justify-content: space-evenly;
+}
+.whole-Bean-Button{
+    width: 158px;
+}
+.ground-Bean-Button{
+    width: 158px;
+}
+
+.lb-button{
+    width: 100px;
+}
+
+.qty-counter {
+    display: flex;
+    justify-content: start;
+}
+.qty-margin{
+    margin-right: 5px;
+}
+.product-detail-description{
+    padding:20px ;
+}
+.product-detail-card{
+    border-bottom: none;
+    border-top: none;
+}
