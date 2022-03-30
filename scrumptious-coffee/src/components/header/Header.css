@@ -38,6 +38,10 @@
   background-position: 0 100%;
 }
 
-.search {
-  
+.dropdown-links {
+  text-align: center;
+}
+
+.dropdown-link:active {
+  background-color: green;
 }

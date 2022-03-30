@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 // styles
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./Header.css";
 
 export default function Header() {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <div className="header">
       <Navbar variant="dark" expand="lg" className="header-container">
@@ -13,14 +16,14 @@ export default function Header() {
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-items" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className="links" href="/">
+          <Nav className="me-auto dropdown-links">
+            <Nav.Link className="links dropdown-link" href="/">
               Home
             </Nav.Link>
-            <Nav.Link className="links" href="/products">
+            <Nav.Link className="links dropdown-link" href="/products">
               Products
             </Nav.Link>
-            <Nav.Link className="links" href="/aboutus">
+            <Nav.Link className="links dropdown-link" href="/aboutus">
               About Us
             </Nav.Link>
           </Nav>
