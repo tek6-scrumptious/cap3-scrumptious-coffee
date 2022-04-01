@@ -6,12 +6,11 @@ import "./ProductsList.css";
 import { Card, Button } from "react-bootstrap";
 
 export default function ProductsList() {
-  json.products.map((item) => console.log(item));
 
   return (
     <div className="products">
       {json.products.map((item) => (
-        <Card className="item-card">
+        <Card className="item-card" key={item.id}>
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>
             <Card.Img
@@ -22,7 +21,11 @@ export default function ProductsList() {
           </Card.Body>
           <Card.Body className="price-button-container">
             <Card.Text>${item.price}</Card.Text>
-            <Button variant="success" className="product-button">
+            <Button
+              href={"/product/" + item.id}
+              variant="success"
+              className="product-button"
+            >
               Check it Out
             </Button>
           </Card.Body>
