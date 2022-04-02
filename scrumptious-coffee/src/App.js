@@ -1,6 +1,7 @@
 // pages and components
 import Header from "./components/header/Header";
 import Landing from "./pages/landing/Landing";
+import PaymentScreen from "./pages/paymentScreen/PaymentScreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // styles
@@ -16,6 +17,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/payment" element={<PaymentScreen />} />
         </Routes>
 
         <Footer />
