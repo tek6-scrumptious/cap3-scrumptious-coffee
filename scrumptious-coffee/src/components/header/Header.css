@@ -1,5 +1,10 @@
 .header {
   background-color: #a68965;
+  position: absolute;
+  display: inline;
+  z-index: 1;
+  width: 100%;
+  top: -1px;
 }
 
 .header-container {
@@ -15,7 +20,12 @@
   font-size: 20px;
 }
 .hover {
-  background: linear-gradient(to right, rgb(19, 88, 19), rgb(21, 136, 21) 50%, white 50%);
+  background: linear-gradient(
+    to right,
+    rgb(19, 88, 19),
+    rgb(21, 136, 21) 50%,
+    white 50%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -27,17 +37,7 @@
 .hover:hover {
   background-position: 0 100%;
 }
-/* CSS Style to affect the home etc in nav, needs work */
-/* .links{
-  background: linear-gradient(to right, wheat, rgb(105, 69, 3) 50%, wheat 50%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 100%;
-  background-position: 100%;
-  transition: background-position 275ms ease;
 
+.search {
+  
 }
-.links:hover{
-  background-position: 0 100%;
-} */

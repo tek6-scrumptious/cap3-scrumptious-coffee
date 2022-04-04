@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/Footer";
+import ProductsList from "./pages/productsList/ProductsList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/error" element={<Error />} />
           <Route path="/payment" element={<PaymentScreen />} />
+          <Route path="/products" element={<ProductsList />} />
         </Routes>
 
         <Footer />
