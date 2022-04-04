@@ -10,6 +10,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/Footer";
 import ProductsList from "./pages/productsList/ProductsList";
+import CartView from "./pages/cartView/CartView";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/error" element={<Error />} />
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/products" element={<ProductsList />} />
+          <Route path="/cart" element={<CartView />} />
         </Routes>
 
         <Footer />

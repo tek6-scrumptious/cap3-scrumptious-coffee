@@ -22,7 +22,11 @@ export default function ProductsList() {
           </Card.Body>
           <Card.Body className="price-button-container">
             <Card.Text>${item.price}</Card.Text>
-            <Button variant="success" className="product-button">
+            <Button
+              href={"/product/" + item.id}
+              variant="success"
+              className="product-button"
+            >
               Check it Out
             </Button>
           </Card.Body>
