@@ -7,7 +7,7 @@ export default function Landing() {
     <div>
       {window.innerWidth <= 415 ? (
         <div>
-          <div className="background">
+          <div className="image">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}
@@ -21,9 +21,10 @@ export default function Landing() {
               alt="Two coffees with plants"
             />
           </div>
-        </div>) : (
-          <div>
-          <div>
+        </div>
+      ) : (
+        <div>
+          <div className="image">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}
