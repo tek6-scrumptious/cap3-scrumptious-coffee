@@ -13,16 +13,19 @@ export default function Header() {
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-items" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link className="links" to="/">
+          <Nav className="me-auto dropdown-links">
+            <Nav.Link className="links dropdown-link" href="/">
               Home
-            </Link>
-            <Link className="links" to="/products">
+            </Nav.Link>
+            <Nav.Link className="links dropdown-link" href="/products">
               Products
-            </Link>
-            <Link className="links" to="/aboutus">
+            </Nav.Link>
+            <Nav.Link className="links dropdown-link" href="/aboutus">
               About Us
-            </Link>
+            </Nav.Link>
+            <Nav.Link className="links dropdown-link" href="/cart">
+              Cart
+            </Nav.Link>
           </Nav>
           <Nav className="guest-link">
             <Nav.Link>Welcome, Guest!</Nav.Link>
