@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/footer/Footer";
 import ProductsList from "./pages/productsList/ProductsList";
 import CartView from "./pages/cartView/CartView";
+import ProductDetail from "./pages/productDetail/ProductDetail";
 
 function App()
 {
@@ -27,6 +28,7 @@ function App()
           <Route path="/products" element={<ProductsList />} />
           <Route path="/cart" element={<CartView />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
 
         <Footer />

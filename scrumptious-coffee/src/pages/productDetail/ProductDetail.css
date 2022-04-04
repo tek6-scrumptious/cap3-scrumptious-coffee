@@ -1,0 +1,89 @@
+.product-Detail-Title {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.weight-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bean-type-button {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.whole-Bean-Button {
+    width: 158px;
+}
+
+.ground-Bean-Button {
+    width: 158px;
+}
+
+.lb-button {
+    width: 100px;
+}
+
+.qty-counter {
+    display: flex;
+    justify-content: start;
+}
+
+.qty-margin {
+    margin-right: 5px;
+}
+
+.product-detail-description {
+    padding: 20px;
+}
+
+.product-detail-card {
+    border-bottom: none;
+    border-top: none;
+
+}
+
+@media (min-width: 1000px) {
+    .product-detail-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+    }
+
+    .card2 {
+        margin-left: 1rem;
+        align-items: center;
+    }
+
+    .product-detail-card {
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        border-top: 1px solid rgba(0, 0, 0, .125);
+        padding: 1rem;
+    }
+
+    .product-detail-page-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 40%;
+    }
+
+    .product-detail-description-wrapper {
+        margin-bottom: 2rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    .whole-Bean-Button {
+        width: 158px;
+        margin: 5px;
+    }
+
+    .ground-Bean-Button {
+        width: 158px;
+        margin: 5px;
+    }
+}
