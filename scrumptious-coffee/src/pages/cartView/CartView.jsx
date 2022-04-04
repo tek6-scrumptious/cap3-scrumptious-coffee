@@ -13,39 +13,38 @@ export default function CartView() {
   useEffect(() => {
     subTotalMethod();
     taxMethod();
-  }, [subTotal])
+  }, [subTotal]);
 
   const subTotalMethod = () => {
-    let addSubTotal = 0
-    cartDatabase.products.forEach(item => {
-      addSubTotal = addSubTotal += (item.price * item.qty)
-    })
-    setSubTotal(addSubTotal.toFixed(2))
-  }
+    let addSubTotal = 0;
+    cartDatabase.products.forEach((item) => {
+      addSubTotal = addSubTotal += item.price * item.qty;
+    });
+    setSubTotal(addSubTotal.toFixed(2));
+  };
 
   const taxMethod = () => {
     let addTax = 0;
-    addTax = (subTotal * .08);
+    addTax = subTotal * 0.08;
     setTax(addTax.toFixed(2));
-    setGrandTotal((parseFloat(subTotal) + parseFloat(tax)).toFixed(2))
-  }
-
+    setGrandTotal((parseFloat(subTotal) + parseFloat(tax)).toFixed(2));
+  };
 
   const decrease = (idx) => {
     if (cartDatabase.products[idx].qty > 1) {
       cartDatabase.products[idx].qty--;
-      subTotalMethod()
+      subTotalMethod();
     }
   };
 
   const increase = (idx) => {
     cartDatabase.products[idx].qty++;
-    subTotalMethod()
+    subTotalMethod();
   };
 
   return (
     <div className="structure">
-      <Table className="table-styling table table" >
+      <Table className="table-styling table table">
         <thead>
           <tr>
             <th className="table-col">Product</th>
@@ -57,20 +56,53 @@ export default function CartView() {
         <tbody>
           {cartDatabase.products.map((item, idx) => (
             <tr key={idx}>
-              <td><img src={item.image} className="product-img"></img><br /> <span className="name-color"> {item.name}</span><br />{item.category} {item.weight}lb</td>
-              <td><br /><br />${item.price}</td>
-              <td className="qty-col"><br /><br />
-                <Button onClick={() => { decrease(idx) }} variant="" className="btn-sm  btn-outline-success qty-btn">-</Button>
-                {item.qty}
-                <Button onClick={() => { increase(idx) }} variant="" className="btn-sm btn-outline-success qty-btn">+</Button>
+              <td>
+                <img src={item.image} className="product-img"></img>
+                <br /> <span className="name-color"> {item.name}</span>
                 <br />
-                <br />
-                <Button variant="" className="btn-sm btn-outline-danger qty-btn remove-btn">X</Button>
+                {item.category} {item.weight}lb
               </td>
-              <td className="total-col"><br /><br />${(item.price * item.qty).toFixed(2)} </td>
+              <td>
+                <br />
+                <br />${item.price}
+              </td>
+              <td className="qty-col">
+                <br />
+                <br />
+                <Button
+                  onClick={() => {
+                    decrease(idx);
+                  }}
+                  variant=""
+                  className="btn-sm  btn-outline-success qty-btn"
+                >
+                  -
+                </Button>
+                {item.qty}
+                <Button
+                  onClick={() => {
+                    increase(idx);
+                  }}
+                  variant=""
+                  className="btn-sm btn-outline-success qty-btn"
+                >
+                  +
+                </Button>
+                <br />
+                <br />
+                <Button
+                  variant=""
+                  className="btn-sm btn-outline-danger qty-btn remove-btn"
+                >
+                  X
+                </Button>
+              </td>
+              <td className="total-col">
+                <br />
+                <br />${(item.price * item.qty).toFixed(2)}{" "}
+              </td>
             </tr>
           ))}
-
         </tbody>
       </Table>
       <div className="col-md-3  sidebar margin checkout-box">
@@ -81,17 +113,18 @@ export default function CartView() {
             <h5>Grand Total: ${grandTotal}</h5>
           </div>
           <div className="d-grid gap-2">
-            <Button variant="" size="lg" className="checkout-btn">
+            <Button
+              href="/payment"
+              variant=""
+              size="lg"
+              className="checkout-btn"
+            >
               Checkout
             </Button>
           </div>
-
         </div>
       </div>
     </div>
-
-
-
   );
 }
 // col-md-3 d-none d-md-block

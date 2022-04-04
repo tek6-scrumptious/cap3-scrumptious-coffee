@@ -5,7 +5,7 @@ import "./PaymentScreen.css";
 export default function PaymentScreen() {
   return (
     <>
-      <Container fluid >
+      <Container fluid className="payment-container">
         <Form>
           <Row>
             <Col className="payment-form-col-padding">
@@ -108,7 +108,11 @@ export default function PaymentScreen() {
                   <h2>Shipping Cost: $0.00</h2>
                   <h2>Total: $0.00</h2>
                 </div>
-                <Button variant="success" type="submit">
+                <Button
+                  href="/order-confirmation"
+                  variant="success"
+                  type="submit"
+                >
                   Place Order!
                 </Button>
               </aside>

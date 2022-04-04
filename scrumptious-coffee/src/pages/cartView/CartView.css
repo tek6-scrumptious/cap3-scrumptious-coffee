@@ -1,3 +1,7 @@
+.structure {
+  margin-top: 3rem;
+}
+
 .product-img {
   height: 75px;
 }
@@ -70,7 +74,7 @@
     height: 28px;
     padding: 1px;
   }
-  .remove-btn{
-      margin-top: -20px;
+  .remove-btn {
+    margin-top: -20px;
   }
 }

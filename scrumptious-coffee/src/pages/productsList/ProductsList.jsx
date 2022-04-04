@@ -11,7 +11,7 @@ export default function ProductsList() {
   return (
     <div className="products">
       {json.products.map((item) => (
-        <Card className="item-card">
+        <Card className="item-card" key={item.id}>
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>
             <Card.Img
