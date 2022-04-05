@@ -1,6 +1,8 @@
 // json data will be removed later once backend is created
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../components/loader/Loader";
 import { listProducts } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
 
@@ -20,7 +22,9 @@ export default function ProductsList() {
   return (
     <div>
       {loading ? (
-        <h2>Loading...</h2>
+        <h2>
+          <Loader />
+        </h2>
       ) : error ? (
         <h1>
           <Error />
@@ -30,22 +34,19 @@ export default function ProductsList() {
           {products.map((item) => (
             <Card className="item-card" key={item.id}>
               <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Img
-                  className="products-image"
-                  variant="top"
-                  src={item.image}
-                />
+                <Link to={"/products/" + item.id} className="link-product">
+                  <Card.Title>{item.name}</Card.Title>
+                </Link>
+                <Link to={"/products/" + item.id}>
+                  <Card.Img
+                    className="products-image"
+                    variant="top"
+                    src={item.image}
+                  />
+                </Link>
               </Card.Body>
               <Card.Body className="price-button-container">
-                <Card.Text>${item.price}</Card.Text>
-                <Button
-                  href={"/product/" + item.id}
-                  variant="success"
-                  className="product-button"
-                >
-                  Check it Out
-                </Button>
+                <Card.Text className="item-price">${item.price}</Card.Text>
               </Card.Body>
             </Card>
           ))}
