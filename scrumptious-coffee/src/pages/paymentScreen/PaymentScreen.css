@@ -1,0 +1,37 @@
+:root {
+  --tan: #a68965;
+  --green: #006241;
+  --brown: #59442a;
+  --white: #ffffff;
+}
+
+.payment-container {
+  margin-top: 3rem;
+}
+
+.container {
+  width: 100vw;
+  margin: 2rem 0;
+}
+
+.payment-input-container {
+  padding: 2rem 3rem;
+}
+
+.totals {
+  background-color: var(--brown);
+  color: var(--white);
+  height: 100%;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.aside-col-remove-padding {
+  padding: 0 !important;
+}
+
+.payment-form-col-padding {
+  padding: 2rem !important;
+}

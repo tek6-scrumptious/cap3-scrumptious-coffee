@@ -21,10 +21,9 @@ export default function Landing() {
               alt="Two coffees with plants"
             />
           </div>
-        </div>
-      ) : (
-        <div>
-          <div className="image">
+        </div> ) : (
+          <div>
+          <div>
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}
