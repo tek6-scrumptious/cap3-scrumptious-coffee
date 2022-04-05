@@ -1,29 +1,46 @@
 .order-confirmation-item {
+  align-items: center;
   display: grid;
+  font-size: .8rem;
   grid-template-columns: .5fr 1fr .5fr;
   grid-gap: 30px;
-  padding-top: 10px;
+  justify-content: center;
+  padding: .5rem 0;
 }
 
 .delete-item-button {
-  display: flex;
-  justify-content: end;
   align-items: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: end;
+  margin-right: 10px;
   padding: 10px;
 }
 
+.order-confirmation-jumbotron {
+  margin-top: 3rem;
+}
 
+.order-confirmation-thumbnail {
+  max-width: 7rem;
+}
+
+
+/* Screens 1000px and up */
 @media (min-width: 1000px) {
+  .order-confirmation-jumbotron {
+    margin-top: 4rem;
+  }
+
   .order-confirmation-indent {
     margin-left: 20px;
   }
 
-  .order-confirmation-lower-div {
-    margin-top: 20px;
-  }
-
-  .order-confirmation-summary-subtotal {
-    margin: 2rem;
+  .order-confirmation-summary {
+    margin-top: 1rem;
   }
 
 }

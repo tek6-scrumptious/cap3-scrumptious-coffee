@@ -3,10 +3,11 @@ import "./OrderConfirmation.css";
 import { Link } from "react-router-dom";
 import { Image, CardGroup, Card, Button, ButtonGroup } from "react-bootstrap";
 
-export default function OrderConfirmation() {
+export default function OrderConfirmation()
+{
   return (
     <div>
-      <div className="p-5 text-center bg-light">
+      <div className="p-5 text-center bg-light order-confirmation-jumbotron">
         <h1 className="mb-3">Thank you for your order!</h1>
         <h4 className="mb-3">Order number: </h4>
         <h6 className="mb-3">Date/Time:</h6>
@@ -51,34 +52,34 @@ export default function OrderConfirmation() {
         </Card>
       </CardGroup>
 
-      <CardGroup className="order-confirmation-lower-divs">
+      <CardGroup className="order-confirmation-summary">
         <Card>
           <Card.Body>
             <Card.Title>Order List: </Card.Title>
-
             <Card>
-              {/* <Image variant="false" class="thumbnail" src="https://i.ebayimg.com/images/g/leIAAOSwg19h-p7v/s-l1600.jpg" /> */}
-
               <div className="order-confirmation-item">
-                <div>Img placeholder</div>
-                <Card.Text>
+                <Image className="order-confirmation-thumbnail" src="https://i.ebayimg.com/images/g/leIAAOSwg19h-p7v/s-l1600.jpg" />
+
+                <div>
                   <Card.Title>Kona Coffee</Card.Title>
-                  Weight:
-                  <br />
-                  Price:
-                  <br />
-                  Quantity:
-                  <br />
-                  Item Total:
-                  <br />
-                </Card.Text>
-                <div className="delete-item-button"> X </div>
+                  <Card.Text>
+                    Weight:
+                    <br />
+                    Price:
+                    <br />
+                    Quantity:
+                    <br />
+                    Item Total:
+                    <br />
+                  </Card.Text>
+                </div>
+                <button className="delete-item-button"> X </button>
               </div>
             </Card>
           </Card.Body>
         </Card>
 
-        <Card className="order-confirmation-summary-subtotal">
+        <Card>
           <Card.Body>
             <Card.Title>Order Summary </Card.Title>
             <Card.Text className="order-confirmation-indent">
