@@ -3,16 +3,14 @@ package com.scrumptious.scrumptious.Products;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @Column(name = "products_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private Integer id;
 

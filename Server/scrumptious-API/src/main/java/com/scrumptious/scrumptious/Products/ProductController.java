@@ -33,4 +33,22 @@ public class ProductController {
     public Page<Product> getProductPage(Pageable pageable){
     return productService.getProductsPage(pageable);
     }
+
+    @CrossOrigin
+    @PostMapping(path = "/add")
+    public void addProduct(@RequestBody Product product){
+        productService.addProduct(product);
+    }
+
+    @CrossOrigin
+    @DeleteMapping(path = "/delete/{productId}")
+    public void deleteProduct(@PathVariable("productId") Integer productId){
+        productService.deleteProduct(productId);
+    }
+
+    @CrossOrigin
+    @PutMapping(path = "/updateQty/{productId}")
+    public Product updatedProductQty(@PathVariable("productId") Integer productId,@RequestParam(required = true) Integer number){
+        return productService.updateProduct(productId,number);
+    }
 }
