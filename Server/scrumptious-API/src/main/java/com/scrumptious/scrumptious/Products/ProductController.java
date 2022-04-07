@@ -1,6 +1,8 @@
 package com.scrumptious.scrumptious.Products;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,5 +26,11 @@ public class ProductController {
     @GetMapping(path = "{productId}")
     public Optional<Product> getProductById(@PathVariable("productId") Integer productId){
         return productService.getProductById(productId);
+    }
+
+    @CrossOrigin
+    @GetMapping(path = "/page")
+    public Page<Product> getProductPage(Pageable pageable){
+    return productService.getProductsPage(pageable);
     }
 }
