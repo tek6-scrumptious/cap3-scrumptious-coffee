@@ -35,10 +35,10 @@ public class AdminUserController {
     }
 
     @CrossOrigin
-    @PostMapping("/login")
+    @PostMapping("/login/{username}/{password}")
     public AdminUser login(
-            @RequestParam(value="UserName") String username,
-            @RequestParam(value="password") String password
+            @PathVariable(value="username") String username,
+            @PathVariable(value="password") String password
           ){
         AdminUser adminUser = adminUserService.login(username, password);
         return adminUser;
