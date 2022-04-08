@@ -1,4 +1,4 @@
-package com.scrumptious.scrumptious.adminLogin;
+package com.scrumptious.scrumptious.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

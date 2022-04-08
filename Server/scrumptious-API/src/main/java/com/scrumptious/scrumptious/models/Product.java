@@ -1,4 +1,4 @@
-package com.scrumptious.scrumptious.Products;
+package com.scrumptious.scrumptious.models;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,5 +1,6 @@
-package com.scrumptious.scrumptious.Products;
+package com.scrumptious.scrumptious.repositories;
 
+import com.scrumptious.scrumptious.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

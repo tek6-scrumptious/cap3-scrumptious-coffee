@@ -1,11 +1,11 @@
-package com.scrumptious.scrumptious.adminLogin;
+package com.scrumptious.scrumptious.controllers;
 
 
+import com.scrumptious.scrumptious.services.AdminUserService;
+import com.scrumptious.scrumptious.models.AdminUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController

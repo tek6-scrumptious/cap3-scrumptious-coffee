@@ -1,6 +1,7 @@
-package com.scrumptious.scrumptious.adminLogin;
+package com.scrumptious.scrumptious.repositories;
 
 
+import com.scrumptious.scrumptious.models.AdminUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

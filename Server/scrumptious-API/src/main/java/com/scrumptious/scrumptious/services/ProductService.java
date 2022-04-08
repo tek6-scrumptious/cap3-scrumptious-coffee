@@ -1,5 +1,7 @@
-package com.scrumptious.scrumptious.Products;
+package com.scrumptious.scrumptious.services;
 
+import com.scrumptious.scrumptious.models.Product;
+import com.scrumptious.scrumptious.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
