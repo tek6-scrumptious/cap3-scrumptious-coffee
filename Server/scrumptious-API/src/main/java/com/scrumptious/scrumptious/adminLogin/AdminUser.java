@@ -1,28 +1,34 @@
 package com.scrumptious.scrumptious.adminLogin;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "admin_login")
-public class AdminLogin {
+@NoArgsConstructor
+@Table(name = "admin_user")
+public class AdminUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    @Column(name = "admin_login_id")
+    @Column(name = "admin_user_id")
     private Integer id;
 
     @Getter
     @Column(name = "username")
     private String username;
 
-    @Getter
+    @Getter @Setter
     @Column(name = "password")
     private String password;
 
-    public AdminLogin() {
+    public AdminUser(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

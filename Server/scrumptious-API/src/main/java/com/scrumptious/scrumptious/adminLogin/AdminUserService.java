@@ -1,0 +1,64 @@
+package com.scrumptious.scrumptious.adminLogin;
+
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class AdminUserService {
+
+    @Autowired
+    private final AdminUserRepository adminUserRepo;
+
+    public AdminUserService(AdminUserRepository adminUserRepo) {
+        this.adminUserRepo = adminUserRepo;
+    }
+
+    public AdminUser register(AdminUser newAdmin) {
+            String hashed = BCrypt.hashpw(newAdmin.getPassword(), BCrypt.gensalt());
+            newAdmin.setPassword(hashed);
+            return adminUserRepo.save(newAdmin);
+        }
+
+    public AdminUser login(String username , String password) {
+        Optional<AdminUser> potentialAdmin = adminUserRepo.findByUsername(username);
+        if(!potentialAdmin.isPresent()) {
+            return null;
+        }
+        AdminUser adminUser = potentialAdmin.get();
+        if(!BCrypt.checkpw(password, adminUser.getPassword())) {
+            return null;
+        } else {
+            return adminUser;
+        }
+    }
+
+        public List<AdminUser> getAllUsers(){
+        return adminUserRepo.findAll();
+    }
+
+
+
+
+
+
+
+//    public AdminLoginService(AdminLoginRepository adminLoginRepository) {
+//        this.adminLoginRepository = adminLoginRepository;
+//    }
+//
+//    public List<AdminLogin> getAllUsers(){
+//        return adminLoginRepository.findAll();
+//    }
+//
+//    public AdminLogin longin(String username, String password){
+//
+//        AdminLogin adminLogin = adminLoginRepository.findByUsernameAndPassword(username,password);
+//        System.out.println(adminLogin);
+//        return adminLogin;
+//    }
+}
