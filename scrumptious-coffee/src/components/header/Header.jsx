@@ -8,24 +8,26 @@ export default function Header() {
   return (
     <div className="header">
       <Navbar variant="dark" expand="lg" className="header-container">
-        <Link to="/" className="hover">
+        <Link to="/" className="hover web-title">
           Scrumptious Coffee
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-items" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto dropdown-links">
-            <Nav.Link className="links dropdown-link" href="/">
+            <Link className="links dropdown-link hover" to="/">
               Home
-            </Nav.Link>
-            <Nav.Link className="links dropdown-link" href="/products">
+            </Link>
+
+            <Link className="links dropdown-link hover" to="/products">
               Products
-            </Nav.Link>
-            <Nav.Link className="links dropdown-link" href="/aboutus">
+            </Link>
+
+            <Link className="links dropdown-link hover" to="/aboutus">
               About Us
-            </Nav.Link>
-            <Nav.Link className="links dropdown-link" href="/cart">
+            </Link>
+            <Link className="links dropdown-link hover" to="/cart">
               Cart
-            </Nav.Link>
+            </Link>
           </Nav>
           <Nav className="guest-link">
             <Nav.Link>Welcome, Guest!</Nav.Link>

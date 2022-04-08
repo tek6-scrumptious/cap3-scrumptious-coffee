@@ -10,7 +10,7 @@ import {
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_LOADING });
-    let response = await fetch("http://localhost:8000/products");
+    let response = await fetch("http://localhost:8080/products");
     let data = await response.json();
 
     dispatch({
@@ -18,7 +18,7 @@ export const listProducts = () => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
     dispatch({
       type: PRODUCT_LIST_FAIL,
       payload:
@@ -32,7 +32,7 @@ export const listProducts = () => async (dispatch) => {
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_LOADING });
-    let response = await fetch(`http://localhost:8000/products/${id}`);
+    let response = await fetch(`http://localhost:8080/products/${id}`);
     let data = await response.json();
 
     dispatch({

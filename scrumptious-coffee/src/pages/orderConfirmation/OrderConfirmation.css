@@ -1,8 +1,12 @@
 .order-confirmation-item {
   display: grid;
-  grid-template-columns: .5fr 1fr .5fr;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
   grid-gap: 30px;
   padding-top: 10px;
+}
+
+.confirmation-container {
+  margin-top: 11px;
 }
 
 .delete-item-button {
@@ -11,7 +15,6 @@
   align-items: center;
   padding: 10px;
 }
-
 
 @media (min-width: 1000px) {
   .order-confirmation-indent {
@@ -25,5 +28,4 @@
   .order-confirmation-summary-subtotal {
     margin: 2rem;
   }
-
 }

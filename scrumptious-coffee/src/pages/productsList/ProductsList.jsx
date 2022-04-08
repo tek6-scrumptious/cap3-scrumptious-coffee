@@ -8,7 +8,7 @@ import Error from "../Error/Error";
 
 // styles
 import "./ProductsList.css";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
@@ -41,12 +41,14 @@ export default function ProductsList() {
                   <Card.Img
                     className="products-image"
                     variant="top"
-                    src={item.image}
+                    src={item.imageUrl}
                   />
                 </Link>
               </Card.Body>
               <Card.Body className="price-button-container">
-                <Card.Text className="item-price">${item.price}</Card.Text>
+                <Card.Text className="item-price">
+                  ${item.pricePerPound}
+                </Card.Text>
               </Card.Body>
             </Card>
           ))}

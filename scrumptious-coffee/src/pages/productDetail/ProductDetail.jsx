@@ -7,10 +7,18 @@ import { listProductDetails } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
 
 //styles
-import { Card, Button } from "react-bootstrap";
+import {
+  Card,
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Button,
+  Form,
+} from "react-bootstrap";
 import "./ProductDetail.css";
 
-export default function ProductDetail() {
+export default function ProductDetail({ history }) {
   const [qty, setQty] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -21,18 +29,20 @@ export default function ProductDetail() {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
 
-  
-  // const decrease = () => {
-  //   if (count > 1) {
-  //     setCount(count - 1);
-  //   }
-  // };
+  const decrease = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  };
 
-  // let product = {};
+  const increase = () => {
+    setQty(qty + 1);
+  };
 
-  // const increase = () => {
-  //   setCount(count + 1);
-  // };
+  const addToCartHandler = () => {
+    history.push(`/cart/${id}?qty=${qty}`);
+  };
+
   return (
     <div>
       {loading ? (
@@ -49,7 +59,7 @@ export default function ProductDetail() {
               <Card.Img
                 variant="top"
                 className="img-fluid"
-                src={product.image}
+                src={product.imageUrl}
               />
             </Card>
             <br />
@@ -99,7 +109,7 @@ export default function ProductDetail() {
                     className="whole-Bean-Button  btn-outline-success"
                   >
                     Whole
-                  </Button>{" "}
+                  </Button>
                   <Button
                     variant=""
                     size="lg"
@@ -111,34 +121,38 @@ export default function ProductDetail() {
                 <br />
                 <div>
                   <Card.Text>Quantity:</Card.Text>
-                  <div className="qty-counter">
-                    <Button
-                      // onClick={decrease}
-                      variant=""
-                      className="btn-sm qty-margin btn-outline-success"
-                    >
-                      -
-                    </Button>
-                    <input
-                      className="qty-margin"
-                      size={2}
-                      pattern="[0-9]*"
-                      min="1"
-                      max="1000"
-                      // value={count}
-                    />
-                    <Button
-                      // onClick={increase}
-                      variant=""
-                      className="btn-sm btn-outline-success"
-                    >
-                      +
-                    </Button>
-                  </div>
+
+                  {product.storeQuantity > 0 ? (
+                    <ListGroup.Item>
+                      <Row>
+                        <Col xs="auto" className="my-1">
+                          <Form.Control
+                            as="select"
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                          >
+                            {[...Array(product.storeQuantity).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </Form.Control>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                  ) : (
+                    "Out of Stock"
+                  )}
                 </div>
                 <br />
                 <div className="d-grid gap-2">
-                  <Button variant="success" size="lg">
+                  <Button
+                    variant="success"
+                    size="lg"
+                    onClick={addToCartHandler}
+                  >
                     Add to cart
                   </Button>
                 </div>
@@ -160,4 +174,33 @@ export default function ProductDetail() {
       )}
     </div>
   );
+}
+
+{
+  /* {product.storeQuantity > 0 && (
+                    <div className="qty-counter">
+                      <Button
+                        onClick={decrease}
+                        variant=""
+                        className="btn-sm qty-margin btn-outline-success"
+                      >
+                        -
+                      </Button>
+                      <input
+                        className="qty-margin"
+                        pattern="[0-9]*"
+                        size={1}
+                        min="1"
+                        max="1000"
+                        placeholder={qty}
+                      />
+                      <Button
+                        onClick={increase}
+                        variant=""
+                        className="btn-sm btn-outline-success"
+                      >
+                        +
+                      </Button>
+                    </div>
+                  )} */
 }

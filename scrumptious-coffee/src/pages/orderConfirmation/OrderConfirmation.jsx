@@ -5,7 +5,7 @@ import { Image, CardGroup, Card, Button, ButtonGroup } from "react-bootstrap";
 
 export default function OrderConfirmation() {
   return (
-    <div>
+    <div className="confirmation-container">
       <div className="p-5 text-center bg-light">
         <h1 className="mb-3">Thank you for your order!</h1>
         <h4 className="mb-3">Order number: </h4>
