@@ -16,8 +16,8 @@ export default function Footer()
             </Link>
           </Col>
           <Col>
-            <Link className="links" to="/return-policy">
-              Return Policy
+            <Link className="links" to="/faq">
+              FAQ
             </Link>
           </Col>
           <Col>© Scrumptious 2022</Col>

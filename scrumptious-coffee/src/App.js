@@ -30,7 +30,7 @@ function App()
           <Route path="/cart" element={<CartView />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/return-policy" element={<ReturnPolicy />} />
+          <Route path="/faq" element={<ReturnPolicy />} />
         </Routes>
 
         <Footer />
