@@ -16,7 +16,7 @@ export default function Footer()
             </Link>
           </Col>
           <Col>
-            <Link className="links" to="/return_policy">
+            <Link className="links" to="/return-policy">
               Return Policy
             </Link>
           </Col>
