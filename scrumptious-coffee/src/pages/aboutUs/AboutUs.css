@@ -14,7 +14,56 @@
   margin: 2rem auto;
 }
 
-.about-us-card{
-  max-width: 50rem;
+.about-us-card {
+  max-width: 60rem;
   margin: 2rem auto;
+}
+
+.about-us-image {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50rem;
+}
+
+.about-us-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  min-width: 25%;
+  gap: 1rem;
+}
+
+.about-us-profile-image {
+  max-width: 10rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  color: white;
+}
+
+@media (min-width: 1000px) {
+  .about-us-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-width: 25%;
+    gap: 1rem;
+  }
+
+  .about-us-profile-image {
+    max-width: 20rem;
+    border-radius: 100%;
+  }
+
+  .about-us-image-right {
+    order: 2;
+  }
 }
