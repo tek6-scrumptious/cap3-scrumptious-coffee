@@ -1,0 +1,25 @@
+.aside-container {
+  float: left;
+  height: 100vh;
+  margin-top: 5rem;
+  margin-left: 2.5rem;
+  display: none;
+}
+
+.sidebar-categories {
+  margin-bottom: 1rem;
+}
+
+.sidebar-categories input {
+  margin-right: 5px;
+}
+
+.category-title {
+  font-weight: 700;
+}
+
+@media (min-width: 400px) {
+  .aside-container {
+    display: block;
+  }
+}

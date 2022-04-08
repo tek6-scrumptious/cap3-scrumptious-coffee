@@ -3,35 +3,41 @@ import json from "../../database.json";
 
 // styles
 import "./ProductsList.css";
+import Sidebar from "../../components/sidebar/Sidebar";
 import { Card, Button } from "react-bootstrap";
 
-export default function ProductsList() {
+export default function ProductsList()
+{
   json.products.map((item) => console.log(item));
 
   return (
-    <div className="products">
-      {json.products.map((item) => (
-        <Card className="item-card" key={item.id}>
-          <Card.Body>
-            <Card.Title>{item.name}</Card.Title>
-            <Card.Img
-              className="products-image"
-              variant="top"
-              src={item.image}
-            />
-          </Card.Body>
-          <Card.Body className="price-button-container">
-            <Card.Text>${item.price}</Card.Text>
-            <Button
-              href={"/product/" + item.id}
-              variant="success"
-              className="product-button"
-            >
-              Check it Out
-            </Button>
-          </Card.Body>
-        </Card>
-      ))}
+    <div>
+      <Sidebar />
+      <div className="products">
+
+        {json.products.map((item) => (
+          <Card className="item-card" key={item.id}>
+            <Card.Body>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Img
+                className="products-image"
+                variant="top"
+                src={item.image}
+              />
+            </Card.Body>
+            <Card.Body className="price-button-container">
+              <Card.Text>${item.price}</Card.Text>
+              <Button
+                href={"/product/" + item.id}
+                variant="success"
+                className="product-button"
+              >
+                Check it Out
+              </Button>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }
