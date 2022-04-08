@@ -1,0 +1,20 @@
+.about-us-container {
+  margin-top: 4rem;
+}
+
+.about-us-margin-top {
+  margin-top: 2rem;
+}
+
+.about-us-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+  margin: 2rem auto;
+}
+
+.about-us-card{
+  max-width: 50rem;
+  margin: 2rem auto;
+}

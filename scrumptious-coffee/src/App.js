@@ -13,9 +13,9 @@ import Footer from "./components/footer/Footer";
 import ProductsList from "./pages/productsList/ProductsList";
 import CartView from "./pages/cartView/CartView";
 import ProductDetail from "./pages/productDetail/ProductDetail";
+import AboutUs from "./pages/aboutUs/AboutUs";
 
-function App()
-{
+function App() {
   return (
     <div className="App">
       <BrowserRouter>
@@ -29,6 +29,7 @@ function App()
           <Route path="/cart" element={<CartView />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="about-us" element={<AboutUs />} />
         </Routes>
 
         <Footer />
