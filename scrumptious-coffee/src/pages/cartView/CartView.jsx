@@ -1,11 +1,20 @@
+// imports
+import { useEffect, useState } from "react";
+import cartDatabase from "../../cartDatabase.json";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Error } from "../Error/Error";
+import { addToCart } from "../../redux/actions/cartActions";
+
 // styles
 import { Table, Button, Card } from "react-bootstrap";
-import { useEffect, useState } from "react";
 import "./CartView.css";
-import cartDatabase from "../../cartDatabase.json";
 
-export default function CartView() {
-  const [count, setCount] = useState(1);
+export default function CartView({ location }) {
+  const { id } = useParams();
+  // const qty = location.search;
+  // console.log("qty:", qty);
+  // const [qty, setQty] = useState(1);
   const [subTotal, setSubTotal] = useState(0);
   const [tax, setTax] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);

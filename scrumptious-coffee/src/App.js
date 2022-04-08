@@ -28,8 +28,8 @@ function App() {
           <Route path="/products" element={<ProductsList />} />
           <Route path="/cart" element={<CartView />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
         </Routes>
 
         <Footer />

@@ -1,27 +1,35 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // styles
 import "./Footer.css";
 
 export default function Footer() {
   return (
-    <>
-      <Container fluid className="footer">
-        <Row className="footer-row">
-          <Col>Est: 2/28/2022</Col>
-          <Col>
-            <Link className="links" to="/about-us">
-              About Us
-            </Link>
-          </Col>
-          <Col>
-            <Link className="links" to="/return_policy">
-              Return Policy
-            </Link>
-          </Col>
-          <Col>© Scrumptious 2022</Col>
-        </Row>
+    <Navbar className="footer">
+      <Container>
+        <div className="links-container">
+          <Nav className="me-auto footer-flex">
+            <Nav disabled style={{ color: "white" }} className="footer-links">
+              Est: 2/28/2022
+            </Nav>
+            <Nav>
+              <Link className="footer-links" to="/aboutus">
+                About Us
+              </Link>
+            </Nav>
+            <Nav>
+              <Link className="footer-links" to="/return_policy">
+                Return Policy
+              </Link>
+            </Nav>
+            <Nav>
+              <Link className="footer-links" to="/return_policy">
+                Return Policy
+              </Link>
+            </Nav>
+          </Nav>
+        </div>
       </Container>
-    </>
+    </Navbar>
   );
 }

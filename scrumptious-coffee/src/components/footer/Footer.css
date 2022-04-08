@@ -1,20 +1,36 @@
 .footer {
   background-color: #a68965;
-  padding: 1rem;
   color: white;
   font-size: 0.75rem;
-  height: 69px;
+  height: 90px;
+  margin-top: 10px;
 }
 
-.footer-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  text-align: center;
+.footer-links {
+  margin-right: 22px;
+}
+
+.footer-links:hover {
+  color: green;
+}
+
+.links-container {
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .footer-row {
     display: flex;
+  }
+
+  .footer-links {
+    margin-right: 258px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .footer {
+    margin-top: 150px;
+    height: 60px;
   }
 }
