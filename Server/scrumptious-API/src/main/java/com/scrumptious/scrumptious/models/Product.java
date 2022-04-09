@@ -15,15 +15,15 @@ public class Product {
     private Integer id;
 
     @Column(name = "name")
-    @Getter
+    @Getter @Setter
     private String name;
 
     @Column(name = "image_url")
-    @Getter
+    @Getter @Setter
     private String imageUrl;
 
     @Column(name = "description")
-    @Getter
+    @Getter @Setter
     private String description;
 
     @Column(name = "store_quantity")
@@ -31,7 +31,7 @@ public class Product {
     private Integer storeQuantity;
 
     @Column(name = "price_per_pound")
-    @Getter
+    @Getter @Setter
     private Double pricePrePound;
 
     public Product() {

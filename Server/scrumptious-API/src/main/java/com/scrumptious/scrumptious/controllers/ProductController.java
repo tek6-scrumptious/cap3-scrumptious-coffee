@@ -49,8 +49,16 @@ public class ProductController {
     }
 
     @CrossOrigin
-    @PutMapping(path = "/updateQty/{productId}")
-    public Product updatedProductQty(@PathVariable("productId") Integer productId,@RequestParam(required = true) Integer number){
-        return productService.updateProduct(productId,number);
+    @PutMapping(path = "/checkoutUpdateQty/{productId}")
+    public Product checkoutUpdateQty(@PathVariable("productId") Integer productId,@RequestParam(required = true) Integer number){
+        return productService.checkoutUpdateQty(productId,number);
+    }
+
+    @CrossOrigin
+    @PutMapping(path = "adminUpdate/{productId}")
+    public Product updateProduct(@PathVariable("productId") Integer productId, @RequestParam(required = false) String productName,
+                                 @RequestParam(required = false) Double productPrice, @RequestParam(required = false) Integer qty,
+                                 @RequestParam(required = false) String productImgUrl, @RequestParam(required = false) String productDescription){
+      return   productService.updateProduct(productId,productName,productPrice,qty,productImgUrl,productDescription);
     }
 }

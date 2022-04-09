@@ -45,7 +45,7 @@ public class ProductService {
         }
     }
 
-    public Product updateProduct(Integer productId,Integer number){
+    public Product checkoutUpdateQty(Integer productId,Integer number){
         Product product = productRepository.findById(productId).orElseThrow(()->new IllegalStateException(
                 "Product not in DB"
         ));
@@ -53,5 +53,28 @@ public class ProductService {
        product.setStoreQuantity(updatedQty);
        productRepository.save(product);
        return product;
+    }
+
+    public Product updateProduct(Integer productId, String productName, Double productPrice,
+                                 Integer qty,String productImgUrl, String productDescription){
+        Product product = productRepository.findProductByIdEquals(productId);
+        if (productName != null){
+            product.setName(productName);
+        }
+        if(productPrice != null){
+            product.setPricePrePound(productPrice);
+        }
+        if(qty != null){
+            product.setStoreQuantity(qty);
+        }
+        if(productImgUrl != null){
+            product.setImageUrl(productImgUrl);
+        }
+        if(productDescription != null){
+            product.setDescription(productDescription);
+        }
+
+        productRepository.save(product);
+        return product;
     }
 }
