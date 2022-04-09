@@ -3,19 +3,16 @@
   margin-left: 15%;
   width: 250px;
   height: 56vh;
-  /* position: relative; */
-  /* top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -100px; */
 
 }
 
 @media (min-width: 768px) {
-.adminlogin-structure {
+  .overall-structure{    
+    height: 47vh;
+  }
+  .adminlogin-structure {
     margin-top: 15%;
-  margin-left: 40%;
-  height: 50vh;
-  
+    margin-left: 40%;
+    height: 30vh;
     }
   }
