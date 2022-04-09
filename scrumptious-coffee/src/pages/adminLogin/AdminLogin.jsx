@@ -1,11 +1,8 @@
 import { React } from "react";
 import { Form, Button } from "react-bootstrap"
-import {useRef, useState, useEffect } from "react";
-import useAuth from "../../components/admin/useAuth";
 import "./AdminLogin.css"
 
 const AdminLogin = () => {
-const { setAuth } = useAuth;
 
     return (
         <div className="adminlogin-structure">
