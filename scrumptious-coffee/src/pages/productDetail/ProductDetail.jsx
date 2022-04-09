@@ -1,46 +1,29 @@
 // imports
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import { listProductDetails } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
 
 //styles
-import {
-  Card,
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Button,
-  Form,
-} from "react-bootstrap";
+import { Card, Row, Col, ListGroup, Button, Form } from "react-bootstrap";
 import "./ProductDetail.css";
 
-export default function ProductDetail({ history }) {
+export default function ProductDetail() {
   const [qty, setQty] = useState(1);
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const productDetails = useSelector((state) => state.productDetails || {});
+  const productDetails = useSelector(state => state.productDetails || {});
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
 
-  const decrease = () => {
-    if (qty > 1) {
-      setQty(qty - 1);
-    }
-  };
-
-  const increase = () => {
-    setQty(qty + 1);
-  };
-
   const addToCartHandler = () => {
-    history.push(`/cart/${id}?qty=${qty}`);
+    navigate(`/cart/${id}?qty=${qty}`);
   };
 
   return (
@@ -89,7 +72,7 @@ export default function ProductDetail({ history }) {
                   >
                     1 lb <br />
                     $19.99
-                  </Button>{" "}
+                  </Button>
                   <Button
                     variant=""
                     size="sm"
@@ -129,15 +112,13 @@ export default function ProductDetail({ history }) {
                           <Form.Control
                             as="select"
                             value={qty}
-                            onChange={(e) => setQty(e.target.value)}
+                            onChange={e => setQty(e.target.value)}
                           >
-                            {[...Array(product.storeQuantity).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              )
-                            )}
+                            {[...Array(product.storeQuantity).keys()].map(x => (
+                              <option key={x + 1} value={x + 1}>
+                                {x + 1}
+                              </option>
+                            ))}
                           </Form.Control>
                         </Col>
                       </Row>
@@ -176,8 +157,7 @@ export default function ProductDetail({ history }) {
   );
 }
 
-{
-  /* {product.storeQuantity > 0 && (
+/* {product.storeQuantity > 0 && (
                     <div className="qty-counter">
                       <Button
                         onClick={decrease}
@@ -203,4 +183,3 @@ export default function ProductDetail({ history }) {
                       </Button>
                     </div>
                   )} */
-}

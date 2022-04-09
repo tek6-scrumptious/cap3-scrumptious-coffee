@@ -1,4 +1,4 @@
-// json data will be removed later once backend is created
+import React from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +12,7 @@ import { Card } from "react-bootstrap";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList || {});
+  const productList = useSelector(state => state.productList || {});
   const { error, loading, products } = productList;
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function ProductsList() {
         </h1>
       ) : (
         <div className="products">
-          {products.map((item) => (
+          {products.map(item => (
             <Card className="item-card" key={item.id}>
               <Card.Body>
                 <Link to={"/products/" + item.id} className="link-product">

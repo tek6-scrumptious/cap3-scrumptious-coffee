@@ -1,4 +1,5 @@
 // pages and components
+import React from "react";
 import Header from "./components/header/Header";
 import Landing from "./pages/landing/Landing";
 import Error from "./pages/Error/Error";
@@ -26,8 +27,9 @@ function App() {
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/products" element={<ProductsList />} />
           <Route path="/cart" element={<CartView />} />
+          <Route path="/cart/:id" element={<CartView />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/products/:id/" element={<ProductDetail />} />
         </Routes>
 
         <Footer />
