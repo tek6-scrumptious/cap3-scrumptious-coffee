@@ -12,7 +12,7 @@ const AdminLogin = () => {
 
     const submit = (e) => {
         e.preventDefault();
-        if( username !="" && password !="" ){
+        if( username !=="" && password !=="" ){
             axios.post('http://localhost:8080/admin/login', {}, {
         params: {
             username,
@@ -20,7 +20,7 @@ const AdminLogin = () => {
         }
     })
         .then(res => {
-            if (res.data.username == username) {
+            if (res.data.username === username) {
                 console.log("MATCHED")
                 localStorage.setItem("isAuthenticated", "true");
                 navigate('/admin-dashboard')
