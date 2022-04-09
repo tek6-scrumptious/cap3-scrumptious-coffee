@@ -1,4 +1,5 @@
 // pages and components
+import React, {Fragment} from 'react';
 import Header from "./components/header/Header";
 import Landing from "./pages/landing/Landing";
 import Error from "./pages/Error/Error";
@@ -10,10 +11,9 @@ import ProductsList from "./pages/productsList/ProductsList";
 import CartView from "./pages/cartView/CartView";
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import AdminLogin from "./pages/adminLogin/AdminLogin";
-import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
-import AdminProductView from "./pages/adminDashboard/AdminProductView";
-import AdminAddProduct from "./pages/adminDashboard/AdminAddProduct";
-
+import PrivateRoute1 from './pages/adminLogin/ProtectedRoute1';
+import PrivateRoute2 from './pages/adminLogin/ProtectedRoute2'
+import PrivateRoute3 from './pages/adminLogin/ProtectedRoute3'
 // styles
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Fragment>
           <Header />
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -32,11 +33,12 @@ function App() {
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/supersecretsquirreladminpage" element={<AdminLogin />}/>
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
-            <Route path="/AdminProductView/:id" element={<AdminProductView />}/>
-            <Route path="/admin-new-product" element={<AdminAddProduct />} />
+            <Route exact path="/admin-dashboard" element={<PrivateRoute1/>} />
+            <Route path="/AdminProductView/:id" element={<PrivateRoute2/>}/>
+            <Route path="/admin-new-product" element={<PrivateRoute3 />} />
           </Routes>
           <Footer />
+      </Fragment>
       </BrowserRouter>
     </div>
   );

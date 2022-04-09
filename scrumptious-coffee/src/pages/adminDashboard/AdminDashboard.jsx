@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { deleteProduct, getAllData } from "./AdminAPI";
 import { useEffect, useState } from "react";
+import '../adminLogin/AdminLogin.css'
 
 const AdminDashboard = () => {
   const [APIData, setAPITData] = useState([]);
@@ -23,6 +24,13 @@ const AdminDashboard = () => {
     console.log(getAllData());
   }, []);
 
+const logout =()=>{
+  console.log("BYYYEEEEE")
+  localStorage.setItem("isAuthenticated", "false");
+  navigate('/')
+}
+
+
   return (
     <div className="products">
       <Card className="item-card">
@@ -41,7 +49,7 @@ const AdminDashboard = () => {
           </Card.Body>
         </Card.Body>
       </Card>
-
+      <a className="bn39" style={{ marginLeft:'30%', marginTop:"50%" }} onClick={(e) => logout(e)}><span className="bn39span"><h6>Sign Out</h6></span></a>
       {APIData.map((item) => (
         <Card className="item-card" key={item.id}>
           <Card.Body>
@@ -74,6 +82,7 @@ const AdminDashboard = () => {
           </Card.Body>
         </Card>
       ))}
+       
     </div>
   );
 };
