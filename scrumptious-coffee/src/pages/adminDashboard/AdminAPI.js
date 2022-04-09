@@ -15,24 +15,24 @@ export const addNewProduct = async (jsonData) => {
   } catch (error) {}
 };
 
-export const dataRes = async () => {
-  try {
-    const res = await getAllData();
-    console.log(res);
+// export const dataRes = async () => {
+//   try {
+//     const res = await getAllData();
+//     console.log(res);
 
-    return res;
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     return res;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 export const getAllData = async () => {
+  let products = [];
   try {
-    const res = await axios.get("http://localhost:8080/products");
-    //   .then((response) => response.data);
-
-    return res.data;
-  } catch {
+    return await axios.get("http://localhost:8080/products");
+    // console.log(res);
+  } catch (err) {
     console.log("error");
+    console.log(err);
   }
 };

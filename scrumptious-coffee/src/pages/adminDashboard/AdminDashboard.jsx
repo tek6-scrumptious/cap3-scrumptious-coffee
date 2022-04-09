@@ -2,7 +2,8 @@ import json from "../../database.json";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { deleteProduct } from "./AdminAPI";
+import { deleteProduct, getAllData } from "./AdminAPI";
+
 import { useEffect, useState } from "react";
 
 const AdminDashboard = () => {
@@ -21,8 +22,8 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     getData();
+    console.log(getAllData());
   }, []);
-  console.log(APIData);
 
   return (
     <div className="products">

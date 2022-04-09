@@ -1,9 +1,8 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Card, Button, Form, Row, ButtonGroup } from "react-bootstrap";
 import { useState } from "react";
-import { addNewProduct } from "./AdminAPI";
-import axios from "axios";
-
+import { formValidation } from "./AdminFunctions";
+import "./adminNewProduct.css";
 const AdminAddProduct = () => {
   const navigate = useNavigate();
   const inputs = document.getElementsByClassName("productInput");
@@ -13,31 +12,10 @@ const AdminAddProduct = () => {
   const [Description, setDescription] = useState("");
   const [ImageUrl, setImageUrl] = useState("");
 
-  const formValidation = (e) => {
-    let flag = 5;
-
-    for (let element of inputs) {
-      if (element.value == "" || element.value == 0) {
-        console.log("error");
-        flag--;
-      }
-    }
-    if (flag === 5) {
-      const jsonData = {
-        name: Name,
-        imageUrl: ImageUrl,
-        description: Description,
-        storeQuantity: Price,
-        pricePrePound: Quantity,
-      };
-      addNewProduct(jsonData);
-    }
-  };
-
   return (
     <div>
       <div className="product-detail-wrapper">
-        <Card style={{ width: "100%" }} className="product-detail-card card2">
+        <Card className="product-detail-card card2" id="product-detail-card">
           <Card.Body className="product-detail-order-menu">
             <Card.Title className="product-Detail-Title"></Card.Title>
 
@@ -46,6 +24,7 @@ const AdminAddProduct = () => {
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   className="productInput"
+                  id="productName"
                   type="text"
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -54,6 +33,7 @@ const AdminAddProduct = () => {
                 <Form.Label>Price</Form.Label>
                 <Form.Control
                   className="productInput"
+                  id="productPrice"
                   onChange={(e) => setPrice(e.target.value)}
                   type="text"
                 />
@@ -63,6 +43,7 @@ const AdminAddProduct = () => {
                 <Form.Label>Quantity</Form.Label>
                 <Form.Control
                   className="productInput"
+                  id="productQuantity"
                   type="text"
                   onChange={(e) => setQuantity(e.target.value)}
                 />
@@ -72,6 +53,7 @@ const AdminAddProduct = () => {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   className="productInput"
+                  id="productDescription"
                   type="text"
                   onChange={(e) => setDescription(e.target.value)}
                 />
@@ -81,32 +63,43 @@ const AdminAddProduct = () => {
                 <Form.Label>Image URL</Form.Label>
                 <Form.Control
                   className="productInput"
+                  id="productURL"
                   type="text"
                   onChange={(e) => setImageUrl(e.target.value)}
                 />
               </Form.Group>
             </Form>
+            <h5 id="add-new-product-error">All fields must be filled out!</h5>
+            <h5 id="add-new-product-success">Product Added.</h5>
             <div className="d-grid gap-2">
-              <ButtonGroup className="mb-3">
+              <div className="d-grid gap-2">
                 <Button
                   variant="success"
                   size="lg"
                   onClick={(e) => {
-                    formValidation(e);
-                    // addNewProduct(jsonData);
+                    formValidation(
+                      e,
+                      Name,
+                      Price,
+                      Quantity,
+                      Description,
+                      ImageUrl,
+                      inputs
+                    );
                   }}
                 >
                   Add
                 </Button>
                 <Button
                   variant="success"
+                  size="lg"
                   onClick={() => {
                     navigate("/admin-dashboard");
                   }}
                 >
                   Dashboard
                 </Button>
-              </ButtonGroup>
+              </div>
             </div>
           </Card.Body>
         </Card>
