@@ -11,9 +11,9 @@ import ProductsList from "./pages/productsList/ProductsList";
 import CartView from "./pages/cartView/CartView";
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import AdminLogin from "./pages/adminLogin/AdminLogin";
-import PrivateRoute1 from './pages/adminLogin/ProtectedRoute1';
-import PrivateRoute2 from './pages/adminLogin/ProtectedRoute2'
-import PrivateRoute3 from './pages/adminLogin/ProtectedRoute3'
+import ProtectedRoute1 from './pages/adminLogin/ProtectedRoute1';
+import ProtectedRoute2 from './pages/adminLogin/ProtectedRoute2'
+import ProtectedRoute3 from './pages/adminLogin/ProtectedRoute3'
 // styles
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -33,9 +33,9 @@ function App() {
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/supersecretsquirreladminpage" element={<AdminLogin />}/>
-            <Route exact path="/admin-dashboard" element={<PrivateRoute1/>} />
-            <Route path="/AdminProductView/:id" element={<PrivateRoute2/>}/>
-            <Route path="/admin-new-product" element={<PrivateRoute3 />} />
+            <Route exact path="/admin-dashboard" element={<ProtectedRoute1/>} />
+            <Route path="/AdminProductView/:id" element={<ProtectedRoute2/>}/>
+            <Route path="/admin-new-product" element={<ProtectedRoute3 />} />
           </Routes>
           <Footer />
       </Fragment>
