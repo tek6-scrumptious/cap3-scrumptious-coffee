@@ -77,6 +77,7 @@ const AdminAddProduct = () => {
                   variant="success"
                   size="lg"
                   onClick={(e) => {
+                    e.preventDefault();
                     formValidation(
                       e,
                       Name,

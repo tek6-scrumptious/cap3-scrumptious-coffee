@@ -1,9 +1,7 @@
-import json from "../../database.json";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { deleteProduct, getAllData } from "./AdminAPI";
-
 import { useEffect, useState } from "react";
 
 const AdminDashboard = () => {
@@ -36,6 +34,11 @@ const AdminDashboard = () => {
             src="https://i.imgur.com/vzCfvVb.png"
             onClick={() => navigate("/admin-new-product")}
           />
+          <Card.Body>
+            <Button variant="primary" size="lg">
+              Block level button
+            </Button>
+          </Card.Body>
         </Card.Body>
       </Card>
 
