@@ -36,7 +36,7 @@ const AdminLogin = () => {
     }
 
     return (
-        <div className="overall-structure">
+        <div className="admin-overall-structure">
             <div className="adminlogin-structure">
                 <Form onSubmit={submit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
