@@ -5,17 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import { listProductDetails } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
+import {
+  addToCart,
+  removeFromCart,
+  subtractQty,
+  addQty,
+} from "../../redux/actions/cartActions";
 
 //styles
 import { Card, Row, Col, ListGroup, Button, Form } from "react-bootstrap";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
-  const [qty, setQty] = useState(1);
   const { id } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const productDetails = useSelector(state => state.productDetails || {});
+  const productDetails = useSelector((state) => state.productDetails || {});
+  const cartHandler = useSelector((state) => state.cart || {});
   const { loading, error, product } = productDetails;
 
   useEffect(() => {
@@ -23,7 +28,15 @@ export default function ProductDetail() {
   }, [dispatch, id]);
 
   const addToCartHandler = () => {
-    navigate(`/cart/${id}?qty=${qty}`);
+    dispatch(addToCart(id));
+  };
+
+  const decreaseQty = () => {
+    dispatch(subtractQty(id));
+  };
+
+  const addQty = () => {
+    dispatch(addQty(id));
   };
 
   return (
@@ -109,17 +122,24 @@ export default function ProductDetail() {
                     <ListGroup.Item>
                       <Row>
                         <Col xs="auto" className="my-1">
-                          <Form.Control
-                            as="select"
-                            value={qty}
-                            onChange={e => setQty(e.target.value)}
-                          >
-                            {[...Array(product.storeQuantity).keys()].map(x => (
-                              <option key={x + 1} value={x + 1}>
-                                {x + 1}
-                              </option>
-                            ))}
-                          </Form.Control>
+                          <Card.Text>Quantity:</Card.Text>
+                          <div className="qty-counter">
+                            <Button
+                              onClick={decreaseQty}
+                              variant=""
+                              className="btn-sm qty-margin btn-outline-success"
+                            >
+                              -
+                            </Button>
+                            <p>{product.qty}</p>
+                            <Button
+                              onClick={addQty}
+                              variant=""
+                              className="btn-sm btn-outline-success"
+                            >
+                              +
+                            </Button>
+                          </div>
                         </Col>
                       </Row>
                     </ListGroup.Item>

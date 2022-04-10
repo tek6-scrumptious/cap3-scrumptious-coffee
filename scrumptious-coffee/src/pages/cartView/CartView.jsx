@@ -14,7 +14,7 @@ import {
   Form,
   Button,
   Card,
-  Alert
+  Alert,
 } from "react-bootstrap";
 import "./CartView.css";
 
@@ -22,8 +22,9 @@ export default function CartView() {
   const { id } = useParams();
   const location = useLocation();
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart);
-  const { cartItems } = cart;
+  const cart = useSelector((state) => state.cart);
+  const cartItems = cart.inCart;
+  console.log(cartItems);
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   // const [subTotal, setSubTotal] = useState(0);
   // const [tax, setTax] = useState(0);
@@ -64,6 +65,8 @@ export default function CartView() {
   //   subTotalMethod();
   // };
 
+  console.log(cartItems);
+
   return (
     <div className="structure">
       <Row>
@@ -75,8 +78,8 @@ export default function CartView() {
             </Alert>
           ) : (
             <ListGroup variant="flush">
-              {cartItems.map(item => (
-                <ListGroup.Item key={item.id}>
+              {cartItems.map((item, idx) => (
+                <ListGroup.Item key={idx}>
                   <Row>
                     <Col md={2}>
                       <Link to={`/products/${item.id}`}>
@@ -91,11 +94,11 @@ export default function CartView() {
                       <Form.Control
                         as="select"
                         value={item.qty}
-                        onChange={e =>
+                        onChange={(e) =>
                           dispatch(addToCart(item.id, e.target.value))
                         }
                       >
-                        {[...Array(item.storeQuantity).keys()].map(x => (
+                        {[...Array(item.storeQuantity).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
                             {x + 1}
                           </option>

@@ -1,19 +1,88 @@
-import { CART_ADD_ITEM } from "../constants/cartConstants";
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  ADD_QTY,
+  SUB_QTY,
+  EMPTY_CART,
+} from "../constants/cartConstants.js";
+import axios from "axios";
 
-export const addToCart = (id, qty) => async (dispatch, getState) => {
-  let response = await fetch(`http://localhost:8080/products/${id}`);
-  let data = await response.json();
+export const addToCart = (id) => async (dispatch, getState) => {
+  let response = await axios.get(`http://localhost:8080/products/${id}`);
+  let data = await response.data;
 
   dispatch({
-    type: CART_ADD_ITEM,
+    type: ADD_TO_CART,
     payload: {
-      product: data.id,
+      id: data.id,
       name: data.name,
       image: data.imageUrl,
       pricePerPound: data.pricePerPound,
       storeQuantity: data.storeQuantity,
-      qty
-    }
+      qty: 1,
+      selected: true,
+    },
   });
-  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
+};
+
+export const removeFromCart = (id) => async (dispatch, getState) => {
+  let response = await fetch(`http://localhost:8080/products/${id}`);
+  let data = await response.json();
+  dispatch({
+    type: REMOVE_FROM_CART,
+    payload: {
+      id: data.id,
+      name: data.name,
+      image: data.imageUrl,
+      pricePerPound: data.pricePerPound,
+      storeQuantity: data.storeQuantity,
+      qty: 1,
+      selected: false,
+    },
+  });
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
+};
+
+export const addQty = (id) => async (dispatch, getState) => {
+  let response = await fetch(`http://localhost:8080/products/${id}`);
+  let data = await response.json();
+  dispatch({
+    type: ADD_QTY,
+    payload: {
+      id: data.id,
+      name: data.name,
+      image: data.imageUrl,
+      pricePerPound: data.pricePerPound,
+      storeQuantity: data.storeQuantity,
+      qty: 1,
+      selected: true,
+    },
+  });
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
+};
+
+export const subtractQty = (id) => async (dispatch, getState) => {
+  let response = await fetch(`http://localhost:8080/products/${id}`);
+  let data = await response.json();
+  dispatch({
+    type: SUB_QTY,
+    payload: {
+      id: data.id,
+      name: data.name,
+      image: data.imageUrl,
+      pricePerPound: data.pricePerPound,
+      storeQuantity: data.storeQuantity,
+      qty: 1,
+      selected: true,
+    },
+  });
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
+};
+
+export const emptyCart = () => async (dispatch, getState) => {
+  dispatch({
+    type: EMPTY_CART,
+  });
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
 };

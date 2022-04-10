@@ -6,13 +6,14 @@ import {
   PRODUCT_DETAILS_LOADING,
   PRODUCT_DETAILS_FAIL,
 } from "../constants/productConstants";
+import axios from "axios";
 
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_LOADING });
-    let response = await fetch("http://localhost:8080/products");
-    let data = await response.json();
-
+    const resp = await axios.get("http://localhost:8080/products/");
+    const data = await resp.data;
+    console.log(data);
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
@@ -32,12 +33,12 @@ export const listProducts = () => async (dispatch) => {
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_LOADING });
-    let response = await fetch(`http://localhost:8080/products/${id}`);
-    let data = await response.json();
+    const resp = await axios.get(`http://localhost:8080/products/${id}`);
+    const data = await resp.data;
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
-      payload: data,
+      payload: { ...data, qty: 1 },
     });
   } catch (error) {
     console.log(error.response);
