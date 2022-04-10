@@ -25,7 +25,7 @@ const AdminDashboard = () => {
 
   const logout = () => {
     console.log("BYYYEEEEE");
-    localStorage.setItem("isAuthenticated", "false");
+    localStorage.removeItem("isAuthenticated");
     navigate("/");
   };
 
