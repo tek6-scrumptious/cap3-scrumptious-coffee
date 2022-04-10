@@ -5,6 +5,8 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_LOADING,
   PRODUCT_DETAILS_FAIL,
+  PRODUCT_ADD_QTY,
+  PRODUCT_SUB_QTY,
 } from "../constants/productConstants";
 import axios from "axios";
 
@@ -13,7 +15,6 @@ export const listProducts = () => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_LOADING });
     const resp = await axios.get("http://localhost:8080/products/");
     const data = await resp.data;
-    console.log(data);
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
@@ -52,6 +53,16 @@ export const listProductDetails = (id) => async (dispatch) => {
   }
 };
 
+export const productAdd = (id) => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_ADD_QTY,
+    payload: id,
+  });
+};
 
-
-
+export const productSub = (id) => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_SUB_QTY,
+    payload: id,
+  });
+};

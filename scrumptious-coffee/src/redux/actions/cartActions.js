@@ -6,22 +6,15 @@ import {
   EMPTY_CART,
 } from "../constants/cartConstants.js";
 import axios from "axios";
+import { listProductDetails } from "./productActions.js";
 
 export const addToCart = (id) => async (dispatch, getState) => {
-  let response = await axios.get(`http://localhost:8080/products/${id}`);
-  let data = await response.data;
+  // let response = await axios.get(`http://localhost:8080/products/${id}`);
+  // let data = await response.data;
 
   dispatch({
     type: ADD_TO_CART,
-    payload: {
-      id: data.id,
-      name: data.name,
-      image: data.imageUrl,
-      pricePerPound: data.pricePerPound,
-      storeQuantity: data.storeQuantity,
-      selected: true,
-      qty: 1,
-    },
+    payload: getState().productDetails.product,
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
 };
@@ -43,18 +36,9 @@ export const addQty = (id) => async (dispatch, getState) => {
 };
 
 export const subtractQty = (id) => async (dispatch, getState) => {
-  let response = await fetch(`http://localhost:8080/products/${id}`);
-  let data = await response.json();
   dispatch({
     type: SUB_QTY,
-    payload: {
-      id: data.id,
-      name: data.name,
-      image: data.imageUrl,
-      pricePerPound: data.pricePerPound,
-      storeQuantity: data.storeQuantity,
-      qty: 1,
-    },
+    payload: id,
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
 };

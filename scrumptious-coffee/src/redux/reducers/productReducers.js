@@ -5,8 +5,9 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_LOADING,
   PRODUCT_DETAILS_FAIL,
+  PRODUCT_ADD_QTY,
+  PRODUCT_SUB_QTY,
 } from "../constants/productConstants";
-
 
 export const productListReducers = (state = { products: [] }, action) => {
   switch (action.type) {
@@ -29,6 +30,26 @@ export const productDetailsReducers = (state = { product: {} }, action) => {
       return { loading: false, product: action.payload };
     case PRODUCT_DETAILS_FAIL:
       return { loading: false, error: action.payload };
+
+    case PRODUCT_ADD_QTY:
+      console.log(state);
+      return {
+        product: {
+          ...state.product,
+          qty:
+            state.product.qty !== state.product.storeQuantity
+              ? state.product.qty + 1
+              : state.product.qty,
+        },
+      };
+    case PRODUCT_SUB_QTY:
+      console.log(state);
+      return {
+        product: {
+          ...state.product,
+          qty: state.product.qty !== 1 ? state.product.qty - 1 : 1,
+        },
+      };
     default:
       return state;
   }

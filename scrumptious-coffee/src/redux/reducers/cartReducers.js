@@ -8,11 +8,13 @@ import {
 
 const handleCartReducer = (state = { inCart: [] }, action) => {
   const item = action.payload;
+  console.log(item);
   switch (action.type) {
     case ADD_TO_CART:
       console.log(item.id);
       const existItem = state.inCart.find((x) => x.id === item.id);
       if (existItem) {
+        console.log("Updating existing item");
         return {
           ...state,
           inCart: state.inCart.map((product) =>
@@ -22,9 +24,11 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
           ),
         };
       } else {
+        console.log("Initial adding of item");
+        console.log(action);
         return {
           ...state,
-          inCart: [...state.inCart, item],
+          inCart: [...state.inCart, { ...item, qty: item.qty }],
         };
       }
 
@@ -40,7 +44,13 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
         ...state,
         inCart: state.inCart.map((product) =>
           product.id === action.payload
-            ? { ...product, qty: product.qty + 1 }
+            ? {
+                ...product,
+                qty:
+                  product.qty !== product.storeQuantity
+                    ? product.qty + 1
+                    : product.qty,
+              }
             : product
         ),
       };
@@ -48,8 +58,8 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
     case SUB_QTY:
       return {
         ...state,
-        products: state.cart.map((product) =>
-          product.id === action.id
+        inCart: state.inCart.map((product) =>
+          product.id === action.payload
             ? { ...product, qty: product.qty !== 1 ? product.qty - 1 : 1 }
             : product
         ),
@@ -57,7 +67,7 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
     case EMPTY_CART:
       return {
         ...state,
-        products: state.cart.map((product) =>
+        inCart: state.inCart.map((product) =>
           product.selected ? { ...product, selected: false, qty: 1 } : product
         ),
       };

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { Error } from "../Error/Error";
 import {
   addQty,
+  subtractQty,
   addToCart,
   removeFromCart,
 } from "../../redux/actions/cartActions";
@@ -41,8 +42,6 @@ export default function CartView() {
   const removeItem = (id) => {
     dispatch(removeFromCart(id));
   };
-
-  
 
   // const subTotalMethod = () => {
   //   let addSubTotal = 0;
@@ -87,7 +86,12 @@ export default function CartView() {
                   <Row>
                     <Col md={2}>
                       <Link to={`/products/${item.id}`}>
-                        <Image src={item.image} alt={item.name} fluid rounded />
+                        <Image
+                          src={item.imageUrl}
+                          alt={item.name}
+                          fluid
+                          rounded
+                        />
                       </Link>
                     </Col>
                     <Col md={3}>
@@ -97,6 +101,18 @@ export default function CartView() {
                     <Col md={3}>
                       <Button onClick={() => removeItem(item.id)}>
                         Delete
+                      </Button>
+                    </Col>
+                    {/* Testing cart quantities */}
+                    <Col>
+                      <h1>Testing Quantity</h1>
+                      <h2>Cart Quantity: {item.qty}</h2>
+                      <Button onClick={() => dispatch(addQty(item.id))}>
+                        +
+                      </Button>
+
+                      <Button onClick={() => dispatch(subtractQty(item.id))}>
+                        -
                       </Button>
                     </Col>
                   </Row>

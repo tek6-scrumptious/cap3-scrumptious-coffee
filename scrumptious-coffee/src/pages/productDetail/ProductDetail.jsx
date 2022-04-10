@@ -5,12 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import { listProductDetails } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
-import {
-  addToCart,
-  removeFromCart,
-  subtractQty,
-  addQty,
-} from "../../redux/actions/cartActions";
+import { addToCart } from "../../redux/actions/cartActions";
+import { productAdd, productSub } from "../../redux/actions/productActions";
 
 //styles
 import { Card, Row, Col, ListGroup, Button, Form } from "react-bootstrap";
@@ -34,14 +30,14 @@ export default function ProductDetail() {
   };
 
   const buyLess = () => {
-    dispatch(subtractQty(id));
+    dispatch(productSub(id));
     if (count > 1) {
       setCount(count - 1);
     }
   };
 
   const addMore = (id) => {
-    dispatch(addQty(id));
+    dispatch(productAdd(id));
     if (count !== product.storeQuantity) {
       setCount(count + 1);
     }
