@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { Error } from "../Error/Error";
-import { addToCart } from "../../redux/actions/cartActions";
+import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
 
 // styles
 import {
@@ -20,23 +20,23 @@ import "./CartView.css";
 
 export default function CartView() {
   const { id } = useParams();
-  const location = useLocation();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.inCart;
   console.log(cartItems);
-  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
+
   // const [subTotal, setSubTotal] = useState(0);
   // const [tax, setTax] = useState(0);
   // const [grandTotal, setGrandTotal] = useState(0);
 
   useEffect(() => {
-    if (id) {
-      dispatch(addToCart(id, qty));
-    }
     // subTotalMethod();
     // taxMethod();
-  }, [dispatch, id, qty]);
+  }, [dispatch, id]);
+
+  const removeItem = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   // const subTotalMethod = () => {
   //   let addSubTotal = 0;
@@ -65,8 +65,6 @@ export default function CartView() {
   //   subTotalMethod();
   // };
 
-  console.log(cartItems);
-
   return (
     <div className="structure">
       <Row>
@@ -78,8 +76,8 @@ export default function CartView() {
             </Alert>
           ) : (
             <ListGroup variant="flush">
-              {cartItems.map((item, idx) => (
-                <ListGroup.Item key={idx}>
+              {cartItems.map((item) => (
+                <ListGroup.Item key={item.id}>
                   <Row>
                     <Col md={2}>
                       <Link to={`/products/${item.id}`}>
@@ -89,21 +87,11 @@ export default function CartView() {
                     <Col md={3}>
                       <Link to={`/products/${item.id}`}>{item.name}</Link>
                     </Col>
-                    <Col md={2}>${item.price}</Col>
+                    <Col md={2}>${item.pricePerPound}</Col>
                     <Col md={3}>
-                      <Form.Control
-                        as="select"
-                        value={item.qty}
-                        onChange={(e) =>
-                          dispatch(addToCart(item.id, e.target.value))
-                        }
-                      >
-                        {[...Array(item.storeQuantity).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </Form.Control>
+                      <Button onClick={() => removeItem(item.id)}>
+                        Delete
+                      </Button>
                     </Col>
                   </Row>
                 </ListGroup.Item>

@@ -21,7 +21,9 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails || {});
   const cartHandler = useSelector((state) => state.cart || {});
+  // const cart = cartHandler.inCart;
   const { loading, error, product } = productDetails;
+  console.log(product);
 
   useEffect(() => {
     dispatch(listProductDetails(id));

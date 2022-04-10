@@ -27,19 +27,9 @@ export const addToCart = (id) => async (dispatch, getState) => {
 };
 
 export const removeFromCart = (id) => async (dispatch, getState) => {
-  let response = await fetch(`http://localhost:8080/products/${id}`);
-  let data = await response.json();
   dispatch({
     type: REMOVE_FROM_CART,
-    payload: {
-      id: data.id,
-      name: data.name,
-      image: data.imageUrl,
-      pricePerPound: data.pricePerPound,
-      storeQuantity: data.storeQuantity,
-      qty: 1,
-      selected: false,
-    },
+    payload: id,
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
 };
