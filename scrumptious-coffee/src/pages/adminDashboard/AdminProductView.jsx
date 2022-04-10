@@ -1,16 +1,24 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, Button, Form, Row, ButtonGroup } from "react-bootstrap";
+import { updateProduct } from "./AdminAPI";
 import axios from "axios";
 
 const AdminProductView = () => {
   const { id } = useParams();
   const [product, setproduct] = useState([]);
+  const [productName, setproductName] = useState(product.name);
+  const [productPrice, setproductPrice] = useState(product.pricePrePound);
+  const [qty, setqty] = useState(product.storeQuantity);
+  const [productDescription, setproductDescription] = useState(
+    product.description
+  );
+  const [productImgUrl, setproductImgUrl] = useState(product.imageUrl);
   const navigate = useNavigate();
 
   const getProductById = async () => {
     try {
-      const responseData = axios
+      axios
         .get(`http://localhost:8080/products/${id}`)
         .then((response) => setproduct(response.data));
     } catch (error) {
@@ -20,8 +28,8 @@ const AdminProductView = () => {
 
   useEffect(() => {
     getProductById();
-  }, []);
-  console.log(product);
+  }, [getProductById]);
+
   return (
     <div>
       <div className="product-detail-wrapper">
@@ -49,7 +57,11 @@ const AdminProductView = () => {
                 as={Row}
               >
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder={product.name} />
+                <Form.Control
+                  type="text"
+                  placeholder={product.name}
+                  onChange={(e) => setproductName(e.target.value)}
+                />
               </Form.Group>
               <Form.Group
                 className="mb-2"
@@ -58,7 +70,7 @@ const AdminProductView = () => {
               >
                 <Form.Label>Price</Form.Label>
                 <Form.Control
-                  onChange={(e) => console.log(e.target.value)}
+                  onChange={(e) => setproductPrice(e.target.value)}
                   type="text"
                   placeholder={product.pricePrePound}
                 />
@@ -70,7 +82,11 @@ const AdminProductView = () => {
                 as={Row}
               >
                 <Form.Label>Quantity</Form.Label>
-                <Form.Control type="text" placeholder={product.storeQuantity} />
+                <Form.Control
+                  type="text"
+                  placeholder={product.storeQuantity}
+                  onChange={(e) => setqty(e.target.value)}
+                />
               </Form.Group>
 
               <Form.Group
@@ -79,7 +95,11 @@ const AdminProductView = () => {
                 as={Row}
               >
                 <Form.Label>Description</Form.Label>
-                <Form.Control type="text" placeholder={product.description} />
+                <Form.Control
+                  type="text"
+                  placeholder={product.description}
+                  onChange={(e) => setproductDescription(e.target.value)}
+                />
               </Form.Group>
 
               <Form.Group
@@ -88,12 +108,29 @@ const AdminProductView = () => {
                 as={Row}
               >
                 <Form.Label>Image URL</Form.Label>
-                <Form.Control type="text" placeholder="Image Url " />
+                <Form.Control
+                  type="text"
+                  placeholder="Image Url "
+                  onChange={(e) => setproductImgUrl(e.target.value)}
+                />
               </Form.Group>
             </Form>
             <div className="d-grid gap-2">
               <ButtonGroup className="mb-3">
-                <Button variant="success" size="lg">
+                <Button
+                  variant="success"
+                  size="lg"
+                  onClick={() => {
+                    updateProduct(
+                      product.id,
+                      productName,
+                      productPrice,
+                      qty,
+                      productImgUrl,
+                      productDescription
+                    );
+                  }}
+                >
                   Update
                 </Button>
                 <Button

@@ -1,9 +1,9 @@
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { deleteProduct, getAllData } from "./AdminAPI";
+import { deleteProduct } from "./AdminAPI";
 import { useEffect, useState } from "react";
-import '../adminLogin/AdminLogin.css'
+import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [APIData, setAPITData] = useState([]);
@@ -11,7 +11,7 @@ const AdminDashboard = () => {
 
   const getData = async () => {
     try {
-      const responseData = axios
+      axios
         .get("http://localhost:8080/products")
         .then((response) => setAPITData(response.data));
     } catch (error) {
@@ -21,69 +21,77 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     getData();
-    console.log(getAllData());
   }, []);
 
-const logout =()=>{
-  console.log("BYYYEEEEE")
-  localStorage.setItem("isAuthenticated", "false");
-  navigate('/')
-}
-
+  const logout = () => {
+    console.log("BYYYEEEEE");
+    localStorage.setItem("isAuthenticated", "false");
+    navigate("/");
+  };
 
   return (
-    <div className="products">
-      <Card className="item-card">
-        <Card.Body>
-          <Card.Title>New Product</Card.Title>
-          <Card.Img
-            className="products-image"
-            variant="top"
-            src="https://i.imgur.com/vzCfvVb.png"
-            onClick={() => navigate("/admin-new-product")}
-          />
+    <>
+      <div className="mb-2 sign-out-btn">
+        <Button variant="success" size="lg" onClick={(e) => logout(e)}>
+          Sign Out
+        </Button>
+      </div>
+      <div className="products admin-products-view">
+        <Card className="item-card">
           <Card.Body>
-            <Button variant="primary" size="lg">
-              Block level button
-            </Button>
-          </Card.Body>
-        </Card.Body>
-      </Card>
-      <a className="bn39" style={{ marginLeft:'30%', marginTop:"50%" }} onClick={(e) => logout(e)}><span className="bn39span"><h6>Sign Out</h6></span></a>
-      {APIData.map((item) => (
-        <Card className="item-card" key={item.id}>
-          <Card.Body>
-            <Card.Title>{item.name}</Card.Title>
+            <Card.Title>Add Product</Card.Title>
             <Card.Img
               className="products-image"
               variant="top"
-              src={item.imageUrl}
+              src="https://i.imgur.com/vzCfvVb.png"
+              onClick={() => navigate("/admin-new-product")}
             />
-          </Card.Body>
-          <Card.Body className="price-button-container">
-            <Card.Text>${item.pricePrePound} </Card.Text>
-            <ButtonGroup className="mb-3">
+            <Card.Body>
               <Button
+                className="add-product-btn"
                 variant="success"
-                onClick={() => navigate(`/AdminProductView/${item.id}`)}
+                size="md"
+                onClick={() => navigate("/admin-new-product")}
               >
-                Update
+                Add Product
               </Button>
-
-              <Button
-                variant="danger"
-                onClick={() => {
-                  deleteProduct(item.id);
-                }}
-              >
-                Delete
-              </Button>
-            </ButtonGroup>
+            </Card.Body>
           </Card.Body>
         </Card>
-      ))}
-       
-    </div>
+        {APIData.map((item) => (
+          <Card className="item-card" key={item.id}>
+            <Card.Body>
+              <Card.Title>{item.name}</Card.Title>
+              <Card.Img
+                className="products-image"
+                variant="top"
+                src={item.imageUrl}
+              />
+            </Card.Body>
+            <Card.Body className="price-button-container">
+              <Card.Text>${item.pricePrePound} </Card.Text>
+              <ButtonGroup className="mb-3">
+                <Button
+                  variant="success"
+                  onClick={() => navigate(`/AdminProductView/${item.id}`)}
+                >
+                  Update
+                </Button>
+
+                <Button
+                  variant="danger"
+                  onClick={() => {
+                    deleteProduct(item.id);
+                  }}
+                >
+                  Delete
+                </Button>
+              </ButtonGroup>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+    </>
   );
 };
 
