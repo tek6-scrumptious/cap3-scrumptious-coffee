@@ -30,7 +30,7 @@ export const listProducts = () => async (dispatch) => {
   }
 };
 
-export const listProductDetails = (id, selected) => async (dispatch) => {
+export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_LOADING });
     const resp = await axios.get(`http://localhost:8080/products/${id}`);
@@ -38,7 +38,7 @@ export const listProductDetails = (id, selected) => async (dispatch) => {
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
-      payload: { ...data, qty: 1, selected: false },
+      payload: { ...data, qty: 1 },
     });
   } catch (error) {
     console.log(error.response);
@@ -51,5 +51,7 @@ export const listProductDetails = (id, selected) => async (dispatch) => {
     });
   }
 };
+
+
 
 

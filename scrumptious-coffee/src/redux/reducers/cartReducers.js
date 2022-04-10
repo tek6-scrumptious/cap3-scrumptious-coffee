@@ -38,8 +38,8 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
     case ADD_QTY:
       return {
         ...state,
-        products: state.cart.map((product) =>
-          product.id === action.id
+        inCart: state.inCart.map((product) =>
+          product.id === action.payload
             ? { ...product, qty: product.qty + 1 }
             : product
         ),
@@ -50,7 +50,7 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
         ...state,
         products: state.cart.map((product) =>
           product.id === action.id
-            ? { ...product, qty: product.qty - 1 }
+            ? { ...product, qty: product.qty !== 1 ? product.qty - 1 : 1 }
             : product
         ),
       };

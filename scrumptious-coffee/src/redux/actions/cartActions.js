@@ -19,8 +19,8 @@ export const addToCart = (id) => async (dispatch, getState) => {
       image: data.imageUrl,
       pricePerPound: data.pricePerPound,
       storeQuantity: data.storeQuantity,
-      qty: 1,
       selected: true,
+      qty: 1,
     },
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
@@ -35,19 +35,9 @@ export const removeFromCart = (id) => async (dispatch, getState) => {
 };
 
 export const addQty = (id) => async (dispatch, getState) => {
-  let response = await fetch(`http://localhost:8080/products/${id}`);
-  let data = await response.json();
   dispatch({
     type: ADD_QTY,
-    payload: {
-      id: data.id,
-      name: data.name,
-      image: data.imageUrl,
-      pricePerPound: data.pricePerPound,
-      storeQuantity: data.storeQuantity,
-      qty: 1,
-      selected: true,
-    },
+    payload: id,
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));
 };
@@ -64,7 +54,6 @@ export const subtractQty = (id) => async (dispatch, getState) => {
       pricePerPound: data.pricePerPound,
       storeQuantity: data.storeQuantity,
       qty: 1,
-      selected: true,
     },
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.inCart));

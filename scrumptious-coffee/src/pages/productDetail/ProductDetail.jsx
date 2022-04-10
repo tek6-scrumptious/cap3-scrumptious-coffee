@@ -23,22 +23,28 @@ export default function ProductDetail() {
   const cartHandler = useSelector((state) => state.cart || {});
   // const cart = cartHandler.inCart;
   const { loading, error, product } = productDetails;
-  console.log(product);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
 
-  const addToCartHandler = () => {
+  const addToCartHandler = (id) => {
     dispatch(addToCart(id));
   };
 
-  const decreaseQty = () => {
+  const buyLess = () => {
     dispatch(subtractQty(id));
+    if (count > 1) {
+      setCount(count - 1);
+    }
   };
 
-  const addQty = () => {
+  const addMore = (id) => {
     dispatch(addQty(id));
+    if (count !== product.storeQuantity) {
+      setCount(count + 1);
+    }
   };
 
   return (
@@ -127,15 +133,15 @@ export default function ProductDetail() {
                           <Card.Text>Quantity:</Card.Text>
                           <div className="qty-counter">
                             <Button
-                              onClick={decreaseQty}
+                              onClick={() => buyLess(product.id)}
                               variant=""
                               className="btn-sm qty-margin btn-outline-success"
                             >
                               -
                             </Button>
-                            <p>{product.qty}</p>
+                            <p>{count}</p>
                             <Button
-                              onClick={addQty}
+                              onClick={() => addMore(product.id)}
                               variant=""
                               className="btn-sm btn-outline-success"
                             >
@@ -154,7 +160,7 @@ export default function ProductDetail() {
                   <Button
                     variant="success"
                     size="lg"
-                    onClick={addToCartHandler}
+                    onClick={() => addToCartHandler(id)}
                   >
                     Add to cart
                   </Button>

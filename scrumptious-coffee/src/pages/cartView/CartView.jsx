@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { Error } from "../Error/Error";
-import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
+import {
+  addQty,
+  addToCart,
+  removeFromCart,
+} from "../../redux/actions/cartActions";
 
 // styles
 import {
@@ -37,6 +41,8 @@ export default function CartView() {
   const removeItem = (id) => {
     dispatch(removeFromCart(id));
   };
+
+  
 
   // const subTotalMethod = () => {
   //   let addSubTotal = 0;
