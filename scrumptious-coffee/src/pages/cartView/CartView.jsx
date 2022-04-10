@@ -1,59 +1,118 @@
 // imports
-import { useEffect, useState } from "react";
-import cartDatabase from "../../cartDatabase.json";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Error } from "../Error/Error";
-import { addToCart } from "../../redux/actions/cartActions";
+// import { Error } from "../Error/Error";
+import {
+  addQty,
+  addToCart,
+  removeFromCart,
+} from "../../redux/actions/cartActions";
 
 // styles
-import { Table, Button, Card } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  ListGroup,
+  Image,
+  Form,
+  Button,
+  Card,
+  Alert,
+} from "react-bootstrap";
 import "./CartView.css";
 
-export default function CartView({ location }) {
+export default function CartView() {
   const { id } = useParams();
-  // const qty = location.search;
-  // console.log("qty:", qty);
-  // const [qty, setQty] = useState(1);
-  const [subTotal, setSubTotal] = useState(0);
-  const [tax, setTax] = useState(0);
-  const [grandTotal, setGrandTotal] = useState(0);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const cartItems = cart.inCart;
+  console.log(cartItems);
+
+  // const [subTotal, setSubTotal] = useState(0);
+  // const [tax, setTax] = useState(0);
+  // const [grandTotal, setGrandTotal] = useState(0);
 
   useEffect(() => {
-    subTotalMethod();
-    taxMethod();
-  }, [subTotal]);
+    // subTotalMethod();
+    // taxMethod();
+  }, [dispatch, id]);
 
-  const subTotalMethod = () => {
-    let addSubTotal = 0;
-    cartDatabase.products.forEach((item) => {
-      addSubTotal = addSubTotal += item.price * item.qty;
-    });
-    setSubTotal(addSubTotal.toFixed(2));
+  const removeItem = (id) => {
+    dispatch(removeFromCart(id));
   };
 
-  const taxMethod = () => {
-    let addTax = 0;
-    addTax = subTotal * 0.08;
-    setTax(addTax.toFixed(2));
-    setGrandTotal((parseFloat(subTotal) + parseFloat(tax)).toFixed(2));
-  };
+  
 
-  const decrease = (idx) => {
-    if (cartDatabase.products[idx].qty > 1) {
-      cartDatabase.products[idx].qty--;
-      subTotalMethod();
-    }
-  };
+  // const subTotalMethod = () => {
+  //   let addSubTotal = 0;
+  //   cartDatabase.products.forEach(item => {
+  //     addSubTotal = addSubTotal += item.price * item.qty;
+  //   });
+  //   setSubTotal(addSubTotal.toFixed(2));
+  // };
 
-  const increase = (idx) => {
-    cartDatabase.products[idx].qty++;
-    subTotalMethod();
-  };
+  // const taxMethod = () => {
+  //   let addTax = 0;
+  //   addTax = subTotal * 0.08;
+  //   setTax(addTax.toFixed(2));
+  //   setGrandTotal((parseFloat(subTotal) + parseFloat(tax)).toFixed(2));
+  // };
+
+  // const decrease = idx => {
+  //   if (cartDatabase.products[idx].qty > 1) {
+  //     cartDatabase.products[idx].qty--;
+  //     subTotalMethod();
+  //   }
+  // };
+
+  // const increase = idx => {
+  //   cartDatabase.products[idx].qty++;
+  //   subTotalMethod();
+  // };
 
   return (
     <div className="structure">
-      <Table className="table-styling table table">
+      <Row>
+        <Col md={8}>
+          <h1>Cart</h1>
+          {cartItems.length === 0 ? (
+            <Alert variant="danger">
+              Cart is Empty. <Link to="/">Go Back</Link>
+            </Alert>
+          ) : (
+            <ListGroup variant="flush">
+              {cartItems.map((item) => (
+                <ListGroup.Item key={item.id}>
+                  <Row>
+                    <Col md={2}>
+                      <Link to={`/products/${item.id}`}>
+                        <Image src={item.image} alt={item.name} fluid rounded />
+                      </Link>
+                    </Col>
+                    <Col md={3}>
+                      <Link to={`/products/${item.id}`}>{item.name}</Link>
+                    </Col>
+                    <Col md={2}>${item.pricePerPound}</Col>
+                    <Col md={3}>
+                      <Button onClick={() => removeItem(item.id)}>
+                        Delete
+                      </Button>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          )}
+        </Col>
+        <Col md={4}></Col>
+      </Row>
+    </div>
+  );
+}
+// col-md-3 d-none d-md-block
+{
+  /* <Table className="table-styling table table">
         <thead>
           <tr>
             <th className="table-col">Product</th>
@@ -66,7 +125,11 @@ export default function CartView({ location }) {
           {cartDatabase.products.map((item, idx) => (
             <tr key={idx}>
               <td>
-                <img src={item.image} className="product-img"></img>
+                <img
+                  src={item.image}
+                  className="product-img"
+                  alt={item.name}
+                ></img>
                 <br /> <span className="name-color"> {item.name}</span>
                 <br />
                 {item.category} {item.weight}lb
@@ -113,8 +176,11 @@ export default function CartView({ location }) {
             </tr>
           ))}
         </tbody>
-      </Table>
-      <div className="col-md-3  sidebar margin checkout-box">
+      </Table> */
+}
+
+{
+  /* <div className="col-md-3  sidebar margin checkout-box">
         <div className="checkout-text-structure">
           <div className="checkout-text">
             <h5>SubTotal: ${subTotal} </h5>
@@ -132,8 +198,5 @@ export default function CartView({ location }) {
             </Button>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </div> */
 }
-// col-md-3 d-none d-md-block

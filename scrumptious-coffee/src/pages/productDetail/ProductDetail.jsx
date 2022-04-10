@@ -1,46 +1,50 @@
 // imports
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import { listProductDetails } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
+import {
+  addToCart,
+  removeFromCart,
+  subtractQty,
+  addQty,
+} from "../../redux/actions/cartActions";
 
 //styles
-import {
-  Card,
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Button,
-  Form,
-} from "react-bootstrap";
+import { Card, Row, Col, ListGroup, Button, Form } from "react-bootstrap";
 import "./ProductDetail.css";
 
-export default function ProductDetail({ history }) {
-  const [qty, setQty] = useState(1);
+export default function ProductDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails || {});
+  const cartHandler = useSelector((state) => state.cart || {});
+  // const cart = cartHandler.inCart;
   const { loading, error, product } = productDetails;
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
 
-  const decrease = () => {
-    if (qty > 1) {
-      setQty(qty - 1);
+  const addToCartHandler = (id) => {
+    dispatch(addToCart(id));
+  };
+
+  const buyLess = () => {
+    dispatch(subtractQty(id));
+    if (count > 1) {
+      setCount(count - 1);
     }
   };
 
-  const increase = () => {
-    setQty(qty + 1);
-  };
-
-  const addToCartHandler = () => {
-    history.push(`/cart/${id}?qty=${qty}`);
+  const addMore = (id) => {
+    dispatch(addQty(id));
+    if (count !== product.storeQuantity) {
+      setCount(count + 1);
+    }
   };
 
   return (
@@ -89,7 +93,7 @@ export default function ProductDetail({ history }) {
                   >
                     1 lb <br />
                     $19.99
-                  </Button>{" "}
+                  </Button>
                   <Button
                     variant=""
                     size="sm"
@@ -126,19 +130,24 @@ export default function ProductDetail({ history }) {
                     <ListGroup.Item>
                       <Row>
                         <Col xs="auto" className="my-1">
-                          <Form.Control
-                            as="select"
-                            value={qty}
-                            onChange={(e) => setQty(e.target.value)}
-                          >
-                            {[...Array(product.storeQuantity).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              )
-                            )}
-                          </Form.Control>
+                          <Card.Text>Quantity:</Card.Text>
+                          <div className="qty-counter">
+                            <Button
+                              onClick={() => buyLess(product.id)}
+                              variant=""
+                              className="btn-sm qty-margin btn-outline-success"
+                            >
+                              -
+                            </Button>
+                            <p>{count}</p>
+                            <Button
+                              onClick={() => addMore(product.id)}
+                              variant=""
+                              className="btn-sm btn-outline-success"
+                            >
+                              +
+                            </Button>
+                          </div>
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -151,7 +160,7 @@ export default function ProductDetail({ history }) {
                   <Button
                     variant="success"
                     size="lg"
-                    onClick={addToCartHandler}
+                    onClick={() => addToCartHandler(id)}
                   >
                     Add to cart
                   </Button>
@@ -176,8 +185,7 @@ export default function ProductDetail({ history }) {
   );
 }
 
-{
-  /* {product.storeQuantity > 0 && (
+/* {product.storeQuantity > 0 && (
                     <div className="qty-counter">
                       <Button
                         onClick={decrease}
@@ -203,4 +211,3 @@ export default function ProductDetail({ history }) {
                       </Button>
                     </div>
                   )} */
-}

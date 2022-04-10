@@ -1,3 +1,5 @@
+import React from "react";
+
 // styles
 import { Link } from "react-router-dom";
 import "./Landing.css";
@@ -21,8 +23,9 @@ export default function Landing() {
               alt="Two coffees with plants"
             />
           </div>
-        </div> ) : (
-          <div>
+        </div>
+      ) : (
+        <div>
           <div>
             <Link to="/products">
               <img
