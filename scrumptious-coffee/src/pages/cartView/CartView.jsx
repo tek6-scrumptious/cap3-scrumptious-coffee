@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addQty,
   subtractQty,
-  addToCart,
   removeFromCart,
 } from "../../redux/actions/cartActions";
 

@@ -5,12 +5,8 @@ import {
   SUB_QTY,
   EMPTY_CART,
 } from "../constants/cartConstants.js";
-import axios from "axios";
-import { listProductDetails } from "./productActions.js";
 
 export const addToCart = (id) => async (dispatch, getState) => {
-  // let response = await axios.get(`http://localhost:8080/products/${id}`);
-  // let data = await response.data;
 
   dispatch({
     type: ADD_TO_CART,

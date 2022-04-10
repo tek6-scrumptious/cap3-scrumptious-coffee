@@ -8,13 +8,10 @@ import {
 
 const handleCartReducer = (state = { inCart: [] }, action) => {
   const item = action.payload;
-  console.log(item);
   switch (action.type) {
     case ADD_TO_CART:
-      console.log(item.id);
       const existItem = state.inCart.find((x) => x.id === item.id);
       if (existItem) {
-        console.log("Updating existing item");
         return {
           ...state,
           inCart: state.inCart.map((product) =>
@@ -24,8 +21,6 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
           ),
         };
       } else {
-        console.log("Initial adding of item");
-        console.log(action);
         return {
           ...state,
           inCart: [...state.inCart, { ...item, qty: item.qty }],
@@ -33,7 +28,6 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
       }
 
     case REMOVE_FROM_CART:
-      console.log(item);
       return {
         ...state,
         inCart: state.inCart.filter((x) => x.id !== action.payload),
@@ -77,27 +71,3 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
 };
 
 export default handleCartReducer;
-
-// export const cartReducer = (state = { cartItems: [] }, action) => {
-//   const item = action.payload;
-//   switch (action.type) {
-//     case CART_ADD_ITEM:
-//       const existItem = state.cartItems.find((x) => x.product === item.product);
-//       if (existItem) {
-//         return {
-//           ...state,
-//           cartItems: state.cartItems.map((x) =>
-//             x.product === existItem.product ? item : x
-//           ),
-//         };
-//       } else {
-//         return {
-//           ...state,
-//           cartItems: [...state.cartItems, item],
-//         };
-//       }
-
-//     default:
-//       return state;
-//   }
-// };

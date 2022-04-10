@@ -1,6 +1,6 @@
 // imports
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import { listProductDetails } from "../../redux/actions/productActions";
@@ -17,7 +17,6 @@ export default function ProductDetail() {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails || {});
   const cartHandler = useSelector((state) => state.cart || {});
-  // const cart = cartHandler.inCart;
   const { loading, error, product } = productDetails;
   const [count, setCount] = useState(1);
 

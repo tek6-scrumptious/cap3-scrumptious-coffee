@@ -32,7 +32,6 @@ export const productDetailsReducers = (state = { product: {} }, action) => {
       return { loading: false, error: action.payload };
 
     case PRODUCT_ADD_QTY:
-      console.log(state);
       return {
         product: {
           ...state.product,
@@ -43,7 +42,6 @@ export const productDetailsReducers = (state = { product: {} }, action) => {
         },
       };
     case PRODUCT_SUB_QTY:
-      console.log(state);
       return {
         product: {
           ...state.product,
