@@ -18,6 +18,7 @@ import {
   Image,
   ButtonGroup,
 } from "react-bootstrap";
+import { Trash } from "react-bootstrap-icons";
 
 export default function Cart() {
   const { id } = useParams();
@@ -36,9 +37,10 @@ export default function Cart() {
 
   return (
     <div>
-      <Row>
+      <Row className="cart-container">
         <Col md={8}>
           <h1>Cart</h1>
+
           {cartItems.length === 0 ? (
             <Alert variant="danger">
               Cart is Empty. <Link to="/">Go Back</Link>
@@ -58,16 +60,19 @@ export default function Cart() {
                         />
                       </Link>
                     </Col>
-                    <Col md={3} className='cart-name'>
-                      <Link to={`/products/${item.id}`}>{item.name}</Link>
+                    <Col md={3} className="cart-name">
+                      <Link to={`/products/${item.id}`} className="item-name">
+                        {item.name}
+                      </Link>
                     </Col>
                     <Col md={2} className="cart-price">
                       ${item.pricePrePound}
                     </Col>
                     {/* Testing cart quantities */}
 
-                    <ButtonGroup size="sm" className="qty-counter">
+                    <div className="qty-counter">
                       <Button
+                        size="sm"
                         className="cart-desc"
                         onClick={() => dispatch(subtractQty(item.id))}
                       >
@@ -75,15 +80,19 @@ export default function Cart() {
                       </Button>
                       <p className="cart-qty">{item.qty}</p>
                       <Button
+                        size="sm"
                         className="cart-asc"
                         onClick={() => dispatch(addQty(item.id))}
                       >
                         +
                       </Button>
-                    </ButtonGroup>
+                    </div>
                     <Col md={2}>
-                      <Button className='cart-delete' onClick={() => removeItem(item.id)}>
-                        Delete
+                      <Button
+                        className="cart-delete"
+                        onClick={() => removeItem(item.id)}
+                      >
+                        <Trash size={20} className="cart-trash" />
                       </Button>
                     </Col>
                   </Row>

@@ -1,4 +1,15 @@
-.cart-name {
+.item-name {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.item-name:hover {
+  color: green;
+}
+
+.cart-container {
+  margin-top: 60px;
 }
 
 .qty-counter {
@@ -7,6 +18,41 @@
   justify-content: space-between;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.cart-delete {
+  background: red;
+  border: none;
+}
+
+.cart-delete:hover {
+  background: white;
+  border: 1px solid red;
+  color: red;
+}
+
+.cart-asc {
+  background: green;
+  width: 40px;
+}
+
+.cart-desc {
+  background: green;
+  width: 40px;
+}
+
+.cart-asc:hover {
+  background: white;
+  color: green;
+  font-weight: 600;
+  border: 1px solid green;
+}
+
+.cart-desc:hover {
+  background: white;
+  color: green;
+  font-weight: 600;
+  border: 1px solid green;
 }
 
 .cart-price {
@@ -19,6 +65,10 @@
 }
 
 @media (min-width: 1000px) {
+  .cart-container {
+    margin-top: 10px;
+  }
+
   .cart-name {
     margin-top: 13px;
   }
