@@ -2,9 +2,10 @@ import axios from "axios";
 
 export const deleteProduct = async (productId) => {
   try {
-    axios.delete(
+    await axios.delete(
       `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/delete/${productId}`
     );
+    getAllData();
   } catch (error) {
     console.log(error);
   }
@@ -21,9 +22,9 @@ export const addNewProduct = async (jsonData) => {
 
 export const getProductById = async (productId) => {
   try {
-    const responseData = axios
-      .get(`http://localhost:8080/products/${productId}`)
-      .then((response) => response.data);
+    const responseData = await axios.get(
+      `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/${productId}`
+    );
     return responseData;
   } catch (error) {
     console.log(error);
@@ -39,7 +40,7 @@ export const updateProduct = async (
   productDescription
 ) => {
   try {
-    axios.put(
+    await axios.put(
       `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/adminUpdate/${id}`,
       {},
       {
@@ -53,23 +54,15 @@ export const updateProduct = async (
       }
     );
   } catch {}
+  getProductById(id);
+  console.log("in update after get");
 };
-
-// export const dataRes = async () => {
-//   try {
-//     const res = await getAllData();
-//     console.log(res);
-
-//     return res;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 export const getAllData = async () => {
   try {
-    return await axios.get("http://localhost:8080/products");
-    // console.log(res);
+    return await axios.get(
+      "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/"
+    );
   } catch (err) {
     console.log("error");
     console.log(err);

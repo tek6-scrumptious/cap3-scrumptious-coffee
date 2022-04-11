@@ -1,28 +1,28 @@
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { deleteProduct } from "./AdminAPI";
+import { deleteProduct, getAllData } from "./AdminAPI";
 import { useEffect, useState } from "react";
+
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [APIData, setAPITData] = useState([]);
   const navigate = useNavigate();
 
-  const getData = async () => {
-    try {
-      axios
-        .get(
-          "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/"
-        )
-        .then((response) => setAPITData(response.data));
-    } catch (error) {
-      console.log(error);
-    }
+  const deleteItem = (item) => {
+    deleteProduct(item.id);
+    getProducts();
+  };
+
+  const getProducts = () => {
+    getAllData().then((res) => {
+      setAPITData(res.data);
+    });
   };
 
   useEffect(() => {
-    getData();
+    getProducts();
   }, []);
 
   const logout = () => {
@@ -83,7 +83,7 @@ const AdminDashboard = () => {
                 <Button
                   variant="danger"
                   onClick={() => {
-                    deleteProduct(item.id);
+                    deleteItem(item);
                   }}
                 >
                   Delete

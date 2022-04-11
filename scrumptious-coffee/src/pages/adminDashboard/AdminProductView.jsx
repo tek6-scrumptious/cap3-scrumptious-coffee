@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, Button, Form, Row, ButtonGroup } from "react-bootstrap";
-import { updateProduct } from "./AdminAPI";
+import { updateProduct, getProductById } from "./AdminAPI";
 import axios from "axios";
 
 const AdminProductView = () => {
@@ -16,21 +16,26 @@ const AdminProductView = () => {
   const [productImgUrl, setproductImgUrl] = useState(product.imageUrl);
   const navigate = useNavigate();
 
-  const getProductById = async () => {
-    try {
-      axios
-        .get(
-          `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/${id}`
-        )
-        .then((response) => setproduct(response.data));
-    } catch (error) {
-      console.log(error);
-    }
+  const getSingleProduct = () => {
+    getProductById(id).then((res) => {
+      setproduct(res.data);
+    });
+  };
+
+  const updateSingleProduct = async () => {
+    await updateProduct(
+      id,
+      productName,
+      productPrice,
+      qty,
+      productImgUrl,
+      productDescription
+    ).then(getSingleProduct());
   };
 
   useEffect(() => {
-    getProductById();
-  }, [getProductById]);
+    getSingleProduct();
+  }, []);
 
   return (
     <div>
@@ -123,14 +128,7 @@ const AdminProductView = () => {
                   variant="success"
                   size="lg"
                   onClick={() => {
-                    updateProduct(
-                      product.id,
-                      productName,
-                      productPrice,
-                      qty,
-                      productImgUrl,
-                      productDescription
-                    );
+                    updateSingleProduct();
                   }}
                 >
                   Update
