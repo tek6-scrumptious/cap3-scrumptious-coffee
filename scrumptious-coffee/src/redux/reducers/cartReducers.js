@@ -10,7 +10,6 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
   const item = action.payload;
   switch (action.type) {
     case ADD_TO_CART:
-      console.log(item.id);
       const existItem = state.inCart.find((x) => x.id === item.id);
       if (existItem) {
         return {
@@ -24,12 +23,11 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
       } else {
         return {
           ...state,
-          inCart: [...state.inCart, item],
+          inCart: [...state.inCart, { ...item, qty: item.qty }],
         };
       }
 
     case REMOVE_FROM_CART:
-      console.log(item);
       return {
         ...state,
         inCart: state.inCart.filter((x) => x.id !== action.payload),
@@ -40,7 +38,13 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
         ...state,
         inCart: state.inCart.map((product) =>
           product.id === action.payload
-            ? { ...product, qty: product.qty + 1 }
+            ? {
+                ...product,
+                qty:
+                  product.qty !== product.storeQuantity
+                    ? product.qty + 1
+                    : product.qty,
+              }
             : product
         ),
       };
@@ -48,8 +52,8 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
     case SUB_QTY:
       return {
         ...state,
-        products: state.cart.map((product) =>
-          product.id === action.id
+        inCart: state.inCart.map((product) =>
+          product.id === action.payload
             ? { ...product, qty: product.qty !== 1 ? product.qty - 1 : 1 }
             : product
         ),
@@ -57,7 +61,7 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
     case EMPTY_CART:
       return {
         ...state,
-        products: state.cart.map((product) =>
+        inCart: state.inCart.map((product) =>
           product.selected ? { ...product, selected: false, qty: 1 } : product
         ),
       };
@@ -67,27 +71,3 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
 };
 
 export default handleCartReducer;
-
-// export const cartReducer = (state = { cartItems: [] }, action) => {
-//   const item = action.payload;
-//   switch (action.type) {
-//     case CART_ADD_ITEM:
-//       const existItem = state.cartItems.find((x) => x.product === item.product);
-//       if (existItem) {
-//         return {
-//           ...state,
-//           cartItems: state.cartItems.map((x) =>
-//             x.product === existItem.product ? item : x
-//           ),
-//         };
-//       } else {
-//         return {
-//           ...state,
-//           cartItems: [...state.cartItems, item],
-//         };
-//       }
-
-//     default:
-//       return state;
-//   }
-// };

@@ -5,6 +5,8 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_LOADING,
   PRODUCT_DETAILS_FAIL,
+  PRODUCT_ADD_QTY,
+  PRODUCT_SUB_QTY,
 } from "../constants/productConstants";
 import axios from "axios";
 
@@ -13,13 +15,11 @@ export const listProducts = () => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_LOADING });
     const resp = await axios.get("http://localhost:8080/products/");
     const data = await resp.data;
-    console.log(data);
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: PRODUCT_LIST_FAIL,
       payload:
@@ -41,7 +41,6 @@ export const listProductDetails = (id) => async (dispatch) => {
       payload: { ...data, qty: 1 },
     });
   } catch (error) {
-    console.log(error.response);
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
       payload:
@@ -52,6 +51,16 @@ export const listProductDetails = (id) => async (dispatch) => {
   }
 };
 
+export const productAdd = (id) => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_ADD_QTY,
+    payload: id,
+  });
+};
 
-
-
+export const productSub = (id) => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_SUB_QTY,
+    payload: id,
+  });
+};
