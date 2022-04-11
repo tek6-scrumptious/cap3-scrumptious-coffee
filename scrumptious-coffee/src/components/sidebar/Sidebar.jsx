@@ -28,10 +28,10 @@ export default function Sidebar()
         <label htmlFor="All roasts">Africa</label><br></br>
         <input type="checkbox" id="hawaii" name="hawaii" value="hawaii" />
         <label htmlFor="light roast">Hawaii</label><br></br>
+        <input type="checkbox" id="indonesia" name="indonesia" value="indonesia" />
+        <label htmlFor="vehicle3">Indonesia</label><br></br>
         <input type="checkbox" id="south-america" name="south-america" value="south-america" />
         <label htmlFor="vehicle3">South America</label><br></br>
-        <input type="checkbox" id="hawaii" name="hawaii" value="hawaii" />
-        <label htmlFor="vehicle3">Hawaii</label><br></br>
       </div>
 
       <div className="sidebar-categories">
