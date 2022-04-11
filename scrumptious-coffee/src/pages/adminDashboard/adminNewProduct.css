@@ -1,0 +1,27 @@
+
+
+#add-new-product-error{
+    text-align: center;
+    color: red;
+    visibility:hidden ;
+}
+.add-btn{
+    width: 120px;
+    height: 50px;
+  margin-right: 15px;
+}
+
+#product-detail-card {
+    width: 100%;
+}
+
+.dashboard-btn{
+    width: 120px;
+    height: 50px;
+   
+}
+#add-new-product-success{
+    text-align: center;
+    visibility:hidden ;
+}
+
