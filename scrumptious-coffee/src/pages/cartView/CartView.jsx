@@ -3,6 +3,7 @@ import { Table, Button, Card } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import "./CartView.css";
 import cartDatabase from "../../cartDatabase.json";
+import StripePaymentForm from "../paymentScreen/StripePaymentForm";
 
 export default function CartView() {
   const [count, setCount] = useState(1);
@@ -112,19 +113,11 @@ export default function CartView() {
             <h5>Tax: ${tax} </h5>
             <h5>Grand Total: ${grandTotal}</h5>
           </div>
-          <div className="d-grid gap-2">
-            <Button
-              href="/payment"
-              variant=""
-              size="lg"
-              className="checkout-btn"
-            >
-              Checkout
-            </Button>
+          <StripePaymentForm/>
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
 // col-md-3 d-none d-md-block
