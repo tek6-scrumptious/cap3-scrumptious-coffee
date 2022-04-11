@@ -15,7 +15,7 @@ const StripePaymentForm = () => {
             autocomplete="off"
             billingAddress
             shippingAddress
-            amount={200000}
+            amount={2.00 * 100}
             name={"Scruptious Coffee"}
             />
         </div>
