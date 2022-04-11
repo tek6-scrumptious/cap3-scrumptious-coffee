@@ -10,10 +10,13 @@ import {
 } from "../constants/productConstants";
 import axios from "axios";
 
+const URL =
+  "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/";
+
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_LOADING });
-    const resp = await axios.get("http://localhost:8080/products/");
+    const resp = await axios.get(URL);
     const data = await resp.data;
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -33,7 +36,7 @@ export const listProducts = () => async (dispatch) => {
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_LOADING });
-    const resp = await axios.get(`http://localhost:8080/products/${id}`);
+    const resp = await axios.get(URL + id);
     const data = await resp.data;
 
     dispatch({

@@ -12,7 +12,7 @@ import { Card } from "react-bootstrap";
 
 export default function ProductsList() {
   const dispatch = useDispatch();
-  const productList = useSelector(state => state.productList || {});
+  const productList = useSelector((state) => state.productList || {});
   const { error, loading, products } = productList;
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function ProductsList() {
         </h1>
       ) : (
         <div className="products">
-          {products.map(item => (
+          {products.map((item) => (
             <Card className="item-card" key={item.id}>
               <Card.Body>
                 <Link to={"/products/" + item.id} className="link-product">
@@ -47,7 +47,7 @@ export default function ProductsList() {
               </Card.Body>
               <Card.Body className="price-button-container">
                 <Card.Text className="item-price">
-                  ${item.pricePerPound}
+                  ${item.pricePrePound}
                 </Card.Text>
               </Card.Body>
             </Card>

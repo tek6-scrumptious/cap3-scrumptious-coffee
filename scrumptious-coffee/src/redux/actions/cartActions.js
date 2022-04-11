@@ -7,7 +7,6 @@ import {
 } from "../constants/cartConstants.js";
 
 export const addToCart = (id) => async (dispatch, getState) => {
-
   dispatch({
     type: ADD_TO_CART,
     payload: getState().productDetails.product,

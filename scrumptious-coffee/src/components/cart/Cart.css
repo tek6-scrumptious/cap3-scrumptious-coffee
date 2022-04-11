@@ -1,0 +1,38 @@
+.cart-name {
+}
+
+.qty-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.cart-price {
+  margin-top: 10px;
+}
+
+.cart-qty {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+@media (min-width: 1000px) {
+  .cart-name {
+    margin-top: 13px;
+  }
+
+  .cart-price {
+    margin-top: 13px;
+  }
+
+  .qty-counter {
+    margin-right: 134px;
+    margin-top: 13px;
+  }
+
+  .cart-delete {
+    margin-top: 13px;
+  }
+}
