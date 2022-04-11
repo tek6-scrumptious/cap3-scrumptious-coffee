@@ -5,7 +5,6 @@ export const deleteProduct = async (productId) => {
     await axios.delete(
       `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/delete/${productId}`
     );
-    getAllData();
   } catch (error) {
     console.log(error);
   }
@@ -54,8 +53,6 @@ export const updateProduct = async (
       }
     );
   } catch {}
-  getProductById(id);
-  console.log("in update after get");
 };
 
 export const getAllData = async () => {

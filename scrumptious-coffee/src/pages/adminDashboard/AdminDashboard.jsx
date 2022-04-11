@@ -1,6 +1,5 @@
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { deleteProduct, getAllData } from "./AdminAPI";
 import { useEffect, useState } from "react";
 
@@ -12,7 +11,7 @@ const AdminDashboard = () => {
 
   const deleteItem = (item) => {
     deleteProduct(item.id);
-    getProducts();
+    setAPITData(APIData.filter((itemId) => itemId.id != item.id));
   };
 
   const getProducts = () => {

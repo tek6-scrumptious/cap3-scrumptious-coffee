@@ -46,3 +46,20 @@ function filledInput(element) {
   document.getElementById("add-new-product-success").style.visibility =
     "visible";
 }
+
+export const clearInput = (inputs) => {
+  for (let element of inputs) {
+    element.value = "";
+  }
+  document.getElementById("updated-product-success").style.visibility =
+    "visible";
+  if (
+    (document.getElementById("updated-product-success").style.visibility =
+      "visible")
+  ) {
+    setTimeout(function () {
+      document.getElementById("updated-product-success").style.visibility =
+        "hidden";
+    }, 3000);
+  }
+};

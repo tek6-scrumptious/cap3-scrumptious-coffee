@@ -2,6 +2,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, Button, Form, Row, ButtonGroup } from "react-bootstrap";
 import { updateProduct, getProductById } from "./AdminAPI";
+import { clearInput } from "./AdminFunctions";
+import "./adminUpdateProduct.css";
 import axios from "axios";
 
 const AdminProductView = () => {
@@ -14,6 +16,7 @@ const AdminProductView = () => {
     product.description
   );
   const [productImgUrl, setproductImgUrl] = useState(product.imageUrl);
+  const inputs = document.getElementsByClassName("updateFormInput");
   const navigate = useNavigate();
 
   const getSingleProduct = () => {
@@ -30,7 +33,9 @@ const AdminProductView = () => {
       qty,
       productImgUrl,
       productDescription
-    ).then(getSingleProduct());
+    );
+    getSingleProduct();
+    clearInput(inputs);
   };
 
   useEffect(() => {
@@ -65,6 +70,7 @@ const AdminProductView = () => {
               >
                 <Form.Label>Name</Form.Label>
                 <Form.Control
+                  className="updateFormInput"
                   type="text"
                   placeholder={product.name}
                   onChange={(e) => setproductName(e.target.value)}
@@ -77,6 +83,7 @@ const AdminProductView = () => {
               >
                 <Form.Label>Price</Form.Label>
                 <Form.Control
+                  className="updateFormInput"
                   onChange={(e) => setproductPrice(e.target.value)}
                   type="text"
                   placeholder={product.pricePrePound}
@@ -90,6 +97,7 @@ const AdminProductView = () => {
               >
                 <Form.Label>Quantity</Form.Label>
                 <Form.Control
+                  className="updateFormInput"
                   type="text"
                   placeholder={product.storeQuantity}
                   onChange={(e) => setqty(e.target.value)}
@@ -103,6 +111,7 @@ const AdminProductView = () => {
               >
                 <Form.Label>Description</Form.Label>
                 <Form.Control
+                  className="updateFormInput"
                   type="text"
                   placeholder={product.description}
                   onChange={(e) => setproductDescription(e.target.value)}
@@ -116,11 +125,13 @@ const AdminProductView = () => {
               >
                 <Form.Label>Image URL</Form.Label>
                 <Form.Control
+                  className="updateFormInput"
                   type="text"
                   placeholder="Image Url "
                   onChange={(e) => setproductImgUrl(e.target.value)}
                 />
               </Form.Group>
+              <h5 id="updated-product-success">{productName} updated</h5>
             </Form>
             <div className="d-grid gap-2">
               <ButtonGroup className="mb-3">
