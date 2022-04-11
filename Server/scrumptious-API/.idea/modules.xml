@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/scrumptious-API.iml" filepath="$PROJECT_DIR$/.idea/scrumptious-API.iml" />
       <module fileurl="file://$PROJECT_DIR$/scrumptious.iml" filepath="$PROJECT_DIR$/scrumptious.iml" />
     </modules>
   </component>
