@@ -2,7 +2,9 @@ import axios from "axios";
 
 export const deleteProduct = async (productId) => {
   try {
-    axios.delete(`http://localhost:8080/products/delete/${productId}`);
+    axios.delete(
+      `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/delete/${productId}`
+    );
   } catch (error) {
     console.log(error);
   }
@@ -10,7 +12,10 @@ export const deleteProduct = async (productId) => {
 
 export const addNewProduct = async (jsonData) => {
   try {
-    await axios.post("http://localhost:8080/products/add", jsonData);
+    await axios.post(
+      "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/add",
+      jsonData
+    );
   } catch (error) {}
 };
 
@@ -35,7 +40,7 @@ export const updateProduct = async (
 ) => {
   try {
     axios.put(
-      `http://localhost:8080/products/adminUpdate/${id}`,
+      `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/adminUpdate/${id}`,
       {},
       {
         params: {

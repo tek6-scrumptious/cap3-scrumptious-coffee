@@ -19,7 +19,9 @@ const AdminProductView = () => {
   const getProductById = async () => {
     try {
       axios
-        .get(`http://localhost:8080/products/${id}`)
+        .get(
+          `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/${id}`
+        )
         .then((response) => setproduct(response.data));
     } catch (error) {
       console.log(error);

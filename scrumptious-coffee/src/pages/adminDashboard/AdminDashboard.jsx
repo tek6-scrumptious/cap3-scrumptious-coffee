@@ -12,7 +12,9 @@ const AdminDashboard = () => {
   const getData = async () => {
     try {
       axios
-        .get("http://localhost:8080/products")
+        .get(
+          "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/"
+        )
         .then((response) => setAPITData(response.data));
     } catch (error) {
       console.log(error);
