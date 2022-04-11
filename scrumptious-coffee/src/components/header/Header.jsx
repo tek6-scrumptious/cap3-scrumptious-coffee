@@ -20,7 +20,7 @@ export default function Header() {
             <Nav.Link className="links dropdown-link" href="/products">
               Products
             </Nav.Link>
-            <Nav.Link className="links dropdown-link" href="/aboutus">
+            <Nav.Link className="links dropdown-link" href="/about-us">
               About Us
             </Nav.Link>
             <Nav.Link className="links dropdown-link" href="/cart">
