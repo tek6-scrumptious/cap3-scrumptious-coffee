@@ -1,45 +1,15 @@
 // imports & Components
 import React from "react";
 import Cart from "../../components/cart/Cart";
+import Subtotal from "../../components/subtotal/Subtotal";
 
 // styles
 import "./CartView.css";
 
 export default function CartView() {
-  // const [subTotal, setSubTotal] = useState(0);
-  // const [tax, setTax] = useState(0);
-  // const [grandTotal, setGrandTotal] = useState(0);
-
-  // const subTotalMethod = () => {
-  //   let addSubTotal = 0;
-  //   cartDatabase.products.forEach(item => {
-  //     addSubTotal = addSubTotal += item.price * item.qty;
-  //   });
-  //   setSubTotal(addSubTotal.toFixed(2));
-  // };
-
-  // const taxMethod = () => {
-  //   let addTax = 0;
-  //   addTax = subTotal * 0.08;
-  //   setTax(addTax.toFixed(2));
-  //   setGrandTotal((parseFloat(subTotal) + parseFloat(tax)).toFixed(2));
-  // };
-
-  // const decrease = idx => {
-  //   if (cartDatabase.products[idx].qty > 1) {
-  //     cartDatabase.products[idx].qty--;
-  //     subTotalMethod();
-  //   }
-  // };
-
-  // const increase = idx => {
-  //   cartDatabase.products[idx].qty++;
-  //   subTotalMethod();
-  // };
-
   return (
     <div className="structure">
-      <Cart />
+      <Cart className="cart-comp" />
     </div>
   );
 }
@@ -113,5 +83,4 @@ export default function CartView() {
 }
 
 {
-  
 }

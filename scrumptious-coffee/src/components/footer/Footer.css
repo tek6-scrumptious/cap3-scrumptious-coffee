@@ -32,5 +32,11 @@
   .footer {
     margin-top: 150px;
     height: 60px;
+    position: sticky;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 }

@@ -6,6 +6,7 @@ import {
   subtractQty,
   removeFromCart,
 } from "../../redux/actions/cartActions";
+import Subtotal from "../subtotal/Subtotal";
 
 // styles
 import "./Cart.css";
@@ -36,8 +37,8 @@ export default function Cart() {
   };
 
   return (
-    <div>
-      <Row className="cart-container">
+    <div className="cart-container">
+      <Row className="cart-content">
         <Col md={8}>
           <h1>Cart</h1>
 
@@ -60,17 +61,25 @@ export default function Cart() {
                         />
                       </Link>
                     </Col>
-                    <Col md={3} className="cart-name">
+                    <Col
+                      md={3}
+                      className="cart-name"
+                      style={{ textAlign: "center" }}
+                    >
                       <Link to={`/products/${item.id}`} className="item-name">
                         {item.name}
                       </Link>
                     </Col>
-                    <Col md={2} className="cart-price">
+                    <Col
+                      md={2}
+                      className="cart-price"
+                      style={{ textAlign: "center" }}
+                    >
                       ${item.pricePrePound}
                     </Col>
                     {/* Testing cart quantities */}
 
-                    <div className="qty-counter">
+                    <Col className="qty-counter">
                       <Button
                         size="sm"
                         className="cart-desc"
@@ -86,8 +95,8 @@ export default function Cart() {
                       >
                         +
                       </Button>
-                    </div>
-                    <Col md={2}>
+                    </Col>
+                    <Col md={2} style={{ textAlign: "center" }}>
                       <Button
                         className="cart-delete"
                         onClick={() => removeItem(item.id)}
@@ -101,7 +110,9 @@ export default function Cart() {
             </ListGroup>
           )}
         </Col>
-        <Col md={4}></Col>
+        <Col md={4}>
+          <Subtotal className="subtotal-comp" />
+        </Col>
       </Row>
     </div>
   );

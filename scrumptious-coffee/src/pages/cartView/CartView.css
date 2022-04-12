@@ -1,5 +1,7 @@
 .structure {
   margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .product-img {
@@ -11,16 +13,6 @@
 }
 .total-col {
   width: 100px;
-}
-.qty-btn {
-  margin: 2px;
-  width: 28px;
-  height: 28px;
-  padding: 1px;
-}
-.name-color {
-  color: #006241;
-  font-weight: 500;
 }
 
 .checkout-box {

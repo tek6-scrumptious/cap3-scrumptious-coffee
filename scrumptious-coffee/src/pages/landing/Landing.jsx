@@ -6,7 +6,7 @@ import "./Landing.css";
 
 export default function Landing() {
   return (
-    <div>
+    <div className="landing-container">
       {window.innerWidth <= 415 ? (
         <div>
           <div className="image">

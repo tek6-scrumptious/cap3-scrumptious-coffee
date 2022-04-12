@@ -27,7 +27,7 @@ export default function ProductDetail() {
   const productDetails = useSelector((state) => state.productDetails || {});
   const cartHandler = useSelector((state) => state.cart || {});
   const { loading, error, product } = productDetails;
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(product.qty ? product.qty : 1);
 
   useEffect(() => {
     dispatch(listProductDetails(id));
