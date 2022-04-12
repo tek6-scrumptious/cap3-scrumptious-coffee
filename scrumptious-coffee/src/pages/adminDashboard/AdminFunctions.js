@@ -1,5 +1,6 @@
 import { addNewProduct } from "./AdminAPI";
-
+const priceElement = document.getElementById("productPrice");
+const qtyElement = document.getElementById("productQuantity");
 export const formValidation = (
   e,
   name,
@@ -21,11 +22,15 @@ export const formValidation = (
       filledInput(element);
     }
   }
+
   if (flag === 5) {
     for (let element of inputs) {
       element.value = "";
     }
-
+    document.getElementById("add-new-product-success").style.visibility =
+      "visible";
+    document.getElementById("add-new-product-error").style.visibility =
+      "hidden";
     const jsonData = {
       name: name,
       imageUrl: imageUrl,
@@ -47,8 +52,6 @@ function emptyInput(element) {
 function filledInput(element) {
   element.style.borderColor = "black";
   document.getElementById("add-new-product-error").style.visibility = "hidden";
-  document.getElementById("add-new-product-success").style.visibility =
-    "visible";
 }
 
 export const clearInput = (inputs) => {
@@ -64,6 +67,6 @@ export const clearInput = (inputs) => {
     setTimeout(function () {
       document.getElementById("updated-product-success").style.visibility =
         "hidden";
-    }, 3000);
+    }, 5000);
   }
 };
