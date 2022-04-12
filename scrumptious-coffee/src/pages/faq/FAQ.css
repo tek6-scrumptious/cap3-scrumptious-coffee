@@ -1,0 +1,39 @@
+.faq-title-jumbotron {
+    margin-top: 1rem;
+    padding-top: 5px;
+}
+
+.faq-title-text {
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+
+@media only screen and (min-width: 400px) {
+
+    .faq-image {
+        height: 550px;
+        width: 825px;
+    }
+
+    .faq-image-container {
+        height: 25rem;
+        width: 100%;
+        overflow: hidden;
+        margin-top: 5rem;
+
+
+    }
+
+    .faq-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center !important;
+    }
+
+    .faq-accordion-container{
+        width: 825px;
+        margin-bottom: 20px;
+    }
+}

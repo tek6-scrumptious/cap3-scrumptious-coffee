@@ -20,8 +20,8 @@ export default function Footer() {
               </Link>
             </Nav>
             <Nav>
-              <Link className="footer-links hover" to="/return_policy">
-                Return Policy
+              <Link className="footer-links hover" to="/faq">
+                FAQ
               </Link>
             </Nav>
             <Nav>© Scrumptious 2022</Nav>
