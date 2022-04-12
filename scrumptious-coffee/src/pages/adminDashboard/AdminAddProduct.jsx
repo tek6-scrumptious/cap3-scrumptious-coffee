@@ -10,6 +10,8 @@ const AdminAddProduct = () => {
   const [Price, setPrice] = useState(0);
   const [Quantity, setQuantity] = useState(0);
   const [Description, setDescription] = useState("");
+  const [Roast, setRoast] = useState("");
+  const [Location, setLocation] = useState("");
   const [ImageUrl, setImageUrl] = useState("");
 
   return (
@@ -50,6 +52,26 @@ const AdminAddProduct = () => {
               </Form.Group>
 
               <Form.Group className="mb-2" as={Row}>
+                <Form.Label>Roast</Form.Label>
+                <Form.Control
+                  className="productInput"
+                  id="productURL"
+                  type="text"
+                  onChange={(e) => setRoast(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-2" as={Row}>
+                <Form.Label>Location</Form.Label>
+                <Form.Control
+                  className="productInput"
+                  id="productURL"
+                  type="text"
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-2" as={Row}>
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   className="productInput"
@@ -85,6 +107,8 @@ const AdminAddProduct = () => {
                       Quantity,
                       Description,
                       ImageUrl,
+                      Roast,
+                      Location,
                       inputs
                     );
                   }}
