@@ -16,7 +16,9 @@ export const addNewProduct = async (jsonData) => {
       "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/add",
       jsonData
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getProductById = async (productId) => {
