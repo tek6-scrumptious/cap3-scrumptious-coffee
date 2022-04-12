@@ -2,7 +2,6 @@ import React from "react";
 
 // styles
 import "./OrderConfirmation.css";
-import { Link } from "react-router-dom";
 import { Image, CardGroup, Card } from "react-bootstrap";
 
 export default function OrderConfirmation() {
