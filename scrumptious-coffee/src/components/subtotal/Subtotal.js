@@ -35,18 +35,16 @@ export default function Subtotal() {
   }, [subTotalMethod, taxMethod]);
 
   return (
-    <Card className="subtotal-container">
+    <Card id="subtotal-container">
       <Card.Body>
-        <Card.Title className="subtotal-title">Total</Card.Title>
-        <div className="subtotal-content">
-          <Card.Text className="subtotal total-num">
-            Sub Total: ${subTotal}
-          </Card.Text>
+        <Card.Title id="subtotal-title">Total</Card.Title>
+        <div id="subtotal-content">
+          <Card.Text className="subtotal total-num">Sub Total: ${subTotal}</Card.Text>
           <Card.Text className="tax total-num">Tax: ${tax}</Card.Text>
           <Card.Text className="grand-total total-num">
             <strong>Grand Total:</strong> ${grandTotal}
           </Card.Text>
-          <Button className="checkout-btn">Checkout</Button>
+          <Button id="checkout-btn">Checkout</Button>
         </div>
       </Card.Body>
     </Card>

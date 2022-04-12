@@ -29,9 +29,9 @@ export default function Cart() {
   };
 
   return (
-    <div className="cart-container">
-      <Row className="cart-content">
-        <h2 className="my-cart">My Cart</h2>
+    <div id="cart-container">
+      <Row id="cart-content">
+        <h2 id="my-cart">My Cart</h2>
         <Col md={8}>
           {cartItems.length === 0 ? (
             <Alert variant="danger">
@@ -54,48 +54,51 @@ export default function Cart() {
                     </Col>
                     <Col
                       md={2}
-                      className="cart-name"
+                      id="cart-name"
                       style={{ textAlign: "center" }}
                     >
-                      <Link to={`/products/${item.id}`} className="item-name">
+                      <Link to={`/products/${item.id}`} id="item-name">
                         {item.name}
                       </Link>
                     </Col>
                     <Col
                       md={2}
-                      className="cart-price"
+                      id="cart-price"
                       style={{ textAlign: "center" }}
                     >
                       ${parseFloat(item.pricePrePound).toFixed(2)}
                     </Col>
                     {/* Testing cart quantities */}
 
-                    <Col className="qty-counter" md={2}>
+                    <Col id="qty-counter" md={2}>
                       <Button
                         size="sm"
-                        className="cart-desc"
+                        variant=""
+                        id="cart-desc"
                         onClick={() => dispatch(subtractQty(item.id))}
                       >
                         -
                       </Button>
-                      <p className="cart-qty">{item.qty}</p>
+                      <p id="cart-qty">{item.qty}</p>
                       <Button
                         size="sm"
-                        className="cart-asc"
+                        id="cart-asc"
                         onClick={() => dispatch(addQty(item.id))}
                       >
                         +
                       </Button>
                     </Col>
-                    <Col md={1} className="total-qty">
-                      <p>${parseFloat(item.pricePrePound * item.qty).toFixed(2)}</p>
+                    <Col md={1} id="total-qty">
+                      <p>
+                        ${parseFloat(item.pricePrePound * item.qty).toFixed(2)}
+                      </p>
                     </Col>
                     <Col md={2} style={{ textAlign: "center" }}>
                       <Button
-                        className="cart-delete"
+                        id="cart-delete"
                         onClick={() => removeItem(item.id)}
                       >
-                        <Trash size={20} className="cart-trash" />
+                        <Trash size={20} id="cart-trash" />
                       </Button>
                     </Col>
                   </Row>
@@ -105,7 +108,7 @@ export default function Cart() {
           )}
         </Col>
         <Col md={4}>
-          <Subtotal className="subtotal-comp" />
+          <Subtotal id="subtotal-comp" />
         </Col>
       </Row>
     </div>

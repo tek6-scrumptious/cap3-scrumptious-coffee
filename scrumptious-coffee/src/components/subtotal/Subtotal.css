@@ -1,29 +1,29 @@
-.subtotal-container {
-  background: var(--green);
+#subtotal-container {
+  background: var(--green) !important;
   color: white;
   margin-top: 10px;
 }
 
-.checkout-btn {
+#checkout-btn {
   width: 75%;
-  color: black;
   font-size: 20px;
+  margin: 10px;
 }
 
 .total-num {
   font-size: 20px;
 }
 
-.subtotal-title {
+#subtotal-title {
   font-size: 30px;
 }
 
-.subtotal-content {
+#subtotal-content {
   text-align: center;
 }
 
 @media (min-width: 1000px) {
-  .subtotal-container {
+  #subtotal-container {
     display: block;
     margin-top: 0;
     max-height: 100%;

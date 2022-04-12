@@ -22,11 +22,12 @@
   padding: 10px;
   margin-top: -16px;
 }
-.checkout-btn {
-  margin: 10px;
-  background-color: #d8d9d7;
-}
+
 @media (min-width: 1000px) {
+  #cart-container {
+    width: 98%;
+  }
+
   .margin {
     margin: 20px;
     margin-bottom: 16px;
