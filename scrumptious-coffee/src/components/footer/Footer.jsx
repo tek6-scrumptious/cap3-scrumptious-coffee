@@ -15,20 +15,16 @@ export default function Footer() {
               Est: 2/28/2022
             </Nav>
             <Nav>
-              <Link className="footer-links" to="/aboutus">
+              <Link className="footer-links hover" to="/aboutus">
                 About Us
               </Link>
             </Nav>
             <Nav>
-              <Link className="footer-links" to="/return_policy">
+              <Link className="footer-links hover" to="/return_policy">
                 Return Policy
               </Link>
             </Nav>
-            <Nav>
-              <Link className="footer-links" to="/return_policy">
-                Return Policy
-              </Link>
-            </Nav>
+            <Nav>© Scrumptious 2022</Nav>
           </Nav>
         </div>
       </Container>

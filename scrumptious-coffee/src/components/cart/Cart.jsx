@@ -10,14 +10,7 @@ import Subtotal from "../subtotal/Subtotal";
 
 // styles
 import "./Cart.css";
-import {
-  Col,
-  Row,
-  Alert,
-  ListGroup,
-  Button,
-  Image,
-} from "react-bootstrap";
+import { Col, Row, Alert, ListGroup, Button, Image } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
 
 export default function Cart() {
@@ -39,7 +32,7 @@ export default function Cart() {
     <div className="cart-container">
       <Row className="cart-content">
         <Col md={8}>
-          <h1>Cart</h1>
+          <h1 className="my-cart">My Cart</h1>
 
           {cartItems.length === 0 ? (
             <Alert variant="danger">
@@ -61,7 +54,7 @@ export default function Cart() {
                       </Link>
                     </Col>
                     <Col
-                      md={3}
+                      md={2}
                       className="cart-name"
                       style={{ textAlign: "center" }}
                     >
@@ -78,7 +71,7 @@ export default function Cart() {
                     </Col>
                     {/* Testing cart quantities */}
 
-                    <Col className="qty-counter">
+                    <Col className="qty-counter" md={2}>
                       <Button
                         size="sm"
                         className="cart-desc"
@@ -94,6 +87,9 @@ export default function Cart() {
                       >
                         +
                       </Button>
+                    </Col>
+                    <Col md={1} className="total-qty">
+                      <p>${item.pricePrePound * item.qty}</p>
                     </Col>
                     <Col md={2} style={{ textAlign: "center" }}>
                       <Button

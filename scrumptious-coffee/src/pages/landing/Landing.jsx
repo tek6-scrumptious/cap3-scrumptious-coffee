@@ -9,7 +9,7 @@ export default function Landing() {
     <div className="landing-container">
       {window.innerWidth <= 415 ? (
         <div>
-          <div className="image">
+          <div className="imageMobile">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}

@@ -80,11 +80,19 @@
 
   .cart-price {
     margin-top: 13px;
+    font-size: 20px;
   }
 
   .qty-counter {
-    margin-top: 13px;
     margin-left: 65px;
+    margin: 0 auto;
+    margin-top: 13px;
+  }
+
+  .total-qty {
+    margin: 0 auto;
+    margin-top: 13px;
+    font-size: 20px;
   }
 
   .cart-delete {
