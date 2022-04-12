@@ -1,5 +1,5 @@
 // imports
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
@@ -7,18 +7,18 @@ import { listProductDetails } from "../../redux/actions/productActions";
 import Error from "../Error/Error";
 import { addToCart } from "../../redux/actions/cartActions";
 import { productAdd, productSub } from "../../redux/actions/productActions";
+import BeanType from "../../components/beanType/BeanType";
 
 //styles
-import { Card, Row, Col, ListGroup, Button, Form } from "react-bootstrap";
+import { Card, Row, Col, ListGroup, Button } from "react-bootstrap";
 import "./ProductDetail.css";
+import PoundPrice from "../../components/poundPrice/PoundPrice";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails || {});
-  const cartHandler = useSelector((state) => state.cart || {});
   const { loading, error, product } = productDetails;
-  const [count, setCount] = useState(1);
 
   useEffect(() => {
     dispatch(listProductDetails(id));
@@ -29,17 +29,13 @@ export default function ProductDetail() {
   };
 
   const buyLess = () => {
-    dispatch(productSub(id));
-    if (count > 1) {
-      setCount(count - 1);
+    if (product.qty > 1) {
+      dispatch(productSub(id));
     }
   };
 
   const addMore = (id) => {
     dispatch(productAdd(id));
-    if (count !== product.storeQuantity) {
-      setCount(count + 1);
-    }
   };
 
   return (
@@ -70,57 +66,11 @@ export default function ProductDetail() {
                 <Card.Title className="product-Detail-Title">
                   {product.name}
                 </Card.Title>
-                <Card.Text>Weight:</Card.Text>
-
-                <div className="mb-2 weight-buttons">
-                  <Button
-                    variant=""
-                    size="sm"
-                    className="lb-button btn-outline-success"
-                  >
-                    1/2 lb <br />
-                    $12.99
-                  </Button>{" "}
-                  <Button
-                    variant=""
-                    size="sm"
-                    className="lb-button btn-outline-success"
-                  >
-                    1 lb <br />
-                    $19.99
-                  </Button>
-                  <Button
-                    variant=""
-                    size="sm"
-                    className="lb-button btn-outline-success"
-                  >
-                    2 lb
-                    <br />
-                    $29.99
-                  </Button>
-                </div>
+                <PoundPrice />
                 <br />
-                <Card.Text>Bean type:</Card.Text>
-                <div className="mb-2 bean-type-button">
-                  <Button
-                    variant=""
-                    size="lg"
-                    className="whole-Bean-Button  btn-outline-success"
-                  >
-                    Whole
-                  </Button>
-                  <Button
-                    variant=""
-                    size="lg"
-                    className="ground-Bean-Button  btn-outline-success"
-                  >
-                    Ground
-                  </Button>
-                </div>
+                <BeanType />
                 <br />
                 <div>
-                  <Card.Text>Quantity:</Card.Text>
-
                   {product.storeQuantity > 0 ? (
                     <ListGroup.Item>
                       <Row>
@@ -130,15 +80,15 @@ export default function ProductDetail() {
                             <Button
                               onClick={() => buyLess(product.id)}
                               variant=""
-                              className="btn-sm qty-margin btn-outline-success"
+                              className="btn-sm qty-margin count-button"
                             >
                               -
                             </Button>
-                            <p>{count}</p>
+                            <p className="count-amount">{product.qty}</p>
                             <Button
                               onClick={() => addMore(product.id)}
                               variant=""
-                              className="btn-sm btn-outline-success"
+                              className="btn-sm count-button"
                             >
                               +
                             </Button>
@@ -179,30 +129,3 @@ export default function ProductDetail() {
     </div>
   );
 }
-
-/* {product.storeQuantity > 0 && (
-                    <div className="qty-counter">
-                      <Button
-                        onClick={decrease}
-                        variant=""
-                        className="btn-sm qty-margin btn-outline-success"
-                      >
-                        -
-                      </Button>
-                      <input
-                        className="qty-margin"
-                        pattern="[0-9]*"
-                        size={1}
-                        min="1"
-                        max="1000"
-                        placeholder={qty}
-                      />
-                      <Button
-                        onClick={increase}
-                        variant=""
-                        className="btn-sm btn-outline-success"
-                      >
-                        +
-                      </Button>
-                    </div>
-                  )} */

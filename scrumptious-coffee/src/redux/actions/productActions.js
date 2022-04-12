@@ -10,10 +10,13 @@ import {
 } from "../constants/productConstants";
 import axios from "axios";
 
+const URL =
+  "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/";
+
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_LOADING });
-    const resp = await axios.get("http://localhost:8080/products/");
+    const resp = await axios.get(URL);
     const data = await resp.data;
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -30,15 +33,36 @@ export const listProducts = () => async (dispatch) => {
   }
 };
 
-export const listProductDetails = (id) => async (dispatch) => {
+async function setData(cartArr, id) {
+  const resp = await axios.get(URL + id);
+  const data = await resp.data;
+  for (let i = 0; i < cartArr.length; i++) {
+    if (cartArr[i].id == id) {
+      data.qty = cartArr[i].qty;
+    }
+  }
+  return data;
+}
+
+export const listProductDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_LOADING });
-    const resp = await axios.get(`http://localhost:8080/products/${id}`);
-    const data = await resp.data;
+    const cartArray = getState().cart.inCart;
+
+    const data = await setData(cartArray, id);
+    let productDetail = {
+      id: data.id,
+      name: data.name,
+      imageUrl: data.imageUrl,
+      description: data.description,
+      storeQuantity: data.storeQuantity,
+      pricePrePound: data.pricePrePound,
+      qty: data.qty ? data.qty : 1,
+    };
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
-      payload: { ...data, qty: 1 },
+      payload: productDetail,
     });
   } catch (error) {
     dispatch({

@@ -6,10 +6,10 @@ import "./Landing.css";
 
 export default function Landing() {
   return (
-    <div>
+    <div className="landing-container">
       {window.innerWidth <= 415 ? (
         <div>
-          <div className="image">
+          <div className="imageMobile">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}

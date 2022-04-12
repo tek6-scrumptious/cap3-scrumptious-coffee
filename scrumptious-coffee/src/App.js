@@ -35,7 +35,7 @@ function App() {
           <Route path="/products/:id/" element={<ProductDetail />} />
         </Routes>
 
-        <Footer />
+        <Footer className="footer-main"/>
       </BrowserRouter>
     </div>
   );

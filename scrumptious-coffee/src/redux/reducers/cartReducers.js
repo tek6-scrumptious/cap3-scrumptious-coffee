@@ -15,9 +15,7 @@ const handleCartReducer = (state = { inCart: [] }, action) => {
         return {
           ...state,
           inCart: state.inCart.map((product) =>
-            product.id === item.id
-              ? { ...product, selected: true, qty: 1 }
-              : product
+            product.id === item.id ? { ...product, qty: item.qty } : product
           ),
         };
       } else {

@@ -30,9 +30,6 @@ export default function Header() {
               Cart
             </Link>
           </Nav>
-          <Nav className="guest-link">
-            <Nav.Link>Welcome, Guest!</Nav.Link>
-          </Nav>
           <Form className="d-flex search">
             <FormControl
               type="search"
