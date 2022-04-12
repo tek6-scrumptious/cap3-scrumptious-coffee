@@ -47,7 +47,7 @@ export default function ProductsList() {
               </Card.Body>
               <Card.Body className="price-button-container">
                 <Card.Text className="item-price">
-                  ${item.pricePrePound}
+                  ${parseFloat(item.pricePrePound).toFixed(2)}
                 </Card.Text>
               </Card.Body>
             </Card>

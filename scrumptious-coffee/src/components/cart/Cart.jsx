@@ -31,9 +31,8 @@ export default function Cart() {
   return (
     <div className="cart-container">
       <Row className="cart-content">
+        <h2 className="my-cart">My Cart</h2>
         <Col md={8}>
-          <h1 className="my-cart">My Cart</h1>
-
           {cartItems.length === 0 ? (
             <Alert variant="danger">
               Cart is Empty. <Link to="/">Go Back</Link>
@@ -67,7 +66,7 @@ export default function Cart() {
                       className="cart-price"
                       style={{ textAlign: "center" }}
                     >
-                      ${item.pricePrePound}
+                      ${parseFloat(item.pricePrePound).toFixed(2)}
                     </Col>
                     {/* Testing cart quantities */}
 
@@ -89,7 +88,7 @@ export default function Cart() {
                       </Button>
                     </Col>
                     <Col md={1} className="total-qty">
-                      <p>${item.pricePrePound * item.qty}</p>
+                      <p>${parseFloat(item.pricePrePound * item.qty).toFixed(2)}</p>
                     </Col>
                     <Col md={2} style={{ textAlign: "center" }}>
                       <Button
