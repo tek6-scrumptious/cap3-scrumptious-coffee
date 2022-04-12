@@ -23,7 +23,7 @@ export default function Header() {
               Products
             </Link>
 
-            <Link className="links dropdown-link hover" to="/aboutus">
+            <Link className="links dropdown-link hover" to="/about-us">
               About Us
             </Link>
             <Link className="links dropdown-link hover" to="/cart">

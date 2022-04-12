@@ -20,8 +20,6 @@ export default function Cart() {
   const cartItems = cart.inCart;
 
   useEffect(() => {
-    // subTotalMethod();
-    // taxMethod();
   }, [dispatch, id]);
 
   const removeItem = (id) => {
@@ -115,22 +113,3 @@ export default function Cart() {
   );
 }
 
-/* <div className="col-md-3  sidebar margin checkout-box">
-        <div className="checkout-text-structure">
-          <div className="checkout-text">
-            <h5>SubTotal: ${subTotal} </h5>
-            <h5>Tax: ${tax} </h5>
-            <h5>Grand Total: ${grandTotal}</h5>
-          </div>
-          <div className="d-grid gap-2">
-            <Button
-              href="/payment"
-              variant=""
-              size="lg"
-              className="checkout-btn"
-            >
-              Checkout
-            </Button>
-          </div>
-        </div>
-      </div> */

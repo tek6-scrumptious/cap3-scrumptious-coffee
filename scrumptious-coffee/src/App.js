@@ -5,6 +5,7 @@ import Landing from "./pages/landing/Landing";
 import Error from "./pages/Error/Error";
 import PaymentScreen from "./pages/paymentScreen/PaymentScreen";
 import OrderConfirmation from "./pages/orderConfirmation/OrderConfirmation";
+import FAQ from "./pages/faq/FAQ"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import ProductsList from "./pages/productsList/ProductsList";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/admin-new-product" element={<ProtectedRoute3 />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="/products/:id/" element={<ProductDetail />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
 
         <Footer className="footer-main"/>
