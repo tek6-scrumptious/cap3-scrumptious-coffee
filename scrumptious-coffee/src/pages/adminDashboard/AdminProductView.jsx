@@ -4,7 +4,6 @@ import { Card, Button, Form, Row, ButtonGroup } from "react-bootstrap";
 import { updateProduct, getProductById } from "./AdminAPI";
 import { clearInput } from "./AdminFunctions";
 import "./adminUpdateProduct.css";
-import axios from "axios";
 
 const AdminProductView = () => {
   const { id } = useParams();
