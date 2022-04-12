@@ -17,7 +17,6 @@ import {
   ListGroup,
   Button,
   Image,
-  ButtonGroup,
 } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
 

@@ -1,7 +1,6 @@
 // imports & Components
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // styles
 import { Card, Button } from "react-bootstrap";
@@ -12,8 +11,6 @@ export default function Subtotal() {
   const [tax, setTax] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
 
-  const { id } = useParams();
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.inCart;
 

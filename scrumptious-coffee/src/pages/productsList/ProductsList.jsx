@@ -20,7 +20,7 @@ export default function ProductsList() {
   }, [dispatch]);
 
   return (
-    <div className='product-list'>
+    <div className="product-list">
       {loading ? (
         <h2>
           <Loader />

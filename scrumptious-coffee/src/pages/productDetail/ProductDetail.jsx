@@ -1,5 +1,5 @@
 // imports
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
@@ -10,14 +10,7 @@ import { productAdd, productSub } from "../../redux/actions/productActions";
 import BeanType from "../../components/beanType/BeanType";
 
 //styles
-import {
-  Card,
-  Row,
-  Col,
-  ListGroup,
-  Button,
-  ButtonGroup,
-} from "react-bootstrap";
+import { Card, Row, Col, ListGroup, Button } from "react-bootstrap";
 import "./ProductDetail.css";
 import PoundPrice from "../../components/poundPrice/PoundPrice";
 
@@ -25,9 +18,7 @@ export default function ProductDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails || {});
-  const cartHandler = useSelector((state) => state.cart || {});
   const { loading, error, product } = productDetails;
-  const [count, setCount] = useState(product.qty ? product.qty : 1);
 
   useEffect(() => {
     dispatch(listProductDetails(id));
@@ -38,17 +29,13 @@ export default function ProductDetail() {
   };
 
   const buyLess = () => {
-    dispatch(productSub(id));
-    if (count > 1) {
-      setCount(count - 1);
+    if (product.qty > 1) {
+      dispatch(productSub(id));
     }
   };
 
   const addMore = (id) => {
     dispatch(productAdd(id));
-    if (count !== product.storeQuantity) {
-      setCount(count + 1);
-    }
   };
 
   return (
@@ -97,7 +84,7 @@ export default function ProductDetail() {
                             >
                               -
                             </Button>
-                            <p className="count-amount">{count}</p>
+                            <p className="count-amount">{product.qty}</p>
                             <Button
                               onClick={() => addMore(product.id)}
                               variant=""
