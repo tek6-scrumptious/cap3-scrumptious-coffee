@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Searchbar from "../searchbar/Searchbar";
 
 // styles
 import { Navbar, Nav } from "react-bootstrap";
 import "./Header.css";
-import Searchbar from "../searchbar/Searchbar";
 
 export default function Header() {
   return (
