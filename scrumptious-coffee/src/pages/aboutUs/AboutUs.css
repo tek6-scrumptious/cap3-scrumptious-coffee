@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.about-us-card-text {
+  display: flex;
+  align-items: center;
+}
+
 .about-us-button {
   display: flex;
   align-items: center;

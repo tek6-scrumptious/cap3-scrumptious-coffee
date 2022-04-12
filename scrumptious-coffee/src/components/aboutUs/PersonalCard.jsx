@@ -19,7 +19,7 @@ export default function PersonalCard(props) {
             alt=""
             className={"about-us-profile-image " + props.position}
           />
-          <Card.Text>{props.body}</Card.Text>
+          <Card.Text className="about-us-card-text">{props.body}</Card.Text>
         </Card.Body>
       </Card>
     </>
