@@ -4,7 +4,7 @@ import Landing from "./pages/landing/Landing";
 import Error from "./pages/Error/Error";
 import PaymentScreen from "./pages/paymentScreen/PaymentScreen";
 import OrderConfirmation from "./pages/orderConfirmation/OrderConfirmation";
-import ReturnPolicy from "./pages/returnPolicy/ReturnPolicy"
+import FAQ from "./pages/faq/FAQ"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // styles
@@ -30,7 +30,7 @@ function App()
           <Route path="/cart" element={<CartView />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/faq" element={<ReturnPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
 
         <Footer />

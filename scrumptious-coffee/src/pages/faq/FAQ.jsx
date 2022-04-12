@@ -1,10 +1,10 @@
-import "./ReturnPolicy.css";
+import "./FAQ.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Image, CardGroup, Card, Accordion } from "react-bootstrap";
 import AccordionBody from "react-bootstrap/esm/AccordionBody";
 
-export default function ReturnPolicy() {
+export default function FAQ() {
 
   return (
 
