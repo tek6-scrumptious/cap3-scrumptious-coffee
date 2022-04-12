@@ -1,7 +1,7 @@
 // styles
 import "./AboutUs.css";
 import { Card, Button, Container } from "react-bootstrap";
-import PersonalCard from "./PersonalCard";
+import PersonalCard from "../../components/aboutUs/PersonalCard";
 import { Link } from "react-router-dom";
 
 export default function AboutUs() {

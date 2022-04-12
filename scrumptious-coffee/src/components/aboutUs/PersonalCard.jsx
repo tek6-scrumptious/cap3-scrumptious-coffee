@@ -1,5 +1,5 @@
 import React from "react";
-import "./AboutUs.css";
+import "../../pages/aboutUs/AboutUs.css";
 import { Card } from "react-bootstrap";
 
 export default function PersonalCard(props) {
