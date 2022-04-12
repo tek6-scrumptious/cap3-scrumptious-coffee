@@ -33,6 +33,12 @@ public class Product {
     @Column(name = "price_per_pound")
     @Getter @Setter
     private Double pricePrePound;
+    @Column(name="roast")
+    @Getter
+    private String roast;
+    @Column(name="location")
+    @Getter
+    private String location;
 
     public Product() {
     }
