@@ -1,6 +1,20 @@
 import React from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import "./PaymentScreen.css";
+import BillingDetails from "./BillingDetails";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import styled from "@emotion/styled";
+
+
+const CardElementContainer = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  & .StripeElement {
+    width: 100%;
+    padding: 15px;
+  }
+`;
 
 export default function PaymentScreen() {
   return (
@@ -10,7 +24,7 @@ export default function PaymentScreen() {
           <Row>
             <Col className="payment-form-col-padding">
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridFirstName">
+                {/* <Form.Group as={Col} controlId="formGridFirstName">
                   <Form.Label>First Name</Form.Label>
                   <Form.Control type="text" placeholder="First Name" />
                 </Form.Group>
@@ -43,7 +57,9 @@ export default function PaymentScreen() {
                 <Form.Group as={Col} controlId="formGridZipCode">
                   <Form.Label>Zip Code</Form.Label>
                   <Form.Control />
-                </Form.Group>
+                </Form.Group> */}
+                <BillingDetails />
+                
               </Row>
               <Row className="mb-3">
                 <Form.Group as={Col}>
@@ -56,7 +72,7 @@ export default function PaymentScreen() {
                       label="$5.99 - Standard"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios1"
-                      />
+                    />
                   </Form.Group>
                   <Form.Group as={Col}>
                     <Form.Check
@@ -64,7 +80,7 @@ export default function PaymentScreen() {
                       label="$9.99 - Express"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios2"
-                      />
+                    />
                   </Form.Group>
                   <Form.Group as={Col}>
                     <Form.Check
@@ -72,13 +88,13 @@ export default function PaymentScreen() {
                       label="$19.99 - Overnight"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios3"
-                      />
+                    />
                   </Form.Group>
                 </Form.Group>
               </Row>
-              
 
-              <Form.Group as={Col} controlId="formGridLastName">
+
+              {/* <Form.Group as={Col} controlId="formGridLastName">
               <Form.Label>Card Number</Form.Label>
               <Form.Control type="text" placeholder="1234 5678 8765 4321" />
               </Form.Group>
@@ -98,7 +114,11 @@ export default function PaymentScreen() {
                   type="checkbox"
                   label="Billing address same as Shipping?"
                   />
-              </Form.Group>
+              </Form.Group> */}
+              <CardElementContainer>
+              
+              </CardElementContainer>
+
             </Col>
 
             <Col className="aside-col-remove-padding">
@@ -113,14 +133,16 @@ export default function PaymentScreen() {
                   href="/order-confirmation"
                   variant="success"
                   type="submit"
-                  >
+                >
                   Place Order!
                 </Button>
               </aside>
             </Col>
           </Row>
         </Form>
+
       </Container>
+
     </>
   );
 }
