@@ -1,0 +1,13 @@
+.register-container {
+  margin-top: 4rem;
+    padding: 2rem;
+
+}
+
+
+
+@media (min-width: 1000px){
+    .register-container{
+        padding: 5rem 15rem;
+    }
+}

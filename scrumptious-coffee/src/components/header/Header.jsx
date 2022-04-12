@@ -30,6 +30,14 @@ export default function Header() {
               Cart
             </Link>
           </Nav>
+          <Link className="links dropdown-link hover" to="/login">
+            Login
+          </Link>
+
+          <Link className="links dropdown-link hover" to="/register">
+            Register
+          </Link>
+
           <Form className="d-flex search">
             <FormControl
               type="search"
