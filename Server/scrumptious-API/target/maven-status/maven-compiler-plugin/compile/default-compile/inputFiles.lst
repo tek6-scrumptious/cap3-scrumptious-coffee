@@ -1,0 +1,11 @@
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/services/AdminUserService.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/models/Product.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/ScrumptiousApplication.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/services/ProductService.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/repositories/ProductRepository.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/repositories/AdminUserRepository.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/controllers/ProductController.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/controllers/AdminUserController.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/models/AdminUser.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/models/LoginAdmin.java
+/Users/rami/Desktop/Server/scrumptious-API/src/main/java/com/scrumptious/scrumptious/repositories/PagingProductRepository.java
