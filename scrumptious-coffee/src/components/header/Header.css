@@ -7,8 +7,23 @@
   top: -1px;
 }
 
+.web-title {
+  font-size: 20px;
+}
+
 .header-container {
   margin-left: 15px;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  margin-left: 25px;
+}
+
+.links:hover {
+  color: green;
 }
 
 .search {
@@ -44,4 +59,7 @@
 
 .dropdown-link:active {
   background-color: green;
+}
+
+@media (min-width: 768px) {
 }

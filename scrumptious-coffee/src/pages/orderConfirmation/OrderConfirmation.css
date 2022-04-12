@@ -1,11 +1,14 @@
 .order-confirmation-item {
   align-items: center;
   display: grid;
-  font-size: .8rem;
-  grid-template-columns: .5fr 1fr .5fr;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
   grid-gap: 30px;
   justify-content: center;
   padding: .5rem 0;
+}
+
+.confirmation-container {
+  margin-top: 11px;
 }
 
 .delete-item-button {
@@ -13,23 +16,11 @@
   background-color: transparent;
   border: none;
   display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  justify-content: end;
-  margin-right: 10px;
+  justify-content: flex-end;
+  align-items: center;
   padding: 10px;
 }
 
-.order-confirmation-jumbotron {
-  margin-top: 3rem;
-}
-
-.order-confirmation-thumbnail {
-  max-width: 7rem;
-}
-
-
-/* Screens 1000px and up */
 @media (min-width: 1000px) {
   .order-confirmation-jumbotron {
     margin-top: 4rem;
@@ -42,5 +33,4 @@
   .order-confirmation-summary {
     margin-top: 1rem;
   }
-
 }

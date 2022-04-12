@@ -1,13 +1,15 @@
+import React from "react";
+
 // styles
 import { Link } from "react-router-dom";
 import "./Landing.css";
 
 export default function Landing() {
   return (
-    <div>
+    <div className="landing-container">
       {window.innerWidth <= 415 ? (
         <div>
-          <div className="image">
+          <div className="imageMobile">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}
@@ -21,8 +23,9 @@ export default function Landing() {
               alt="Two coffees with plants"
             />
           </div>
-        </div> ) : (
-          <div>
+        </div>
+      ) : (
+        <div>
           <div>
             <Link to="/products">
               <img

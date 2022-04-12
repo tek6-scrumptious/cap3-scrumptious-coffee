@@ -7,35 +7,38 @@
   margin-top: 4rem;
 }
 
-.weight-buttons {
-  display: flex;
-  justify-content: space-evenly;
-}
 
-.bean-type-button {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.whole-Bean-Button {
-  width: 158px;
-}
-
-.ground-Bean-Button {
-  width: 158px;
-}
-
-.lb-button {
-  width: 100px;
-}
 
 .qty-counter {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .qty-margin {
   margin-right: 5px;
+}
+
+.qty-counter {
+  display: flex;
+  width: 150px;
+  /* border: 1px solid black; */
+  height: 30px;
+}
+
+.count-amount {
+  width: 100%;
+  text-align: center;
+  height: 10px;
+  font-size: 20px;
+}
+
+.count-button {
+  border: 1px solid green;
+  width: 50%;
+}
+
+.count-button:hover {
+  background: green;
 }
 
 .product-detail-description {
