@@ -15,6 +15,8 @@ import AdminLogin from "./pages/adminLogin/AdminLogin";
 import ProtectedRoute1 from "./pages/adminLogin/ProtectedRoute1";
 import ProtectedRoute2 from "./pages/adminLogin/ProtectedRoute2";
 import ProtectedRoute3 from "./pages/adminLogin/ProtectedRoute3";
+import SearchResults from "./pages/searchResults/SearchResults";
+
 // styles
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -44,9 +46,10 @@ function App() {
           <Route path="/admin-new-product" element={<ProtectedRoute3 />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="/products/:id/" element={<ProductDetail />} />
+          <Route path="/search/:searchValue/" element={<SearchResults />} />
         </Routes>
 
-        <Footer className="footer-main"/>
+        <Footer className="footer-main" />
       </BrowserRouter>
     </div>
   );

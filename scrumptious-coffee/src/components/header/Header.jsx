@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // styles
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import "./Header.css";
+import Searchbar from "../searchbar/Searchbar";
 
 export default function Header() {
   return (
@@ -30,15 +31,7 @@ export default function Header() {
               Cart
             </Link>
           </Nav>
-          <Form className="d-flex search">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="success">Search</Button>
-          </Form>
+          <Searchbar />
         </Navbar.Collapse>
       </Navbar>
     </div>
