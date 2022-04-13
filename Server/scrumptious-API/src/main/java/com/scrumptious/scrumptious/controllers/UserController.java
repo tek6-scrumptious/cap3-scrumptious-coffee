@@ -24,7 +24,7 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/login")
     public User addUser(@RequestParam(value = "email") String email,
-                        @RequestParam(value = "password" )String password){
+                           @RequestParam(value = "password" )String password){
         User user = userService.login(email,password);
         return user;
     }
