@@ -18,11 +18,11 @@ export default function Landing()
                 alt="scrumptious logo"
               />
             </Link>
-            <img
+            {/* <img
               // src={process.env.PUBLIC_URL + "/images/landingPageMobile3.png"}
               className="imageMobile"
               alt="Two coffees with plants"
-            />
+            /> */}
           </div>
         </div>
       ) : (
@@ -35,11 +35,11 @@ export default function Landing()
                 alt="scrumptious logo"
               />
             </Link>
-            <img
+            {/* <img
               src={process.env.PUBLIC_URL + "/images/landingPage2.png"}
               className="image"
               alt="Two coffees with plants"
-            />
+            /> */}
           </div>
         </div>
       )}
