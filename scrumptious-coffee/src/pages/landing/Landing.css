@@ -5,9 +5,10 @@
 }
 
 .imageMobile {
-  width: 100%;
-  height: 100%;
-  margin-top: -6px;
+  background-image: url(/public/images/landingPageMobile3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
 }
 
 .logoMobile {
@@ -15,9 +16,10 @@
   height: 160px;
   border-radius: 50%;
   border: 2px burlywood solid;
-  margin-top: 39%;
-  margin-left: 30%;
   position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .logo {
@@ -33,6 +35,7 @@
 .shrink {
   transition: 1s ease;
 }
+
 .shrink:hover {
   -webkit-transform: scale(0.8);
   -ms-transform: scale(0.8);
