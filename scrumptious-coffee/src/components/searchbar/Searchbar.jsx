@@ -9,6 +9,11 @@ export default function Searchbar() {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+
   return (
     <div>
       <Form className="d-flex search">
@@ -17,7 +22,7 @@ export default function Searchbar() {
           placeholder="Search"
           className="me-2"
           aria-label="Search"
-          onChange={(e) => setSearchInput(e.target.value)}
+          onChange={handleSearch}
         />
         <Button
           variant="success"
