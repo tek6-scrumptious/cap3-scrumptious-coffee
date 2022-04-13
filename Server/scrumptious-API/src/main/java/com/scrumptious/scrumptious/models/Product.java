@@ -42,4 +42,14 @@ public class Product {
 
     public Product() {
     }
+
+    public Product(String name, String imageUrl, String description, Integer storeQuantity, Double pricePrePound, String roast, String location) {
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.storeQuantity = storeQuantity;
+        this.pricePrePound = pricePrePound;
+        this.roast = roast;
+        this.location = location;
+    }
 }
