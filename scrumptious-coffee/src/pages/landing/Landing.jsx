@@ -23,7 +23,7 @@ export default function Landing()
         </div>
       ) : (
         <div>
-          <div>
+          <div className="imageDesktop">
             <Link to="/products">
               <img
                 src={process.env.PUBLIC_URL + "/images/ScrumptiousLogo.png"}
@@ -31,11 +31,7 @@ export default function Landing()
                 alt="scrumptious logo"
               />
             </Link>
-            <img
-              src={process.env.PUBLIC_URL + "/images/landingPage2.png"}
-              className="image"
-              alt="Two coffees with plants"
-            />
+
           </div>
         </div>
       )}

@@ -42,3 +42,14 @@
   transform: scale(0.8);
   transition: 1s ease;
 }
+
+@media (min-width: 415px) {
+  .imageDesktop {
+    background-image: url(/public/images/landingPage2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+  }
+
+}
