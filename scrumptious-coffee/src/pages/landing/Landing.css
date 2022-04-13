@@ -1,55 +1,72 @@
-.image {
-  width: 100%;
-  margin-top: 53px;
-  height: 51rem;
-}
-
-.imageMobile {
-  background-image: url(/public/images/landingPageMobile3.png);
+.background-landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/public/images/landingPageMobile3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 80vh;
+  margin-top: 50px;
 }
 
-.logoMobile {
+.logo {
   width: 170px;
   height: 160px;
   border-radius: 50%;
   border: 2px burlywood solid;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
-.logo {
-  border-radius: 50%;
-  border: 2px #deb887 solid;
-  width: 480px;
-  height: 460px;
-  margin-top: 8%;
-  margin-left: 37.5%;
-  position: absolute;
+
+.logo-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
 }
 
-.shrink {
-  transition: 1s ease;
+@media (min-height: 700px) {
+  .background-landing {
+    height: 85vh;
+  }
 }
 
-.shrink:hover {
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
-  transition: 1s ease;
+@media (min-width: 520px) {
+  .logo {
+    border-radius: 50%;
+    border: 2px burlywood solid;
+    height: 12em;
+    width: 14em;
+  }
 }
 
-@media (min-width: 415px) {
-  .imageDesktop {
-    background-image: url(/public/images/landingPage2.png);
+@media (min-width: 1000px) {
+  .background-landing {
+    background-image: url(/public/images/landingPage2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+  }
+
+  .logo-container {
+    height: 50%;
+    width: 50%;
+    margin-bottom: 14em;
+  }
+
+  .logo {
+    border-radius: 50%;
+    border: 2px burlywood solid;
+    height: 20em;
+    width: 22em;
+  }
+
+  .logo:hover {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: 1s ease;
   }
 
 }
