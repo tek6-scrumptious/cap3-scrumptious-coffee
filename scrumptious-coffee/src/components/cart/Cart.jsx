@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React from "react";
+import {  Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addQty,
@@ -14,13 +14,9 @@ import { Col, Row, Alert, ListGroup, Button, Image } from "react-bootstrap";
 import { Trash } from "react-bootstrap-icons";
 
 export default function Cart() {
-  const { id } = useParams();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.inCart;
-
-  useEffect(() => {
-  }, [dispatch, id]);
 
   const removeItem = (id) => {
     dispatch(removeFromCart(id));

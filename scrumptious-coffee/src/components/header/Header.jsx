@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // styles
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl, Button, Badge } from "react-bootstrap";
 import "./Header.css";
+import { BsCart2 } from "react-icons/bs";
 
 export default function Header() {
+  const cartQty = useSelector((state) => state.cart);
+  const inCart = cartQty.inCart.length;
+
   return (
     <div className="header">
       <Navbar variant="dark" expand="lg" className="header-container">
@@ -23,12 +28,17 @@ export default function Header() {
               Products
             </Link>
 
-            <Link className="links dropdown-link hover" to="/about-us">
+            <Link className="links dropdown-link hover cart-nav" to="/about-us">
               About Us
             </Link>
-            <Link className="links dropdown-link hover" to="/cart">
-              Cart
-            </Link>
+            <div>
+              <Link className="links dropdown-link hover cart-nav" to="/cart">
+                <BsCart2 className="cart" />
+              </Link>
+              <Badge className="badge" bg="success">
+                {inCart}
+              </Badge>
+            </div>
           </Nav>
           <Form className="d-flex search">
             <FormControl
