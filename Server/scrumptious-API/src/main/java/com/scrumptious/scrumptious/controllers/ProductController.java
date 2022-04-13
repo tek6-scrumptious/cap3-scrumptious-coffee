@@ -5,13 +5,15 @@ import com.scrumptious.scrumptious.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/")
 public class ProductController {
 
     @Autowired
@@ -30,10 +32,15 @@ public class ProductController {
         return productService.getProductById(productId);
     }
 
+
     @CrossOrigin
-    @GetMapping(path = "/page")
-    public Page<Product> getProductPage(Pageable pageable){
-    return productService.getProductsPage(pageable);
+    @GetMapping(path = "/pages")
+    public ResponseEntity<List<Product>> getProductPage(@RequestParam(defaultValue = "0") Integer pageNum,
+                                            @RequestParam(defaultValue = "10") Integer pageSize,
+                                            @RequestParam(defaultValue = "name")String sortBy){
+
+        List<Product> productList = productService.getProductPage(pageNum,pageSize,sortBy);
+        return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 
     @CrossOrigin

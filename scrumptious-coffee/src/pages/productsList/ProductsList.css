@@ -8,8 +8,21 @@
   border-radius: 10px;
 }
 
+.link-product {
+  text-decoration: none;
+  color: black;
+}
+
+.link-product:hover {
+  color: green;
+}
+
 .products {
   margin-top: 70px;
+}
+
+.item-price {
+  font-size: 25px;
 }
 
 .products-image {

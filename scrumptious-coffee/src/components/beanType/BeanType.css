@@ -1,0 +1,30 @@
+.bean-type-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.whole-btn {
+  width: 158px;
+  margin-right: 10px;
+  border: 1px solid green;
+  color: green;
+  background: none;
+
+  border-radius: 10px;
+}
+
+.whole-btn:hover {
+  background: green;
+}
+
+.ground-btn {
+  width: 158px;
+  border-radius: 10px;
+  background: none;
+  color: green;
+  border: 1px solid green;
+}
+
+.ground-button {
+  background: green;
+}

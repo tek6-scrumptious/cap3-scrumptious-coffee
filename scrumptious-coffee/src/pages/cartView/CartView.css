@@ -1,5 +1,7 @@
-.structure {
+.cart-structure {
   margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .product-img {
@@ -12,16 +14,6 @@
 .total-col {
   width: 100px;
 }
-.qty-btn {
-  margin: 2px;
-  width: 28px;
-  height: 28px;
-  padding: 1px;
-}
-.name-color {
-  color: #006241;
-  font-weight: 500;
-}
 
 .checkout-box {
   background-color: #006241;
@@ -30,17 +22,19 @@
   padding: 10px;
   margin-top: -16px;
 }
-.checkout-btn {
-  margin: 10px;
-  background-color: #d8d9d7;
-}
+
 @media (min-width: 1000px) {
+  #cart-container {
+    width: 98%;
+  }
+
   .margin {
     margin: 20px;
     margin-bottom: 16px;
   }
-  .structure {
+  .cart-structure {
     display: flex;
+    height: 100%;
   }
   .qty-col {
     width: 110px;

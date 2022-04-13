@@ -28,8 +28,8 @@ public class AdminUserController {
     @CrossOrigin
     @PostMapping("/register")
     public AdminUser register(
-        @RequestParam(value="UserName") String username,
-        @RequestParam(value="Password") String password){
+        @RequestParam(value="username") String username,
+        @RequestParam(value="password") String password){
         AdminUser adminUser = new AdminUser(username,password );
         return adminUserService.register(adminUser);
     }
@@ -37,7 +37,7 @@ public class AdminUserController {
     @CrossOrigin
     @PostMapping("/login")
     public AdminUser login(
-            @RequestParam(value="UserName") String username,
+            @RequestParam(value="username") String username,
             @RequestParam(value="password") String password
           ){
         AdminUser adminUser = adminUserService.login(username, password);

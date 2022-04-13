@@ -1,0 +1,8 @@
+.weight-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lb-button {
+  width: 100px;
+}
