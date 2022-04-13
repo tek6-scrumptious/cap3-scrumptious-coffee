@@ -5,16 +5,18 @@ import { useSelector } from "react-redux";
 // styles
 import { Navbar, Nav, Form, FormControl, Button, Badge } from "react-bootstrap";
 import "./Header.css";
-import { BsCart2 } from "react-icons/bs";
+import { BsCart2, BsSearch } from "react-icons/bs";
 
 export default function Header() {
   const cartQty = useSelector((state) => state.cart);
   const inCart = cartQty.inCart;
-  let totalInCart = 0;
-  for (let i = 0; i < inCart.length; i++) {
-    totalInCart += inCart[i].qty;
-  }
-  console.log(totalInCart);
+  const badgeCounter = () => {
+    let totalInCart = 0;
+    for (let i = 0; i < inCart.length; i++) {
+      totalInCart += inCart[i].qty;
+    }
+    return totalInCart;
+  };
 
   return (
     <div className="header">
@@ -22,7 +24,11 @@ export default function Header() {
         <Link to="/" className="hover web-title">
           Scrumptious Coffee
         </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-items" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className="nav-items"
+          id="nav-links"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto dropdown-links">
             <Link className="links dropdown-link hover" to="/">
@@ -40,8 +46,8 @@ export default function Header() {
               <Link className="links dropdown-link hover cart-nav" to="/cart">
                 <BsCart2 className="cart" />
               </Link>
-              <Badge className="badge" bg="success">
-                {totalInCart}
+              <Badge className="badge" bg=''>
+                <p className="badge-counter">{badgeCounter()}</p>
               </Badge>
             </div>
           </Nav>
@@ -52,7 +58,9 @@ export default function Header() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="success">Search</Button>
+            <Button id="search-btn" variant="success">
+              {<BsSearch className="magnify" />}
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Navbar>
