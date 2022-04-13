@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Searchbar from "../searchbar/Searchbar";
 
 // styles
 import { Navbar, Nav, Form, FormControl, Button, Badge } from "react-bootstrap";
@@ -52,17 +53,7 @@ export default function Header() {
               </Badge>
             </div>
           </Nav>
-          <Form className="d-flex search">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button id="search-btn" variant="success">
-              {<BsSearch className="magnify" />}
-            </Button>
-          </Form>
+          <Searchbar />
         </Navbar.Collapse>
       </Navbar>
     </div>
