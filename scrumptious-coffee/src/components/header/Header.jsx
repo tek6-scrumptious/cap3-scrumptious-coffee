@@ -9,7 +9,12 @@ import { BsCart2 } from "react-icons/bs";
 
 export default function Header() {
   const cartQty = useSelector((state) => state.cart);
-  const inCart = cartQty.inCart.length;
+  const inCart = cartQty.inCart;
+  let totalInCart = 0;
+  for (let i = 0; i < inCart.length; i++) {
+    totalInCart += inCart[i].qty;
+  }
+  console.log(totalInCart);
 
   return (
     <div className="header">
@@ -36,7 +41,7 @@ export default function Header() {
                 <BsCart2 className="cart" />
               </Link>
               <Badge className="badge" bg="success">
-                {inCart}
+                {totalInCart}
               </Badge>
             </div>
           </Nav>
