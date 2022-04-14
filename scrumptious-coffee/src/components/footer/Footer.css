@@ -2,7 +2,6 @@
   background-color: #a68965;
   color: white;
   font-size: 0.75rem;
-  height: 90px;
 }
 
 .footer-links {
@@ -42,6 +41,5 @@
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
   }
 }
