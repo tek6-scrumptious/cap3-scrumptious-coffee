@@ -6,19 +6,25 @@ import "./Searchbar.css";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 
-export default function Searchbar() {
+export default function Searchbar()
+{
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
-
+  function keyDown(e)
+  {
+    if (e.key === 'Enter') {
+      navigate(`/search/${searchInput}`)
+    }
+  }
   return (
     <div>
-      <Form className="d-flex search">
+      <div className="d-flex search">
         <FormControl
-          type="search"
           placeholder="Search"
           className="me-2"
           aria-label="Search"
           onChange={(e) => setSearchInput(e.target.value)}
+          onKeyDown={(e) => keyDown(e)}
         />
         <Button
           variant="success"
@@ -26,7 +32,7 @@ export default function Searchbar() {
         >
           <div>{<BsSearch className="magnify" />}</div>
         </Button>
-      </Form>
+      </div>
     </div>
   );
 }

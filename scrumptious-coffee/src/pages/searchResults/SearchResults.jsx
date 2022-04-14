@@ -5,11 +5,13 @@ import { useSelector } from "react-redux";
 // styles
 import "./SearchResults.css";
 
-export default function SearchResults() {
+export default function SearchResults()
+{
   const { searchValue } = useParams();
   const productList = useSelector((state) => state.productList || {});
 
-  const filterProducts = productList.products.filter((item) => {
+  const filterProducts = productList.products.filter((item) =>
+  {
     if (searchValue === "") {
       return item;
     } else {
@@ -24,6 +26,11 @@ export default function SearchResults() {
   return (
     <div>
       <div className="products">
+        {filterProducts.length === 0 && (
+          <div className="not-found-container">
+            <h1 className="not-found-h1">{`Sorry we could not find anything for "${searchValue}".`}</h1>
+          </div>
+        )}
         {filterProducts.map((item) => (
           <Card className="item-card" key={item.id}>
             <Card.Body>
