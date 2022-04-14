@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // styles
 import "./Searchbar.css";
 import { Form, FormControl, Button } from "react-bootstrap";
+import { BsSearch } from "react-icons/bs";
 
 export default function Searchbar() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export default function Searchbar() {
           variant="success"
           onClick={() => navigate(`/search/${searchInput}`)}
         >
-          Search
+          <div>{<BsSearch className="magnify" />}</div>
         </Button>
       </Form>
     </div>

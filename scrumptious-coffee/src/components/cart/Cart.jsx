@@ -28,7 +28,7 @@ export default function Cart() {
         <h2 id="my-cart">My Cart</h2>
         <Col md={8}>
           {cartItems.length === 0 ? (
-            <Alert variant="danger">
+            <Alert variant="danger" id="cart-alert">
               Cart is empty. <Link to="/products">Go Back</Link>
             </Alert>
           ) : (
