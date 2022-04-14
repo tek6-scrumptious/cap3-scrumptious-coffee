@@ -30,7 +30,7 @@ public class OrderController {
 
     @CrossOrigin
     @PostMapping()
-    public void addOrder(Order order){
+    public void addOrder(@RequestBody Order order){
         orderService.addOrder(order);
     }
 
