@@ -10,7 +10,7 @@ const AdminAddProduct = () => {
   const [Price, setPrice] = useState(0);
   const [Quantity, setQuantity] = useState(0);
   const [Description, setDescription] = useState("");
-  const [ImageUrl, setImageUrl] = useState("");
+  const [ImageUrl, setImageUrl] = useState("https://i.imgur.com/EvWbWGG.jpg");
 
   return (
     <div>
@@ -56,16 +56,6 @@ const AdminAddProduct = () => {
                   id="productDescription"
                   type="text"
                   onChange={(e) => setDescription(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-2" as={Row}>
-                <Form.Label>Image URL</Form.Label>
-                <Form.Control
-                  className="productInput"
-                  id="productURL"
-                  type="text"
-                  onChange={(e) => setImageUrl(e.target.value)}
                 />
               </Form.Group>
             </Form>

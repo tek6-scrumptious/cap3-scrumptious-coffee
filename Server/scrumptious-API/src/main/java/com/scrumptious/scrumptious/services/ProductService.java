@@ -22,6 +22,7 @@ public class ProductService {
     @Autowired
     private final PagingProductRepository PagingProductRepository;
 
+
     public ProductService(ProductRepository productRepository, com.scrumptious.scrumptious.repositories.PagingProductRepository pagingProductRepository) {
         this.productRepository = productRepository;
         PagingProductRepository = pagingProductRepository;
