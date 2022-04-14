@@ -5,6 +5,8 @@ import "./OrderConfirmation.css";
 import { Image, CardGroup, Card } from "react-bootstrap";
 
 export default function OrderConfirmation() {
+  const orders = JSON.stringify(localStorage.getItem("order"));
+  console.log(orders);
   return (
     <div className="confirmation-container">
       <div className="p-5 text-center bg-light">
