@@ -22,7 +22,8 @@ import SearchResults from "./pages/searchResults/SearchResults";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+function App()
+{
   return (
     <div className="App">
       <BrowserRouter>
@@ -48,6 +49,7 @@ function App() {
           <Route path="/products/:id/" element={<ProductDetail />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/search/:searchValue/" element={<SearchResults />} />
+          <Route path="/search/" element={<ProductsList />} />
         </Routes>
 
         <Footer className="footer-main" />
