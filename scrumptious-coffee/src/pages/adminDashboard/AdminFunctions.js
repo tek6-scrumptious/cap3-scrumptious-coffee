@@ -30,6 +30,8 @@ export const formValidation = (
       description: description,
       storeQuantity: quantity,
       pricePrePound: price,
+      roast: "fff",
+      location: "fff",
     };
     addNewProduct(jsonData);
   }
