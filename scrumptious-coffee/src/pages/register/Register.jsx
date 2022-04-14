@@ -11,17 +11,27 @@ export default function Register() {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
-    console.log("Email: " + email);
-    console.log("Password: " + password);
 
     // Make post request
-    const url = "";
+    const url =
+      "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/user/register";
     axios
-      .post(url, {
-        email,
-        password,
+      .post(
+        url,
+        {},
+        {
+          params: {
+            email,
+            password,
+          },
+        }
+      )
+      .then((response) => {
+        const userId = response.data.id;
+        window.localStorage.setItem("userId", userId);
+        navigate("/");
+        window.location.reload(false);
       })
-      .then((response) => navigate("/"))
       .catch((error) => console.log(error));
   }
   return (
@@ -36,10 +46,7 @@ export default function Register() {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group
-          className="mb-3"
-          controlId="formBasicPassword"
-        >
+        <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>

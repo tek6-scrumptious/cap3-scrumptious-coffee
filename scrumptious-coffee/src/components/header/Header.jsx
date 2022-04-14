@@ -29,14 +29,20 @@ export default function Header() {
             <Link className="links dropdown-link hover" to="/cart">
               Cart
             </Link>
-          </Nav>
-          <Link className="links dropdown-link hover" to="/login">
-            Login
-          </Link>
+            {!window.localStorage.getItem("userId") ? (
+              <>
+                <Link className="links dropdown-link hover" to="/login">
+                  Login
+                </Link>
 
-          <Link className="links dropdown-link hover" to="/register">
-            Register
-          </Link>
+                <Link className="links dropdown-link hover" to="/register">
+                  Register
+                </Link>
+              </>
+            ) : (
+              <></>
+            )}
+          </Nav>
 
           <Form className="d-flex search">
             <FormControl
