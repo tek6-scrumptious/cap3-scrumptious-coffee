@@ -1,6 +1,7 @@
 // imports & Components
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
+import StripePaymentForm from "../../pages/paymentScreen/StripePaymentForm";
 
 // styles
 import { Card, Button } from "react-bootstrap";
@@ -39,12 +40,15 @@ export default function Subtotal() {
       <Card.Body>
         <Card.Title id="subtotal-title">Total</Card.Title>
         <div id="subtotal-content">
-          <Card.Text className="subtotal total-num">Sub Total: ${subTotal}</Card.Text>
+          <Card.Text className="subtotal total-num">
+            Sub Total: ${subTotal}
+          </Card.Text>
           <Card.Text className="tax total-num">Tax: ${tax}</Card.Text>
           <Card.Text className="grand-total total-num">
             <strong>Grand Total:</strong> ${grandTotal}
           </Card.Text>
-          <Button id="checkout-btn">Checkout</Button>
+          {/* <Button id="checkout-btn">Checkout</Button> */}
+          <StripePaymentForm />
         </div>
       </Card.Body>
     </Card>

@@ -7,8 +7,8 @@ const StripePaymentForm = () => {
 
   const navigate = useNavigate();
   function handleToken(token, shipping) {
-    const url = "http://localhost:8080/create-payment-intent";
-    // console.log(token);
+    const url =
+      "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/create-payment-intent";
     axios
       .post(url, {
         token: token.id,
