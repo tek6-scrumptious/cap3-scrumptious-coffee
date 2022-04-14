@@ -8,7 +8,6 @@ import { Navbar, Nav, Form, FormControl, Button, Badge } from "react-bootstrap";
 import "./Header.css";
 import { BsCart2, BsSearch } from "react-icons/bs";
 
-
 export default function Header() {
   const cartQty = useSelector((state) => state.cart);
   const inCart = cartQty.inCart;
@@ -48,10 +47,23 @@ export default function Header() {
               <Link className="links dropdown-link hover cart-nav" to="/cart">
                 <BsCart2 className="cart" />
               </Link>
-              <Badge className="badge" bg=''>
+              <Badge className="badge" bg="">
                 <p className="badge-counter">{badgeCounter()}</p>
               </Badge>
             </div>
+            {!window.localStorage.getItem("userId") ? (
+              <>
+                <Link className="links dropdown-link hover" to="/login">
+                  Login
+                </Link>
+
+                <Link className="links dropdown-link hover" to="/register">
+                  Register
+                </Link>
+              </>
+            ) : (
+              <></>
+            )}
           </Nav>
           <Searchbar />
         </Navbar.Collapse>
