@@ -28,12 +28,6 @@ export default function Header() {
             <Link className="links dropdown-link hover" to="/cart">
               Cart
             </Link>
-            <Link
-              className="links dropdown-link hover"
-              to="/supersecretsquirreladminpage"
-            >
-              Admin
-            </Link>
           </Nav>
           <Form className="d-flex search">
             <FormControl
