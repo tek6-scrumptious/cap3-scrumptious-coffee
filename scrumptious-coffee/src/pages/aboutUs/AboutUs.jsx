@@ -44,28 +44,20 @@ export default function AboutUs() {
           <h3 className="about-us-margin-top">Our Team:</h3>
           <hr />
           <div className="about-us-cards-container">
-            <div className="personal-card-left">
-              <PersonalCard
-                title="Jon Kol (Coffee Master)"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
-                other="about-us-cards-container-left about-us-grid-left"
-                imageUrl
-              />
-            </div>
             <div className="personal-card-right">
               <PersonalCard
                 title="Alan Sobenes"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body=""
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
-                imageUrl
+                imageUrl="alan"
               />
             </div>
             <div className="personal-card-left">
               <PersonalCard
                 title="Dinah Brito"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body="I’ve been wanting to change careers since 2016. Programming was always an interest, but it wasn’t until Covid hit that I had the time to actually learn more about it. After taking a class on HTML and CSS, I realized that this was something I enjoyed. I spent a lot of time trying to teach myself how to code, but realized that I learned faster with structure and some guidance. Teksystems bootcamp provided the learning environment to help focus on the skills and languages I would need to become a software developer. While there is still a lot to learn, this bootcamp has given me a good foundation to work with."
                 other="about-us-cards-container-left"
                 imageUrl="dinah"
               />
@@ -73,7 +65,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Jonothan Castillo"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body=""
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
@@ -83,7 +75,7 @@ export default function AboutUs() {
             <div className="personal-card-left">
               <PersonalCard
                 title="Joseph Capocci"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body=""
                 other="about-us-cards-container-left"
                 imageUrl="joey"
               />
@@ -91,7 +83,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Michael Rivera"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body="The TekSystems Bootcamp was an incredible opportunity that I feel so grateful to have been a part of. I am so proud not only of my own progress but of everyone who attended the cohort. My team was fantastic and I really enjoyed the process of building capstone 3 as a group."
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
@@ -101,7 +93,7 @@ export default function AboutUs() {
             <div className="personal-card-left">
               <PersonalCard
                 title="Rami Aboomar"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body="In early 2021 my interest in web development started. That's when I began self-studying and looking for the right boot camp to attend that would guide me and allow me to grow. In late 2021 I found out about TEKsystems boot camp. After three months with TEK systems, my experience has been fantastic; I'm now able to build a full-stack application and better understand what web development is. My journey has been up and down during those three months, but I've met many amazing people and grown as a developer."
                 other="about-us-cards-container-left"
                 imageUrl="rami"
               />
@@ -109,11 +101,19 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Waleed Saleh"
-                body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra mauris. Rhoncus est pellentesque elit ullamcorper."
+                body=""
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
-                imageUrl
+                imageUrl="waleed"
+              />
+            </div>
+            <div className="personal-card-left">
+              <PersonalCard
+                title="Jon Kol (Coffee Master)"
+                body=""
+                other="about-us-cards-container-left about-us-grid-left"
+                imageUrl="jon"
               />
             </div>
           </div>
