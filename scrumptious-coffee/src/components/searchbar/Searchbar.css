@@ -1,0 +1,11 @@
+.magnify {
+  height: 30px;
+  width: 20px;
+}
+
+@media (min-width: 768px) {
+  .magnify {
+    height: 30px;
+    width: 20px;
+  }
+}

@@ -50,8 +50,9 @@ function App() {
           <Route path="/products/:id/" element={<ProductDetail />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/search/:searchValue/" element={<SearchResults />} />
+          <Route path="/search/" element={<ProductsList />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />}/>
+          <Route path="/register" element={<Register />} />
         </Routes>
 
         <Footer className="footer-main" />

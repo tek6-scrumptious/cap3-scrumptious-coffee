@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import Searchbar from "../searchbar/Searchbar";
 
 // styles
-import { Navbar, Nav, Form, FormControl, Button, Badge } from "react-bootstrap";
+import { Navbar, Nav, Badge } from "react-bootstrap";
 import "./Header.css";
-import { BsCart2, BsSearch } from "react-icons/bs";
+import { BsCart2 } from "react-icons/bs";
 
 export default function Header() {
   const cartQty = useSelector((state) => state.cart);
