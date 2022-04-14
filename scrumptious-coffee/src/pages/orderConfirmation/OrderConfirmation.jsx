@@ -1,16 +1,25 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // styles
 import "./OrderConfirmation.css";
-import { Image, CardGroup, Card, ListGroup, Row, Col } from "react-bootstrap";
+import {
+  Image,
+  CardGroup,
+  Card,
+  ListGroup,
+  Row,
+  Col,
+  Alert,
+} from "react-bootstrap";
 
 export default function OrderConfirmation() {
   const orders = JSON.parse(localStorage.getItem("order"));
-
+  const location = useLocation();
   const [subTotal, setSubTotal] = useState(0);
   const [tax, setTax] = useState(0);
+  console.log(location);
 
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.inCart;
@@ -34,20 +43,23 @@ export default function OrderConfirmation() {
     setTax(addTax.toFixed(2));
   }, [subTotal]);
 
+  console.log(location.pathname);
+
   useEffect(() => {
     subTotalMethod();
     taxMethod();
+
     window.onunload = () => {
       localStorage.removeItem("cartItems");
       localStorage.removeItem("order");
     };
-  }, [subTotalMethod, taxMethod]);
+  }, [subTotalMethod, taxMethod, location]);
 
   return (
     <>
       {!window.localStorage.getItem("order") ? (
         <div className="order-confirmation-jumbotron">
-          <h1>No order has been made</h1>
+          <Alert variant="danger">No order has been made</Alert>
         </div>
       ) : (
         <div className="confirmation-container">
