@@ -7,6 +7,8 @@ export const formValidation = (
   quantity,
   description,
   imageUrl,
+  roast,
+  location,
   inputs
 ) => {
   let flag = 5;
@@ -30,8 +32,8 @@ export const formValidation = (
       description: description,
       storeQuantity: quantity,
       pricePrePound: price,
-      roast: "fff",
-      location: "fff",
+      roast: roast,
+      location: location,
     };
     addNewProduct(jsonData);
   }
