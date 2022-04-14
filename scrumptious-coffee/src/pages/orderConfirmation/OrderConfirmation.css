@@ -4,7 +4,12 @@
   grid-template-columns: 0.5fr 1fr 0.5fr;
   grid-gap: 30px;
   justify-content: center;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
+}
+
+.order-confirmation-scrollable-div {
+  overflow-y: scroll;
+  height: 275px;
 }
 
 .confirmation-container {

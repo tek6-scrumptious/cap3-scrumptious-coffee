@@ -1,5 +1,5 @@
 import React from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addQty,
@@ -29,10 +29,10 @@ export default function Cart() {
         <Col md={8}>
           {cartItems.length === 0 ? (
             <Alert variant="danger">
-              Cart is Empty. <Link to="/">Go Back</Link>
+              Cart is empty. <Link to="/products">Go Back</Link>
             </Alert>
           ) : (
-            <ListGroup variant="flush">
+            <ListGroup variant="flush" className="cart-scrollable-div">
               {cartItems.map((item) => (
                 <ListGroup.Item key={item.id}>
                   <Row>
@@ -46,20 +46,12 @@ export default function Cart() {
                         />
                       </Link>
                     </Col>
-                    <Col
-                      md={2}
-                      id="cart-name"
-                      style={{ textAlign: "center" }}
-                    >
+                    <Col md={2} id="cart-name" style={{ textAlign: "center" }}>
                       <Link to={`/products/${item.id}`} id="item-name">
                         {item.name}
                       </Link>
                     </Col>
-                    <Col
-                      md={2}
-                      id="cart-price"
-                      style={{ textAlign: "center" }}
-                    >
+                    <Col md={2} id="cart-price" style={{ textAlign: "center" }}>
                       ${parseFloat(item.pricePrePound).toFixed(2)}
                     </Col>
                     {/* Testing cart quantities */}
@@ -108,4 +100,3 @@ export default function Cart() {
     </div>
   );
 }
-

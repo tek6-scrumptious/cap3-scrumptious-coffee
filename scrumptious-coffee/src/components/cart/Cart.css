@@ -67,13 +67,18 @@
 #cart-qty {
   margin-right: 20px;
   margin-left: 20px;
-  font-size: 25px
+  font-size: 25px;
 }
 
 @media (min-width: 1000px) {
   #cart-container {
     width: 100%;
     height: 100%;
+  }
+
+  .cart-scrollable-div {
+    overflow-y: scroll;
+    height: 600px;
   }
 
   #cart-content {

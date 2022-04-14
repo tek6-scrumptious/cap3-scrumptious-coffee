@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import StripePaymentForm from "../../pages/paymentScreen/StripePaymentForm";
 
 // styles
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./Subtotal.css";
 
 export default function Subtotal() {
@@ -47,8 +47,7 @@ export default function Subtotal() {
           <Card.Text className="grand-total total-num">
             <strong>Grand Total:</strong> ${grandTotal}
           </Card.Text>
-          {/* <Button id="checkout-btn">Checkout</Button> */}
-          <StripePaymentForm />
+          <StripePaymentForm amount={grandTotal} />
         </div>
       </Card.Body>
     </Card>
