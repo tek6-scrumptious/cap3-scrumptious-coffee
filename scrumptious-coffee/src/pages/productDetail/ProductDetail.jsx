@@ -2,17 +2,18 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../components/loader/Loader";
-import { listProductDetails } from "../../redux/actions/productActions";
-import Error from "../Error/Error";
-import { addToCart } from "../../redux/actions/cartActions";
 import { productAdd, productSub } from "../../redux/actions/productActions";
-import BeanType from "../../components/beanType/BeanType";
+import { listProductDetails } from "../../redux/actions/productActions";
+import { addToCart } from "../../redux/actions/cartActions";
+
+// components
+import Loader from "../../components/loader/Loader";
+import Error from "../Error/Error";
 
 //styles
 import { Card, Row, Col, ListGroup, Button } from "react-bootstrap";
+import { BsCart2 } from "react-icons/bs";
 import "./ProductDetail.css";
-import PoundPrice from "../../components/poundPrice/PoundPrice";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -66,32 +67,48 @@ export default function ProductDetail() {
                 <Card.Title className="product-Detail-Title">
                   {product.name}
                 </Card.Title>
-                <PoundPrice />
+                <div className="product-description">
+                  <Card.Title>Description</Card.Title>
+                  <Card.Text>{product.description}</Card.Text>
+                </div>
                 <br />
-                <BeanType />
+                <div id="roast-location">
+                  <div>
+                    <Card.Title>Roast:</Card.Title>
+                    <Card.Text>{product.roast}</Card.Text>
+                  </div>
+                  <div>
+                    <Card.Title>Location:</Card.Title>
+                    <Card.Text>{product.location}</Card.Text>
+                  </div>
+                </div>
                 <br />
                 <div>
                   {product.storeQuantity > 0 ? (
-                    <ListGroup.Item>
+                    <ListGroup.Item id="listgroup-border">
                       <Row>
                         <Col xs="auto" className="my-1">
-                          <Card.Text>Quantity:</Card.Text>
-                          <div className="qty-counter">
-                            <Button
-                              onClick={() => buyLess(product.id)}
-                              variant=""
-                              className="btn-sm qty-margin count-button"
-                            >
-                              -
-                            </Button>
-                            <p className="count-amount">{product.qty}</p>
-                            <Button
-                              onClick={() => addMore(product.id)}
-                              variant=""
-                              className="btn-sm count-button"
-                            >
-                              +
-                            </Button>
+                          <div id="qty-container">
+                            <Card.Text id="qty-title">Quantity:</Card.Text>
+                            <div className="qty-counter">
+                              <Button
+                                onClick={() => buyLess(product.id)}
+                                variant=""
+                                className="btn-sm qty-margin"
+                                id="product-desc"
+                              >
+                                -
+                              </Button>
+                              <p className="count-amount">{product.qty}</p>
+                              <Button
+                                onClick={() => addMore(product.id)}
+                                variant=""
+                                className="btn-sm"
+                                id="product-asc"
+                              >
+                                +
+                              </Button>
+                            </div>
                           </div>
                         </Col>
                       </Row>
@@ -101,27 +118,17 @@ export default function ProductDetail() {
                   )}
                 </div>
                 <br />
-                <div className="d-grid gap-2">
+                <div className="product-add-container">
                   <Button
-                    variant="success"
+                    variant=""
                     size="lg"
+                    id="product-add-cart"
                     onClick={() => addToCartHandler(id)}
                   >
-                    Add to cart
+                    <div className='cart-icon'>{<BsCart2 />}</div> <div className='add-text'>Add to cart</div>
                   </Button>
                 </div>
               </Card.Body>
-            </Card>
-          </div>
-
-          <br />
-
-          <div className="product-detail-description-wrapper">
-            <Card style={{ width: "100%" }} className="product-detail-card">
-              <div className="product-detail-description">
-                <Card.Title>Description</Card.Title>
-                <Card.Text>{product.description}</Card.Text>
-              </div>
             </Card>
           </div>
         </div>

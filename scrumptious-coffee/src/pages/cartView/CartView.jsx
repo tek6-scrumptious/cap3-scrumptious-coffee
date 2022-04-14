@@ -4,6 +4,7 @@ import Cart from "../../components/cart/Cart";
 
 // styles
 import "./CartView.css";
+import StripePaymentForm from "../paymentScreen/StripePaymentForm";
 
 export default function CartView() {
   return (

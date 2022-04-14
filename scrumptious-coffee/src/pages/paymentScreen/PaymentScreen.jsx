@@ -56,7 +56,7 @@ export default function PaymentScreen() {
                       label="$5.99 - Standard"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios1"
-                    />
+                      />
                   </Form.Group>
                   <Form.Group as={Col}>
                     <Form.Check
@@ -64,7 +64,7 @@ export default function PaymentScreen() {
                       label="$9.99 - Express"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios2"
-                    />
+                      />
                   </Form.Group>
                   <Form.Group as={Col}>
                     <Form.Check
@@ -72,31 +72,32 @@ export default function PaymentScreen() {
                       label="$19.99 - Overnight"
                       name="formHorizontalRadios"
                       id="formHorizontalRadios3"
-                    />
+                      />
                   </Form.Group>
                 </Form.Group>
               </Row>
+              
 
               <Form.Group as={Col} controlId="formGridLastName">
-                <Form.Label>Card Number</Form.Label>
-                <Form.Control type="text" placeholder="1234 5678 8765 4321" />
+              <Form.Label>Card Number</Form.Label>
+              <Form.Control type="text" placeholder="1234 5678 8765 4321" />
               </Form.Group>
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridLastName">
-                  <Form.Label>Expiration Date</Form.Label>
-                  <Form.Control type="date" placeholder="Expiration Date" />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridLastName">
-                  <Form.Label>CVC</Form.Label>
-                  <Form.Control type="text" placeholder="123" />
-                </Form.Group>
-              </Row>
+              <Form.Group as={Col} controlId="formGridLastName">
+              <Form.Label>Expiration Date</Form.Label>
+              <Form.Control type="date" placeholder="Expiration Date" />
+              </Form.Group>
+              
+              <Form.Group as={Col} controlId="formGridLastName">
+              <Form.Label>CVC</Form.Label>
+              <Form.Control type="text" placeholder="123" />
+              </Form.Group>
+            </Row>
               <Form.Group className="mb-3" id="formGridCheckbox">
                 <Form.Check
                   type="checkbox"
                   label="Billing address same as Shipping?"
-                />
+                  />
               </Form.Group>
             </Col>
 
@@ -112,7 +113,7 @@ export default function PaymentScreen() {
                   href="/order-confirmation"
                   variant="success"
                   type="submit"
-                >
+                  >
                   Place Order!
                 </Button>
               </aside>

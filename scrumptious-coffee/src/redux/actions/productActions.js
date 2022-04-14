@@ -57,6 +57,8 @@ export const listProductDetails = (id) => async (dispatch, getState) => {
       description: data.description,
       storeQuantity: data.storeQuantity,
       pricePrePound: data.pricePrePound,
+      roast: data.roast,
+      location: data.location,
       qty: data.qty ? data.qty : 1,
     };
 

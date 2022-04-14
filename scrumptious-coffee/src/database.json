@@ -3,7 +3,8 @@
     {
       "id": 1,
       "name": "Hawaiin Kona Coffee",
-      "category": ["Medium"],
+      "roast": "Medium",
+      "location": "Hawaii",
       "bean": "Whole",
       "price": 12.99,
       "storeQuanity": 12,
@@ -13,7 +14,8 @@
     {
       "id": 2,
       "name": "Mocha Java Coffee",
-      "category": ["Blend"],
+      "roast": "Blend",
+      "location": "Indonesia",
       "bean": "Blend",
       "price": 12.77,
       "storeQuanity": 15,
@@ -23,7 +25,8 @@
     {
       "id": 3,
       "name": "Kenya AA Coffee",
-      "category": ["Medium"],
+      "roast": "Medium",
+      "location": "Africa",
       "bean": "Whole",
       "price": 13.33,
       "storeQuanity": 15,
@@ -33,7 +36,8 @@
     {
       "id": 4,
       "name": "Tanzania Peaberry Coffee",
-      "category": ["Medium"],
+      "roast": "Medium",
+      "location": "Africa",
       "bean": "Grounded",
       "price": 11.7,
       "storeQuanity": 12,
@@ -43,7 +47,8 @@
     {
       "id": 5,
       "name": "Nicaraguan Coffee",
-      "category": ["Dark"],
+      "roast": "Dark",
+      "location": "South America",
       "bean": "Whole",
       "price": 21.35,
       "storeQuanity": 12,
@@ -53,7 +58,8 @@
     {
       "id": 6,
       "name": "Sumatra Mandheling Beans",
-      "category": ["Dark"],
+      "roast": "Dark",
+      "location": "Indonesia",
       "bean": "Whole",
       "price": 14.56,
       "storeQuanity": 8,
@@ -63,7 +69,8 @@
     {
       "id": 7,
       "name": "Sulawesi Toraja Coffee",
-      "category": ["Dark"],
+      "roast": "Dark",
+      "location": "Africa",
       "bean": "Grounded or Whole",
       "price": 15.71,
       "storeQuanity": 20,
@@ -73,7 +80,8 @@
     {
       "id": 8,
       "name": "Ethiopian Harrar Coffee",
-      "category": ["Light"],
+      "roast": "Light",
+      "location": "africa",
       "bean": "Whole",
       "price": 13.04,
       "storeQuanity": 15,
@@ -83,7 +91,8 @@
     {
       "id": 9,
       "name": "Ethiopian Yirgacheffe Coffee",
-      "category": ["Dark"],
+      "roast": "Dark",
+      "location": "africa",
       "bean": "Whole",
       "price": 16.46,
       "storeQuanity": 15,
@@ -93,7 +102,8 @@
     {
       "id": 10,
       "name": "Guatemala Antigua Coffee",
-      "category": ["Dark"],
+      "roast": "Dark",
+      "location": "South America",
       "bean": "Whole",
       "price": 13.56,
       "storeQuanity": 10,

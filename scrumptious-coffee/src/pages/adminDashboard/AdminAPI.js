@@ -6,7 +6,7 @@ export const deleteProduct = async (productId) => {
       `http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/delete/${productId}`
     );
   } catch (error) {
-    console.log(error);
+    alert(error.message);
   }
 };
 
@@ -16,7 +16,9 @@ export const addNewProduct = async (jsonData) => {
       "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/add",
       jsonData
     );
-  } catch (error) {}
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 export const getProductById = async (productId) => {
@@ -26,7 +28,7 @@ export const getProductById = async (productId) => {
     );
     return responseData;
   } catch (error) {
-    console.log(error);
+    alert(error.message);
   }
 };
 
@@ -52,7 +54,9 @@ export const updateProduct = async (
         },
       }
     );
-  } catch {}
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 export const getAllData = async () => {
@@ -60,8 +64,7 @@ export const getAllData = async () => {
     return await axios.get(
       "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/"
     );
-  } catch (err) {
-    console.log("error");
-    console.log(err);
+  } catch (error) {
+    alert(error.message);
   }
 };
