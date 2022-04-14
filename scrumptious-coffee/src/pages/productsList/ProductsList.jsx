@@ -14,7 +14,6 @@ export default function ProductsList() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList || {});
   const { error, loading, products } = productList;
-  console.log(products);
 
   useEffect(() => {
     dispatch(listProducts());
