@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // styles
@@ -13,20 +15,16 @@ export default function Footer() {
               Est: 2/28/2022
             </Nav>
             <Nav>
-              <Link className="footer-links" to="/aboutus">
+              <Link className="footer-links hover" to="/about-us">
                 About Us
               </Link>
             </Nav>
             <Nav>
-              <Link className="footer-links" to="/return_policy">
-                Return Policy
+              <Link className="footer-links hover" to="/faq">
+                FAQ
               </Link>
             </Nav>
-            <Nav>
-              <Link className="footer-links" to="/return_policy">
-                Return Policy
-              </Link>
-            </Nav>
+            <Nav>© Scrumptious 2022</Nav>
           </Nav>
         </div>
       </Container>

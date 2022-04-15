@@ -1,0 +1,41 @@
+.aside-container {
+  float: left;
+  height: 100vh;
+  margin-top: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+  display: none;
+}
+
+.sidebar-categories {
+  margin-bottom: 1rem;
+}
+
+.sidebar-categories input {
+  margin-right: 5px;
+}
+
+.category-title {
+  font-weight: 700;
+}
+
+@media (min-width: 400px) {
+
+  .aside-container,
+  .roast {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-card {
+    padding: 1.9rem;
+    background-color: #fefefe;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+  }
+
+  .sidebar-title {
+    margin-bottom: -1rem;
+    font-weight: 700;
+  }
+}
