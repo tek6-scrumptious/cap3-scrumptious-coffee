@@ -47,7 +47,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Alan Sobenes"
-                body=""
+                body="Ut chicory CRUD redeye foam redeye CRUD aroma to go sit java. Lungo, as dark, flavour, skinny qui macchiato, lungo cream aftertaste milk aroma. Crema aftertaste strong to go macchiato crema CRUD chicory. Sit, aroma, id, organic as aromatic variety CRUD affogato. Aged, eu, pumpkin spice fair CRUD trade aged coffee whipped galão."
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
