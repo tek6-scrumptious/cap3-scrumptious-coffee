@@ -65,7 +65,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Jonothan Castillo"
-                body=""
+                body="Hello, I am Jonothan Castillo, when I started this boot camp I had zero experience with react, MySQL, and Springboot. I learned a lot in a short time thanks to this boot camp. And I got to learn about the planning that happens behind these projects and got experiences that will help me in the future."
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
@@ -75,7 +75,7 @@ export default function AboutUs() {
             <div className="personal-card-left">
               <PersonalCard
                 title="Joseph Capocci"
-                body=""
+                body="My experience over the last 3 months with the camp has been incredible. I have learned many new programming techniques and tools, such as Java. The course has truly grown my development skills, before this bootcamp I could not imagine building a website like this one here. But through an amazing team and well-taught courses, we were able to achieve it. I can't thank my team enough for all of the cooperation throughout the bootcamp and especially on capstone 3, I knew team scrumptious was the best from the beginning!"
                 other="about-us-cards-container-left"
                 imageUrl="joey"
               />
@@ -101,7 +101,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Waleed Saleh"
-                body=""
+                body="My journey started way before entering TekSystems. It all first started at CodeCademy and then working through a year of Kenzie Academy to achieve a Full Stack Certificate. Once I had entered into TekSystems I was taught a few new tricks in frontend development and also gained a new tool to add to my belt. Java and SpringBoot. Since the recruiting phase I had the pleasure to work with Cheryl and experiencing her positive attitude I am excited to begin my new journey with TekSystems and begin my future in tech!"
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
@@ -111,7 +111,9 @@ export default function AboutUs() {
             <div className="personal-card-left">
               <PersonalCard
                 title="Jon Kol (Coffee Master)"
-                body=""
+                body="I am Jon Kol. A veteran of TekCamp 3.
+                When I was asked to be a TA for Tek6 I was a bit unsure. Now able to reflect back on it this has been a very satisfying adventure in working with and getting to know each member of team Scrumptious.
+                Currently I am CoffeeMaster for the Scrumptious Coffee Company. Along with my 45-70 and lack of basic hygiene I scour the most rugged parts of the earth in search of the perfect beans."
                 other="about-us-cards-container-left about-us-grid-left"
                 imageUrl="jon"
               />
