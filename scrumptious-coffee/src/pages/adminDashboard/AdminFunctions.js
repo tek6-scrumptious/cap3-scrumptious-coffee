@@ -1,6 +1,4 @@
 import { addNewProduct } from "./AdminAPI";
-const priceElement = document.getElementById("productPrice");
-const qtyElement = document.getElementById("productQuantity");
 export const formValidation = (
   e,
   name,

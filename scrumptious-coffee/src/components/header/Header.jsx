@@ -40,14 +40,6 @@ export default function Header() {
               Products
             </Link>
 
-<<<<<<< HEAD
-            <Link className="links dropdown-link hover" to="/about-us">
-              About Us
-            </Link>
-            <Link className="links dropdown-link hover" to="/cart">
-              Cart
-            </Link>
-=======
             <Link className="links dropdown-link hover cart-nav" to="/about-us">
               About Us
             </Link>
@@ -72,7 +64,6 @@ export default function Header() {
             ) : (
               <></>
             )}
->>>>>>> develop
           </Nav>
           <Searchbar />
         </Navbar.Collapse>

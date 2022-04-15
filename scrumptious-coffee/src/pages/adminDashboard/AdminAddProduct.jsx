@@ -12,7 +12,7 @@ const AdminAddProduct = () => {
   const [Description, setDescription] = useState("");
   const [Roast, setRoast] = useState("");
   const [Location, setLocation] = useState("");
-  const [ImageUrl, setImageUrl] = useState("https://i.imgur.com/EvWbWGG.jpg");
+  const ImageUrl = "https://i.imgur.com/EvWbWGG.jpg";
 
   return (
     <div>

@@ -17,11 +17,7 @@ export const addNewProduct = async (jsonData) => {
       jsonData
     );
   } catch (error) {
-<<<<<<< HEAD
-    console.log(error);
-=======
     alert(error.message);
->>>>>>> develop
   }
 };
 
