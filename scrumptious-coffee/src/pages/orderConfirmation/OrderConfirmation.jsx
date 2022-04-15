@@ -59,7 +59,11 @@ export default function OrderConfirmation() {
     <>
       {!window.localStorage.getItem("order") ? (
         <div className="order-confirmation-jumbotron">
-          <Alert variant="danger">No order has been made</Alert>
+          <Alert variant="danger" className="confirmation-alert">
+            <p className="confirmation-alert-text">
+              No order has been made. Go <Link to="/">home</Link>.
+            </p>
+          </Alert>
         </div>
       ) : (
         <div className="confirmation-container">

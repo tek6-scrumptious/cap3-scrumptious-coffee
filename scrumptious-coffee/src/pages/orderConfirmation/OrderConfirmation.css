@@ -38,4 +38,18 @@
   .order-confirmation-summary {
     margin-top: 1rem;
   }
+
+  .confirmation-alert {
+    margin: 0 auto;
+    width: 50%;
+    height: 200px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10em;
+  }
+
+  .confirmation-alert-text{
+    margin-top: 50px;
+  }
 }
