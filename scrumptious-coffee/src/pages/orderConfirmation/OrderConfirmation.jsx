@@ -19,7 +19,6 @@ export default function OrderConfirmation() {
   const location = useLocation();
   const [subTotal, setSubTotal] = useState(0);
   const [tax, setTax] = useState(0);
-  console.log(location);
 
   const cart = useSelector((state) => state.cart);
   const cartItems = cart.inCart;
@@ -42,8 +41,6 @@ export default function OrderConfirmation() {
     addTax = subTotal * 0.08;
     setTax(addTax.toFixed(2));
   }, [subTotal]);
-
-  console.log(location.pathname);
 
   useEffect(() => {
     subTotalMethod();
