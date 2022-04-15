@@ -78,6 +78,15 @@
   justify-content: space-between;
 }
 
+.product-price {
+  font-size: 20px;
+}
+
+.product-price-container {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
 .add-text {
   margin-right: 20px;
 }
@@ -115,7 +124,6 @@
   }
 
   .product-price {
-    font-size: 20px;
     margin-left: 16px;
     margin-top: 20px;
   }
