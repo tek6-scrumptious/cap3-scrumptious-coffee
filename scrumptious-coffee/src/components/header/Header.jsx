@@ -35,9 +35,7 @@ export default function Header() {
                   Login
                 </Link>
 
-                <Link className="links dropdown-link hover" to="/register">
-                  Register
-                </Link>
+
               </>
             ) : (
               <></>

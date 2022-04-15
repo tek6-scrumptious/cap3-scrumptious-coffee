@@ -3,10 +3,22 @@
   padding: 2rem;
 }
 
+.login-register-btn {
+  margin-left: 2rem;
+}
 
+.login-register-link {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+}
 
-@media (min-width: 1000px){
-    .login-container{
-        padding: 5rem 15rem;
-    }
+.login-register-link:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 1000px) {
+  .login-container {
+    padding: 5rem 15rem;
+  }
 }
