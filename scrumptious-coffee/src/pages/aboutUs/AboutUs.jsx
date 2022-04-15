@@ -101,7 +101,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Waleed Saleh"
-                body="My journey started way before entering TekSystems. It all first started at CodeCademy and then working through a year of Kenzie Academy to achieve a Full Stack Certificate. Once I had entered into TekSystems I was taught a few new tricks in frontend development and also gained a new tool to add to my belt. Java and SpringBoot. Since the recruiting phase I had the pleasure to work with Cheryl and experiencing her positive attitude I am excited to begin my new journey with TekSystems and begin my future in tech!"
+                body="My journey started way before entering TekSystems. It all first started at CodeCademy back in 2016 and then working through a year of Kenzie Academy to achieve a Full Stack Certificate in 2020. Once I had entered into TekSystems I gained a few new tricks in frontend development and also gained a new tool to add to my belt. Java and SpringBoot. Since the recruiting phase I had the pleasure to work with Cheryl and experiencing her positive attitude toward TekSystem and that gets me excited to begin my new journey with TekSystems and begin my future in tech!"
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
