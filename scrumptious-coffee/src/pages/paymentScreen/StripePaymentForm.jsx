@@ -10,9 +10,14 @@ const StripePaymentForm = (props) => {
   function sendOrder() {
     const url =
       "http://scrumptious-env-2.eba-ixgv7adq.us-east-1.elasticbeanstalk.com/order";
+    let userId = 1;
+    if (window.localStorage.getItem("userId")) {
+      userId = window.localStorage.getItem("userId");
+    }
+
     axios
       .post(url, {
-        user_id: 1,
+        user_id: userId,
         total: parseFloat(props.amount).toFixed(2),
       })
       .catch((err) => console.log(err));
@@ -31,7 +36,6 @@ const StripePaymentForm = (props) => {
           // Clear cart
           sendOrder();
           if (window.localStorage.getItem("order") !== null) {
-            console.log("nope");
           } else {
             window.localStorage.setItem(
               "order",

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { Form, Button, Container } from "react-bootstrap";
 import axios from "axios";
@@ -55,6 +56,11 @@ export default function Login() {
 
           <Button variant="success" type="submit">
             Submit
+          </Button>
+          <Button variant="success" className="login-register-btn">
+            <Link className="link login-register-link" to="/register">
+              Need an account? Register!
+            </Link>
           </Button>
         </Form>
       </Container>
