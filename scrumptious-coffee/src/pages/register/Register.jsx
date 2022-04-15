@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -53,6 +54,12 @@ export default function Register() {
 
         <Button variant="success" type="submit">
           Register
+        </Button>
+
+        <Button variant="success" className="login-register-btn">
+          <Link className="link login-register-link" to="/login">
+            Have an account? Login!
+          </Link>
         </Button>
       </Form>
     </div>
