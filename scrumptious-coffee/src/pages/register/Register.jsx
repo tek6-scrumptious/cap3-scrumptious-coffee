@@ -33,7 +33,7 @@ export default function Register() {
         navigate("/");
         window.location.reload(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alert(error));
   }
   return (
     <div className="register-container">

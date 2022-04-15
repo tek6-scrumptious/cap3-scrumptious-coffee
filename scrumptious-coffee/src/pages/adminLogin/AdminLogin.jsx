@@ -25,15 +25,13 @@ const AdminLogin = () => {
         )
         .then((res) => {
           if (res.data.username === username) {
-            console.log("MATCHED");
             localStorage.setItem("isAuthenticated", "true");
             navigate("/admin-dashboard");
           } else {
-            console.log("WRONG TRY AGAIN!!");
             alert("WRONG TRY AGAIN!!");
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => alert(err));
     } else {
       alert("Please enter a username and password!");
     }

@@ -20,7 +20,7 @@ const StripePaymentForm = (props) => {
         user_id: userId,
         total: parseFloat(props.amount).toFixed(2),
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err));
   }
 
   function handleToken(token, shipping) {
@@ -54,7 +54,7 @@ const StripePaymentForm = (props) => {
           navigate("/order-confirmation");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err));
   }
 
   return (
