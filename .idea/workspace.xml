@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4cb07b15-69fa-442f-8993-2136ce7c9d8e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/scrumptious-coffee/src/pages/login/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/scrumptious-coffee/src/pages/login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrumptious-coffee/src/pages/register/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/scrumptious-coffee/src/pages/register/Register.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27j0dKxQ4GVg26T3eNCEJWlsKWb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4cb07b15-69fa-442f-8993-2136ce7c9d8e" name="Changes" comment="" />
+      <created>1649818276461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649818276461</updated>
+    </task>
+    <servers />
+  </component>
+</project>

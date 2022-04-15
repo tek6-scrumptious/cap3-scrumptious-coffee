@@ -47,7 +47,7 @@ export default function AboutUs() {
             <div className="personal-card-right">
               <PersonalCard
                 title="Alan Sobenes"
-                body="Ut chicory CRUD redeye foam redeye CRUD aroma to go sit java. Lungo, as dark, flavour, skinny qui macchiato, lungo cream aftertaste milk aroma. Crema aftertaste strong to go macchiato crema CRUD chicory. Sit, aroma, id, organic as aromatic variety CRUD affogato. Aged, eu, pumpkin spice fair CRUD trade aged coffee whipped galão."
+                body="Discovering my love for coding has been a very fun experience. This 3 month camp has had its challenges but through it all I am very proud to be able to say I have made it through. I want to thank my Agile team for being a pleasure to work with, it was nice having teammates with so much creativity and motivation. It was an honor working with them daily, and I am grateful for the opportunity TEKsystems has provided me."
                 position="about-us-image-right"
                 other="about-us-cards-container-right"
                 bodyPosition="about-us-grid-right"
