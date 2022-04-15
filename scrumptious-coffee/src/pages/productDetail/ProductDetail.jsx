@@ -67,6 +67,11 @@ export default function ProductDetail() {
                 <Card.Title className="product-Detail-Title">
                   {product.name}
                 </Card.Title>
+                <div className="product-price-container">
+                  <Card.Text className="product-price">
+                    <strong>Price</strong>: {product.pricePrePound}
+                  </Card.Text>
+                </div>
                 <div className="product-description">
                   <Card.Title>Description</Card.Title>
                   <Card.Text>{product.description}</Card.Text>
@@ -125,7 +130,8 @@ export default function ProductDetail() {
                     id="product-add-cart"
                     onClick={() => addToCartHandler(id)}
                   >
-                    <div className='cart-icon'>{<BsCart2 />}</div> <div className='add-text'>Add to cart</div>
+                    <div className="cart-icon">{<BsCart2 />}</div>{" "}
+                    <div className="add-text">Add to cart</div>
                   </Button>
                 </div>
               </Card.Body>
